@@ -43,6 +43,12 @@ body {
     min-height: 80vh;
 }
 
+.banner{
+    background-color:rgba(2, 33, 56, 0.8);
+    color: #fffaf6;
+    margin: auto;
+}
+
 /* button */
 
 .btn-close:focus{
