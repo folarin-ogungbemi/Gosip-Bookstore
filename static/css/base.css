@@ -185,6 +185,12 @@ body {
     color: #fffaf6;
 }
 
+/* dropdown */
+
+.offcanvas-body .dropdown-menu{
+    background-color:rgba(255, 250, 246, 0.5);
+}
+
 /* ---------------------------Mobile-Bottom-Link---- */
 
 /* general */
