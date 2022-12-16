@@ -2,10 +2,14 @@
 ----------------------------
 1. BASE STYLE
     1.1 General
+        1.1.1 general
+        1.1.2 button
     1.2 Top-Nav
         1.2.1 general
-        1.2.2 dropdown
-        1.2.3 wish-&-cart
+        1.2.2 search-box
+        1.2.3 modal-search
+        1.2.4 dropdown
+        1.2.5 wish-&-cart
     1.3 Offcanvas-Navbar
 
 
@@ -16,11 +20,20 @@ BASE STYLE
 *************/
 
 /* ---------------------------General----- */
+
+/* general */
+
 body {
     background-color: #fffaf6;
     color: #022138;
     width: 100%;
     max-width: 100vw;
+}
+
+/* button */
+
+.btn-close:focus{
+    box-shadow: none;
 }
 
 /* ---------------------------Top-Nav----- */
@@ -47,7 +60,15 @@ body {
     text-decoration: underline;
 }
 
-/*search-box */
+.navbar{
+    --bs-navbar-toggler-focus-width: 0;
+}
+
+.navbar-toggler{
+    border: 0;
+}
+
+/* search-box */
 
 .gosip-search-box{
     position: relative;
@@ -78,7 +99,7 @@ body {
     color:  #f02c2c;
 }
 
-/* Modal-Search */
+/* modal-search */
 
 .modal{
     --bs-modal-width:60%;
