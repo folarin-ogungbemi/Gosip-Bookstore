@@ -78,6 +78,27 @@ body {
     color:  #f02c2c;
 }
 
+/* Modal-Search */
+
+.modal{
+    --bs-modal-width:60%;
+    --bs-modal-color:#022138;
+    --bs-modal-bg:#fffaf6;
+    top: 20%;
+}
+
+.modal-backdrop{
+    z-index: 5;
+}
+
+.modal .gosip-search-box:active{
+    box-shadow: 1px 1px 10px 0.5px #f02c2c;
+}
+
+.modal .gosip-search-box:hover{
+    border: 2px solid #f02c2c;
+}
+
 
 /* dropdown */
 
@@ -136,4 +157,14 @@ body {
 
 .offcanvas-body .nav-link{
     color: #fffaf6;
+}
+
+/* *******
+MEDIA SCREEN
+******** */
+
+@media screen and (min-width: 1200px)  {
+    .top-nav{
+        width: 63.5%;
+    }
 }
