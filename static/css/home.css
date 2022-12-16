@@ -39,3 +39,21 @@
     background-size: cover;
     position: relative;
 }
+
+.page-call{
+    background-color:rgba(255, 250, 246, 0.9);
+    width: 40%;
+    height: 50%;
+    position: absolute;
+    bottom: 30%;
+    right: 10%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color:#022138;
+    font-size: 1.4rem;
+}
+
+.page-call .btn{
+    width: 50%;
+}
