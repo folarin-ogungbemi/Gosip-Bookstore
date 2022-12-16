@@ -1,12 +1,18 @@
 {% include 'includes/search-modal.html' %}
-<div class="navbar navbar-expand top-nav">
-  <div class="d-flex form-control gosip-search-box rounded-pill ms-5 me-5">
+<div class="navbar navbar-expand top-nav d-none d-md-flex">
+  <div class="d-flex form-control gosip-search-box d-md-none d-xl-flex rounded-pill ms-5 me-5">
     <div class="gosip-search form-control" data-bs-toggle="modal" data-bs-target="#searchModal">Search</div>
     <div class="search-btn me-2">
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
   </div>
   <ul class="d-flex list-unstyled text-center gap-5 ms-5 py-1 my-auto">
+    <li class=" nav-item d-none d-md-block d-xl-none">
+      <a href="#" class="nav-link d-grid gap-2" data-bs-toggle="modal" data-bs-target="#searchModal">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <small>Search</small>
+      </a>
+    </li>
     <li class="nav-item d-inline dropdown">
       {% if user.is_authenticated %}
       <small class="user">Hi, <span>{{user.username}}</span></small>

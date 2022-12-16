@@ -1,0 +1,20 @@
+{% include 'includes/search-modal.html' %}
+<div class="navbar navbar-expand d-flex d-md-none fixed-bottom media-link">
+    <ul class="navbar-nav flex-grow-1 justify-content-around">
+      <li class="nav-item">
+        <a class="nav-link ps-4" href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link ps-4" href="#"><i class="fa-solid fa-user"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link ps-4" href="#"><i class="fa-regular fa-heart"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link ps-4" href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link ps-4" data-bs-toggle="modal" data-bs-target="#searchModal" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+      </li>
+    </ul>
+</div>
