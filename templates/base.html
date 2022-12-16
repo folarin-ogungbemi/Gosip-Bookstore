@@ -35,16 +35,20 @@
 
   <title>Gosip {% block extra_title %}{% endblock %}</title>
 </head>
-<body>
+  <body>
+  
     {% if messages %}
     <div class="message-container"></div>
-    {% endif %} {% block page_header %} {% endblock %}
+    {% endif %}
 
-    <h1>Good Morning!</h1>
+    {% block page_header %}
+    {% endblock %}
+    
+    <h1>Good Evening!</h1>
     {% block content %}
     {%endblock %}
-
+  
     {% block postloadjs %}
     {% endblock %}
-</body>
+  </body>
 </html>
