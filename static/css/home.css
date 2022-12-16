@@ -4,6 +4,7 @@
 1. HOME STYLE
     1.1 Index
         1.1.1 general
+        1.1.2 carousel
 
 
 /* **********
@@ -13,6 +14,8 @@
 /* --------------------------Index----- */
 
 /* general */
+
+/* carousel */
 
 .hero-1{
     height: 70vh;
@@ -56,4 +59,26 @@
 
 .page-call .btn{
     width: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    background-color:rgba(2, 33, 56, 0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 45%;
+}
+
+.carousel-control-prev{
+    left: 2%;
+}
+
+.carousel-control-next{
+    right: 2%;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover{
+    background-color: #022138;
 }
