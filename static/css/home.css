@@ -1,0 +1,41 @@
+
+/* Table of content
+----------------------------
+1. HOME STYLE
+    1.1 Index
+        1.1.1 general
+
+
+/* **********
+ HOME STYLE
+************ */
+
+/* --------------------------Index----- */
+
+/* general */
+
+.hero-1{
+    height: 70vh;
+    background-image:linear-gradient(rgba(89, 89, 89, 0.3), rgba(0, 0, 0, 0.3)), url('/media/hero-1-c.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-2{
+    height: 70vh;
+    background-image:linear-gradient(rgba(89, 89, 89, 0.3), rgba(0, 0, 0, 0.3)), url('/media/hero-2-c.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.hero-3{
+    height: 70vh;
+    background-image:linear-gradient(rgba(89, 89, 89, 0.3), rgba(0, 0, 0, 0.3)), url('/media/hero-3-c.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}

@@ -1,4 +1,76 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container page">
+    <div class="row">
+        <div class="col-12">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item hero-1 active" data-bs-interval="30000">
+                    <div class="container page-call">
+                        <div class="row">
+                            <div class="col-12 mt-4">
+                                <h3>BELIEVE</h3>
+                            </div>
+                            <div class="col-12">
+                                <p>Learning remains a part of our growth.</p>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <a class="btn btn-danger rounded-pill" href="#">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--hero1./-->
+                  </div>
+                  <div class="carousel-item hero-2" data-bs-interval="30000">
+                    <div class="container page-call">
+                        <div class="row">
+                            <div class="col-12 mt-4">
+                                <h3>INVEST</h3>
+                            </div>
+                            <div class="col-12">
+                                <p>Investment in the mind creates a lasting smile.</p>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <a class="btn btn-danger rounded-pill" href="#">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--hero2./-->
+                  </div>
+                  <div class="carousel-item hero-3" data-bs-interval="30000">
+                    <div class="container page-call">
+                        <div class="row">
+                            <div class="col-12 mt-4">
+                                <h3>SHARE</h3>
+                            </div>
+                            <div class="col-12">
+                                <p>Knowledge is the gift that never grows old.</p>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <a class="btn btn-danger rounded-pill" href="#">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--hero3./-->
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
+        </div>
+    </div>
+</div>
+<!--carousel./-->
 {% endblock %}
