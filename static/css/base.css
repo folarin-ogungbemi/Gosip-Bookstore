@@ -251,6 +251,12 @@ body {
 
 /* general */
 
+.footer-links{
+    background-color:rgba(2, 33, 56, 0.9);
+    color: #fffaf6;
+}
+
+.footer-links a:hover,
 .footer-copywrite a:hover{
     color: #f02c2c;
 }
