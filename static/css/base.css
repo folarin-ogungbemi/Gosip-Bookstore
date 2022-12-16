@@ -205,6 +205,28 @@ body {
     transform: translateX(10%);
 }
 
+/* button */
+
+.offcanvas-body .btn{
+    margin: auto;
+}
+
+.offcanvas-body .btn:hover{
+    background-color:#f02c2c;
+}
+
+.offcanvas-body .btn1{
+    width: 50%;
+    color: #fffaf6;
+    background-color:rgba(240, 44, 44, 0.8);
+}
+
+.offcanvas-body .btn2{
+    width: 50%;
+    color: #fffaf6;
+    border: 2px solid #f02c2c;
+}
+
 /* ---------------------------Mobile-Bottom-Link---- */
 
 /* general */

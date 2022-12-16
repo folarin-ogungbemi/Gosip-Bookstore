@@ -21,6 +21,14 @@
           <a class="nav-link ps-4 trans-link" href="#"><i class="fa-solid fa-link me-2"></i>Contact</a>
         </li>
       </ul>
+      <div class="d-grid mt-4">
+        {% if user.is_authenticated %}
+        <a class="btn btn1 rounded-pill" href="{% url 'account_logout' %}">Logout</a>
+        {% else %}
+        <a class="btn btn1 rounded-pill" href="{% url 'account_login' %}">Login</a>
+        <a class="btn btn2 rounded-pill mt-2" href="{% url 'account_signup' %}">Register</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
