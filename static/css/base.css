@@ -16,6 +16,9 @@
         1.3.3 trans-link
     1.4 Mobile-Bottom-Link
         1.4.1 general
+    1.5 Footer
+        1.5.1 general
+        1.5.2 copywrite
 
 
 */
@@ -241,6 +244,22 @@ body {
 .mobile-bottom-link i{
     font-size: 1.5rem;
     color: #022138;
+}
+
+
+/* ------------------------------------Footer----- */
+
+/* general */
+
+.footer-copywrite a:hover{
+    color: #f02c2c;
+}
+
+/* copywrite */
+
+.footer-copywrite{
+    background-color:#022138;
+    color: #fffaf6;
 }
 
 /* *******
