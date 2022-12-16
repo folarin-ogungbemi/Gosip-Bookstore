@@ -47,6 +47,38 @@ body {
     text-decoration: underline;
 }
 
+/*search-box */
+
+.gosip-search-box{
+    position: relative;
+    border: 1px solid #f02c2c;
+}
+
+.gosip-search-box .form-control{
+    width: 90%;
+}
+.gosip-search:focus-visible{
+    outline: none;
+}
+
+.gosip-search{
+    border: none; 
+}
+.gosip-search:focus{
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.search-btn{
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    padding: 0.375em 0.75em;
+    color:  #f02c2c;
+}
+
+
 /* dropdown */
 
 .top-nav .dropdown-menu{

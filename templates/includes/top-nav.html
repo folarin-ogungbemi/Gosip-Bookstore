@@ -1,54 +1,61 @@
+{% include 'includes/search-modal.html' %}
 <div class="navbar navbar-expand top-nav">
-    <ul class="d-flex list-unstyled text-center gap-5 ms-5 py-1 my-auto">
-      <li class="nav-item d-inline dropdown">
+  <div class="d-flex form-control gosip-search-box rounded-pill ms-5 me-5">
+    <div class="gosip-search form-control" data-bs-toggle="modal" data-bs-target="#searchModal">Search</div>
+    <div class="search-btn me-2">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+  </div>
+  <ul class="d-flex list-unstyled text-center gap-5 ms-5 py-1 my-auto">
+    <li class="nav-item d-inline dropdown">
+      {% if user.is_authenticated %}
+      <small class="user">Hi, <span>{{user.username}}</span></small>
+      {% else %}
+      <i class="fa-solid fa-user"></i>
+      {% endif %}
+      <a
+      class="nav-link dropdown-toggle nav-hover me-2"
+      href="#"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+      >Account
+      </a>
+      <ul class="dropdown-menu">
         {% if user.is_authenticated %}
-        <small class="user">Hi, <span>{{user.username}}</span></small>
+        <li><a class="dropdown-item" href="#">My Orders</a></li>
+        <li>
+          <a class="dropdown-item" href="{% url 'account_logout' %}"
+            >Logout</a
+          >
+        </li>
         {% else %}
-        <i class="fa-solid fa-user"></i>
+        <li>
+          <a class="dropdown-item" href="{% url 'account_signup' %}"
+            >Register</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" href="{% url 'account_login' %}"
+            >Login</a
+          >
+        </li>
         {% endif %}
-        <a
-        class="nav-link dropdown-toggle nav-hover me-2"
-        href="#"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-        >Account
-        </a>
-        <ul class="dropdown-menu">
-          {% if user.is_authenticated %}
-          <li><a class="dropdown-item" href="#">My Orders</a></li>
-          <li>
-            <a class="dropdown-item" href="{% url 'account_logout' %}"
-              >Logout</a
-            >
-          </li>
-          {% else %}
-          <li>
-            <a class="dropdown-item" href="{% url 'account_signup' %}"
-              >Register</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="{% url 'account_login' %}"
-              >Login</a
-            >
-          </li>
-          {% endif %}
-        </ul>
-      </li>
-      <li class="nav-item wish-box">
-        <small class="text-danger"><strong class="wish-items">0</strong></small>
-        <a class="nav-link d-grid gap-2 me-2" href="#">
-          <i class="fa-regular fa-heart"></i>
-          <small class="nav-hover">Wishlist</small>
-        </a>
-      </li>
-      <li class="nav-item cart-box pe-4">
-        <small class="text-danger"><strong class="cart-items">0</strong></small>
-        <a class="nav-link d-grid gap-2" href="#">
-          <i class="fa-solid fa-basket-shopping"></i>
-          <small class="nav-hover">Cart</small>
-        </a>
-      </li>
-    </ul>
+      </ul>
+    </li>
+    <li class="nav-item wish-box">
+      <small class="text-danger"><strong class="wish-items">0</strong></small>
+      <a class="nav-link d-grid gap-2 me-2" href="#">
+        <i class="fa-regular fa-heart"></i>
+        <small class="nav-hover">Wishlist</small>
+      </a>
+    </li>
+    <li class="nav-item cart-box pe-4">
+      <small class="text-danger"><strong class="cart-items">0</strong></small>
+      <a class="nav-link d-grid gap-2" href="#">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <small class="nav-hover">Cart</small>
+      </a>
+    </li>
+  </ul>
 </div>
