@@ -210,3 +210,23 @@ MEDIA SCREEN
         width: 63.5%;
     }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1103px)  {
+    header .gap-5{
+        gap: 1.5rem !important;
+    }
+}
+
+@media screen and (max-width: 768px)  {
+
+    .modal{
+        --bs-modal-width:70%;
+    }
+
+    .modal-header .ms-5{
+        margin-left: 1rem !important;
+    }
+    .modal-header .me-5{
+        margin-right: 1rem !important;
+    }
+}

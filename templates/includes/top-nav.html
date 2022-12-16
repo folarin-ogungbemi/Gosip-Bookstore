@@ -7,13 +7,13 @@
     </div>
   </div>
   <ul class="d-flex list-unstyled text-center gap-5 ms-5 py-1 my-auto">
-    <li class=" nav-item d-none d-md-block d-xl-none">
+    <li class=" nav-item mt-1 d-none d-md-block d-xl-none">
       <a href="#" class="nav-link d-grid gap-2" data-bs-toggle="modal" data-bs-target="#searchModal">
         <i class="fa-solid fa-magnifying-glass"></i>
         <small>Search</small>
       </a>
     </li>
-    <li class="nav-item d-inline dropdown">
+    <li class="nav-item mt-1 d-inline dropdown">
       {% if user.is_authenticated %}
       <small class="user">Hi, <span>{{user.username}}</span></small>
       {% else %}
