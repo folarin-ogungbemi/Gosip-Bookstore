@@ -172,3 +172,26 @@ to{
     color: #fffaf6;
     font-size: 0.9rem;
 }
+
+/* -----------------------------------Book-details----- */
+
+/* general */
+
+.detail-book-like{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    border-radius: 50%;
+    width: 14%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fffaf6;
+    color: rgba(2, 33, 56, 0.5);
+    border-color: transparent;
+}
+
+.detail-book-like:hover{
+    color: #f02c2c;
+}
