@@ -43,6 +43,10 @@ body {
     min-height: 80vh;
 }
 
+hr{
+    color: #fffaf6;
+}
+
 .header-hr{
     border-top: 3px solid #f02c2c;
     opacity: 100%;
@@ -131,6 +135,14 @@ body {
 
 .page-nav{
     background-color: #fffaf6;
+}
+
+.top-nav .user{
+    text-transform: capitalize;
+}
+
+.top-nav .user span{
+    font-weight: 500;
 }
 
 .logo{
