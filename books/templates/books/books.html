@@ -10,8 +10,8 @@
         <div class="container all-books my-5">
             <div class="row">
                 {% for book in books %}
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="book">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="book my-3">
                         <div class="container">
                             <div class="container book-card py-4 px-3">
                                 <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
@@ -47,6 +47,27 @@
                         </div>
                     </div>
                 </div>
+                <!--code idea from code institute WT project:boutique_ado-->
+                {% if forloop.counter|divisibleby:1 %}
+                <div class="col-12 d-sm-none">
+                    <hr class="book-hr">
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:2 %}
+                <div class="col-12 d-none d-sm-block d-md-block d-lg-none">
+                    <hr class="book-hr">
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:3 %}
+                <div class="col-12 d-none d-lg-block d-xl-none">
+                    <hr class="book-hr">
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:4 %}
+                <div class="col-12 d-none d-xl-block">
+                    <hr class="book-hr">
+                </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
