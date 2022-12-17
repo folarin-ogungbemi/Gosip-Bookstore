@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # summernote
     'django_summernote',
+    # crispy
+    'crispy_forms',
+    'crispy_bootstrap5',
     # local app
     'home',
 ]
@@ -108,6 +111,9 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 3
 LOGIN_URL = '/account/login/'
 LOGIN_REDIRECT_URL = '/'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 WSGI_APPLICATION = 'gosip.wsgi.application'
