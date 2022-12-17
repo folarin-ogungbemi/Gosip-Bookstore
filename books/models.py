@@ -88,6 +88,7 @@ class Books(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        verbose_name_plural = 'Books'
         ordering = ['-created_on']
 
     def __str__(self):
