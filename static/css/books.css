@@ -79,3 +79,47 @@
 .book-hr{
     color: #022138;
 }
+
+/* paginator */
+
+.current-page{
+    box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.3);
+    background-color:#fffaf6;
+    padding: 0.3rem;
+    border-radius: 2px;
+}
+
+.pagination a{
+    text-decoration: none;
+    color: #022138;
+}
+
+.pagination i{
+    font-size: 1.3rem;
+    color:rgba(2, 33, 56, 0.8);
+}
+
+.pagination i:hover{
+    color: #f02c2c;
+}
+
+.page-next a:nth-child(1),
+.page-prev a:nth-child(2){
+    color:#022138;
+}
+.page-next a:nth-child(1):hover,
+.page-prev a:nth-child(2):hover{
+    color: #fffaf6;
+}
+
+.page-step-next,
+.page-step-prev{
+    box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.3);
+    padding: 0.2rem 0.3rem 0.3rem 0.3rem;
+    border-radius: 2px;
+}
+
+.page-step-next:hover,
+.page-step-prev:hover{
+    background-color:#022138;
+}
