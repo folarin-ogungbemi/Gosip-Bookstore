@@ -176,21 +176,3 @@
 .fa-envelope{
     color: #f02c2c;
 }
-
-/* button */
-
-.btn-submit{
-    color: #fffaf6;
-    width: 80%;
-    border-color: transparent;
-    background-color:rgba(240, 44, 44, 0.9);
-}
-
-.btn-submit:hover{
-    background-color:#f02c2c;
-}
-
-.contact .form-control{
-    width: 80%;
-    margin: auto;
-}
