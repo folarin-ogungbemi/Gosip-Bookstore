@@ -148,3 +148,21 @@ to{
     transform: scale(1.1);
 }
 }
+
+/* tag */
+
+
+.book-tag {
+    position: absolute;
+    bottom: 5%;
+    left:-1px;
+    min-width: 15%;
+    background-color: #f02c2c;
+    padding: 0px 7px;
+    border-radius: 0 2px 2px 0;
+}
+
+.special {
+    color: #fffaf6;
+    font-size: 0.9rem;
+}

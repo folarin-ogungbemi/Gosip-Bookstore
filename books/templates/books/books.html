@@ -16,6 +16,17 @@
                             <div class="container book-card py-4 px-3">
                                 <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
                                 <a class="nav-link book-like" href="#"><i class="fa-regular fa-heart"></i></a>
+                                {% if book.special.first %}
+                                <div class="row">
+                                    <div class="col-12">
+                                    <div class="book-tag">
+                                        <div class="special mx-auto">
+                                        {{ book.special.first }}
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="container">
