@@ -43,6 +43,10 @@ body {
     min-height: 80vh;
 }
 
+.page-margin{
+    margin-top: 20vh;
+}
+
 hr{
     color: #fffaf6;
 }
