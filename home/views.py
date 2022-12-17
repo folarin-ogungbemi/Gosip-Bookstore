@@ -14,4 +14,3 @@ def about(request):
 def team(request):
     """ A view to render the team page """
     return render(request, 'home/team.html')
-
