@@ -1,7 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="container page">
-        <h1 class="fs-1"> My books...</h1>
-        {{books}}
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+              <h2 class="text-uppercase">books</h2>
+            </div>
+        </div>
+        <div class="container all-books my-5">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    {% for book in books %}
+                    <div class="book">
+                        <div class="container py-4 px-3">
+                            <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
+                        </div>
+                        <a class="text-decoration-none" href="#">
+                            <small class="author-link">{{ book.author }}</small>
+                        </a>
+                        <a class="text-decoration-none" href="#">
+                            <p class="title-link"><strong>{{ book.title }}</strong></p>
+                        </a>
+                        <div>
+                            <p><strong>{{ book.price }}€</strong></p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
