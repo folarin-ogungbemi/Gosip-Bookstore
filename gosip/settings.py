@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     # local app
     'home',
+    'books',
 ]
 
 MIDDLEWARE = [
