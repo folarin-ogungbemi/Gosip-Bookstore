@@ -90,32 +90,30 @@
 
 /* general */
 
-.about-page{
+.about-img{
     background-image: url('/media/book-lovers-c-r.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     color: #fffaf6;
     height: 40vh;
-    position: relative;
 }
 
+
 .about-text{
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 80%;
+    width: 90%;
     height: fit-content;
-    top: 40%;
-    border-color: transparent;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border-radius: 0.5rem;
     box-shadow: 2px 3px 15px 1px rgba(2, 33, 56, 0.5);
 }
 
-.about .nav-link{
+.about-text .nav-link{
     color: rgba(240, 44, 44, 0.8);
 }
 
-.about .nav-link:hover{
+.about-text .nav-link:hover{
     color: #f02c2c;
 }
 
