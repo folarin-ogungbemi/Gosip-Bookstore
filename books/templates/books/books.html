@@ -13,10 +13,10 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="book my-3">
                         <div class="container">
+                            <button class="book-like" type="submit"><i class="fa-regular fa-heart"></i></button>
                             <a href="{% url 'books:book-details' slug=book.slug %}">
                                 <div class="container book-card py-4 px-3">
                                     <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
-                                    <button class="book-like" type="submit"><i class="fa-regular fa-heart"></i></button>
                                     {% if book.special.first %}
                                     <div class="row">
                                         <div class="col-12">
