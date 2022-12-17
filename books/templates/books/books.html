@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
     <div class="container page">
         <div class="row">
@@ -11,17 +12,24 @@
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     {% for book in books %}
                     <div class="book">
-                        <div class="container py-4 px-3">
-                            <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
+                        <div class="container">
+                            <div class="container book-card py-4 px-3">
+                                <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
+                                <a class="nav-link book-like" href="#"><i class="fa-regular fa-heart"></i></a>
+                            </div>
                         </div>
-                        <a class="text-decoration-none" href="#">
-                            <small class="author-link">{{ book.author }}</small>
-                        </a>
-                        <a class="text-decoration-none" href="#">
-                            <p class="title-link"><strong>{{ book.title }}</strong></p>
-                        </a>
-                        <div>
-                            <p><strong>{{ book.price }}€</strong></p>
+                        <div class="container">
+                           <div class="cotainer book-info">
+                                <a class="text-decoration-none" href="#">
+                                    <small class="author-link">{{ book.author }}</small>
+                                </a>
+                                <a class="text-decoration-none" href="#">
+                                    <p class="title-link"><strong>{{ book.title }}</strong></p>
+                                </a>
+                                <div>
+                                    <p><strong>{{ book.price }}€</strong></p>
+                                </div>
+                           </div>
                         </div>
                     </div>
                     {% endfor %}

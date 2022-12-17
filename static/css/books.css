@@ -1,0 +1,44 @@
+/* Table of content
+----------------------------
+1. HOME STYLE
+    1.1 Books
+        1.1.1 general
+
+
+
+/* ----------------------------Books--- */
+/* general */
+
+.book-card{
+    background-color: #fffaf6;
+    box-shadow: 0px 2px 10px 1px rgba(2, 33, 56, 0.2);
+    width: 230px;
+    position: relative;
+}
+
+.book-info{
+    width: 230px;
+    margin: auto;
+}
+
+.book-card:hover{
+    box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.5);
+}
+
+.book-like{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    border-radius: 50%;
+    width: 13.5%;
+    height: 9.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fffaf6;
+    color: rgba(2, 33, 56, 0.5);
+}
+
+.book-like:hover{
+    color: #f02c2c;
+}
