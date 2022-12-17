@@ -3,11 +3,14 @@
 {% block content %}
 <div class="container page">
     <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-4 mb-3">
+        <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="container book-card py-4 px-3">
                 <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
                 <button class="detail-book-like submit" href="#"><i class="fa-regular fa-heart"></i></button>
             </div>
+        </div>
+        <div class="col-12 d-block d-sm-block d-md-block d-lg-none mt-3 mt-2">
+            <hr class="book-hr">
         </div>
         <div class="col-sm-6 col-md-6 col-lg-8 book-details">
             <div class="cotainer">
