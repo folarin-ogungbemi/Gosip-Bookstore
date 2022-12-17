@@ -71,5 +71,33 @@
                 {% endfor %}
             </div>
         </div>
+        <!--Books Pagination-->
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <div class="row">
+              <div class="col-12">
+                <div class="pagination justify-content-center mb-5">
+                  <div class="page-prev">
+                    {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-backward me-1"></i></a>
+                    <a href="?page=1" class="page-step-prev">First </a>
+                    {% endif %}
+                  </div>
+                  <div class="ms-2 me-2">
+                    <small class="current-page">
+                      Page{{ page_obj.number}} of {{ page_obj.paginator.num_pages }}
+                    </small>
+                  </div>
+                  <div class="page-next">
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.paginator.num_pages }}" class="page-step-next">Last</a>
+                    <a href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-forward ms-1"></i></a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        {% endif %}
     </div>
 {% endblock %}
