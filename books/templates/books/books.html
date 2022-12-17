@@ -14,7 +14,9 @@
                     <div class="book my-3">
                         <div class="container">
                             <div class="container book-card py-4 px-3">
-                                <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
+                                <a href="{% url 'books:book-details' slug=book.slug %}">
+                                    <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
+                                </a>
                                 <a class="nav-link book-like" href="#"><i class="fa-regular fa-heart"></i></a>
                                 {% if book.special.first %}
                                 <div class="row">
