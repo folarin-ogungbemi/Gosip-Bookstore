@@ -50,7 +50,7 @@
 }
 
 .page-call{
-    background-color:rgba(255, 250, 246, 0.9);
+    backdrop-filter: blur(15px);
     width: 40%;
     height: 50%;
     position: absolute;
@@ -59,8 +59,9 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    color:#022138;
+    color:#fffaf6;
     font-size: 1.4rem;
+    border-radius: 5px;
 }
 
 .page-call .btn{
@@ -173,4 +174,11 @@
 .fa-phone,
 .fa-envelope{
     color: #f02c2c;
+}
+
+
+@media screen and (max-width: 992px)  {
+    .page-call{
+        width: 70%;
+    }
 }
