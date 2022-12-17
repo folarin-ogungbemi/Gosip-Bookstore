@@ -17,7 +17,7 @@
     box-shadow: 0px 2px 10px 1px rgba(2, 33, 56, 0.2);
     width: 230px;
     position: relative;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .book-info{
@@ -30,7 +30,7 @@
 }
 
 .book-card img{
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .book-card img:hover{
@@ -49,6 +49,7 @@
     align-items: center;
     background-color: #fffaf6;
     color: rgba(2, 33, 56, 0.5);
+    border-color: transparent;
 }
 
 .book-like:hover{
