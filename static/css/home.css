@@ -99,3 +99,22 @@
     height: 40vh;
     position: relative;
 }
+
+.about-text{
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 80%;
+    height: fit-content;
+    top: 40%;
+    border-color: transparent;
+    box-shadow: 2px 3px 15px 1px rgba(2, 33, 56, 0.5);
+}
+
+.about .nav-link{
+    color: rgba(240, 44, 44, 0.8);
+}
+
+.about .nav-link:hover{
+    color: #f02c2c;
+}

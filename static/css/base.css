@@ -43,6 +43,15 @@ body {
     min-height: 80vh;
 }
 
+.header-hr{
+    border-top: 3px solid #f02c2c;
+    opacity: 100%;
+    width: 80px;
+    margin: auto;
+    color: #f02c2c;
+    margin-bottom: 1rem;
+}
+
 .banner{
     background-color:rgba(2, 33, 56, 0.8);
     color: #fffaf6;
