@@ -29,6 +29,20 @@
                                 <div>
                                     <p><strong>{{ book.price }}€</strong></p>
                                 </div>
+                                {% if book.genre %}
+                                <div>
+                                    <a class="text-decoration-none" href="#">
+                                        <small class="mute genre-link"><i class="fa-solid fa-tag"></i> {{ book.genre }}</small>
+                                    </a>
+                                </div>
+                                {% endif %}
+                                {% if book.rating %}
+                                <div>
+                                    <small class="mute"><i class="fa-solid fa-star"></i> {{ book.rating }} / 5</small>
+                                </div>
+                                {% else %}
+                                    <small> No Rating</small>
+                                {% endif %}
                            </div>
                         </div>
                     </div>
