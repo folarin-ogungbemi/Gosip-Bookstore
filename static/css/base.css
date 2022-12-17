@@ -361,9 +361,15 @@ hr{
 MEDIA SCREEN
 ******** */
 
-@media (width <= 1200px) or (orientation: landscape)  {
+@media screen and (width <= 1200px) {
     .page{
         margin-top: 15vh;
+    }
+}
+
+@media screen and (orientation: landscape){
+    .page{
+        margin-top: 20vh;
     }
 }
 
@@ -392,3 +398,4 @@ MEDIA SCREEN
         margin-right: 1rem !important;
     }
 }
+

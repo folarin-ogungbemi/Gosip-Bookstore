@@ -182,3 +182,12 @@
         width: 70%;
     }
 }
+
+@media screen and (orientation: landscape){
+    .page-call{
+        height: 70%;
+        right: 15%;
+        top: 10%;
+        font-size: 1.2rem;
+    }
+}
