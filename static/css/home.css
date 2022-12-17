@@ -7,6 +7,10 @@
         1.1.2 carousel
     2.1 About
         2.1.1 general
+    3.1 Team
+        3.1.1 general
+    4.1 Contact
+        4.1.1 general
 
 
 /* **********
@@ -139,5 +143,36 @@
 }
 
 .team-info i:hover{
+    color: #f02c2c;
+}
+
+/* ---------------------------Contact------ */
+/* general */
+
+.contact{
+    box-shadow: 2px 3px 15px 1px rgba(2, 33, 56, 0.5);
+}
+
+.contact-info{
+    color: #fffaf6;
+}
+
+.contact-info-box{
+    background-color:#022138;
+}
+
+.contact-form-box{
+    background-color: #fff;
+}
+
+.contact-form{
+    color: #022138;
+    width: 80%;
+    margin: auto;
+}
+
+.fa-location-dot,
+.fa-phone,
+.fa-envelope{
     color: #f02c2c;
 }

@@ -2,34 +2,38 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-    <div class="container text-center page">
-        <div class="row">
-            <div class="col-12 col-md-5">
-                <div class="container">
-                    <div class="col-12">
-                        <h2 class="pt-2">Contact Support</h2>
-                        <hr class="header-hr">
-                    </div>
-                    <div class="row">
-                        <div class="col-12 mx-auto">
-                            <p>In the event you may find yourself needing support. Whether in puchasing books, looking for recommendations, or requiring our other services like blogging. Please, do not hesitate to reach out to us via the contact address below. You can also drop us a message and we will reach back to you in no time.</p>
+    <div class="page">
+        <div class="container text-center contact my-3">
+            <div class="row">
+                <div class="col-12 col-md-5 contact-info-box">
+                    <div class="container-fluid contact-info">
+                        <div class="col-12">
+                            <h2 class="pt-2">Contact Support</h2>
+                            <hr class="header-hr">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mx-auto">
+                                <p>In the event you may find yourself needing support. Whether in puchasing books, looking for recommendations, or requiring our other services like blogging. Please, do not hesitate to reach out to us via the contact address below. You can also drop us a message and we will reach back to you in no time.</p>
+                            </div>
+                        </div>
+                        <div class="my-3">
+                            <p><i class="fa-solid fa-location-dot"></i> Gosip GmbH, <br> 123 Alexander street Berlin</p>
+                            <p><i class="fa-solid fa-phone"></i> +49 123 456 789</p>
+                            <p><i class="fa-solid fa-envelope"></i> email@gosip.de</p>
                         </div>
                     </div>
-                    <div class="my-3">
-                        <p><i class="fa-solid fa-location-dot"></i> Gosip GmbH, <br> 123 Alexander street Berlin</p>
-                        <p><i class="fa-solid fa-phone"></i> +49 123 456 789</p>
-                        <p><i class="fa-solid fa-envelope"></i> email@gosip.de</p>
+                </div>
+                <div class="col-12 col-md-7 contact-form-box">
+                    <div class="cotainer contact-form my-3">
+                        <form method="POST" action="#">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <div class="d-flex justify-content-center my-2">
+                                <button class="rounded-pill btn-submit" type="submit">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-7">
-                <form method="POST" action="#">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <div class="d-flex justify-content-center my-2">
-                        <button class="rounded-pill btn-submit" type="submit">Submit</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
