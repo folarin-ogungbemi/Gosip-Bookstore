@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # summernote
+    'django_summernote',
     # local app
     'home',
 ]
