@@ -179,7 +179,8 @@
 
 @media screen and (max-width: 992px)  {
     .page-call{
-        width: 70%;
+        width: 64%;
+        right: 17%;
     }
 }
 
