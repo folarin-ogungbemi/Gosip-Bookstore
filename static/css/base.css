@@ -72,6 +72,15 @@ body {
     min-height: 60vh;
 }
 
+.forms-link{
+    color: #022138;
+    text-decoration: underline !important;
+    
+}
+.forms-link:hover{
+    color: #f02c2c;
+}
+
 .form-control,
 .form-select{
     color:#022138;
