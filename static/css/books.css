@@ -3,6 +3,7 @@
 1. HOME STYLE
     1.1 Books
         1.1.1 general
+        1.1.2 links
 
 
 
@@ -41,4 +42,36 @@
 
 .book-like:hover{
     color: #f02c2c;
+}
+
+.mute{
+    color: #022138;
+    opacity: 0.7;
+}
+
+/* links */
+
+.title-link,
+.author-link{
+    color: #022138;
+}
+
+.title-link:hover,
+.author-link:hover{
+    text-decoration: underline;
+}
+
+.books-link{
+    color: #022138;
+}
+
+.books-link:hover{
+    color: #f02c2c;
+    opacity: 1;
+}
+
+.genre-link:hover{
+    color: #022138;
+    opacity: 1;
+    text-decoration: underline;
 }
