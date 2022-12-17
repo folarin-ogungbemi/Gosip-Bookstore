@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.views.generic.edit import FormView
 from home.forms import ContactForm
+from django.http import HttpResponseRedirect
 
 
 def index(request):
@@ -25,4 +26,10 @@ class ContactView(FormView):
     """
     template_name = 'home/contact.html'
     form_class = ContactForm
-    success_url = '/contact'
+
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('contact'))

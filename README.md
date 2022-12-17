@@ -1,4 +1,8 @@
-folarin Ogungbemi
+# Gosip
 
-Gosip E-commerce website
+## Introduction
+
+introduction text here
+
+[Link to live website](https://flo-gosip.herokuapp.com/ "visit website")
 
