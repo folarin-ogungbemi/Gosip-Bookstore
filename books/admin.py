@@ -7,6 +7,8 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Author)
 class AuthorsAdmin(SummernoteModelAdmin):
     summernote_fields = ('about')
+    list_display = ('name', 'book_title')
+    search_fields = ('name', 'book_title')
 
 
 admin.site.register(Special)
@@ -16,3 +18,7 @@ admin.site.register(Genre)
 @admin.register(Books)
 class BooksAdmin(SummernoteModelAdmin):
     summernote_fields = ('description')
+    prepopulated_fields = {"slug": ("title",)}
+    list_display = ('title', 'author', 'genre', 'publication_year', 'price')
+    list_filter = ('title', 'author', 'price')
+    search_fields = ('title', 'author')
