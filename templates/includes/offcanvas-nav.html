@@ -1,13 +1,13 @@
 <!--offcanvas-navigation.-->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
   <div class="offcanvas-header">
-    <a class="navbar-brand ps-4" href="#"><h3 class="logo"><strong>G<span class="brand-color">o</span></strong>sip Bookstore</h3></a>
+    <a class="navbar-brand ps-4" href="{% url 'home' %}"><h3 class="logo"><strong>G<span class="brand-color">o</span></strong>sip Bookstore</h3></a>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
       <li class="nav-item">
-        <a class="nav-link ps-4 trans-link" href="#"><i class="fa-solid fa-house me-2"></i>Home</a>
+        <a class="nav-link ps-4 trans-link" href="{% url 'home' %}"><i class="fa-solid fa-house me-2"></i>Home</a>
       </li>
       <!--main-nav-->
       <hr>
@@ -15,7 +15,7 @@
       <hr>
       <!--main-nav ./-->
       <li class="nav-item">
-          <a class="nav-link ps-4 trans-link" href="#"><i class="fa-solid fa-heart-pulse me-2"></i>About</a>
+          <a class="nav-link ps-4 trans-link" href="{% url 'about' %}"><i class="fa-solid fa-heart-pulse me-2"></i>About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link ps-4 trans-link" href="#"><i class="fa-solid fa-link me-2"></i>Contact</a>
