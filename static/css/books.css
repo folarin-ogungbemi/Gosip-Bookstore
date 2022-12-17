@@ -5,6 +5,7 @@
         1.1.1 general
         1.1.2 links
         1.1.3 paginator
+        1.1.4 animation
 
 
 
@@ -123,4 +124,22 @@
 .page-step-next:hover,
 .page-step-prev:hover{
     background-color:#022138;
+}
+
+/* animation */
+
+.book-card img:hover{
+    animation: zoom-book 5s forwards;
+}
+
+/* code-institute: love-running */
+/* CREATES THE LEVEL OF ZOOM FOR BOOK IMAGE */
+
+@keyframes zoom-book{
+from{
+    transform: scale(1);
+}
+to{
+    transform: scale(1.1);
+}
 }
