@@ -1,6 +1,10 @@
 from django.shortcuts import render
+from books .models import Books
+from django.views.generic.list import ListView
 
 
-def all_books(request):
-    """ render all books in store """
-    return render(request, 'books/books.html')
+class BookViews(ListView):
+    model = Books
+    template_name = "books/books.html"
+    context_object_name = "books"
+    paginate_by = 5
