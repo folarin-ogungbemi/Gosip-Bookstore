@@ -100,16 +100,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     color: #fffaf6;
-    height: 40vh;
+    height: 35vh;
 }
 
 
 .about-text{
     width: 90%;
     height: fit-content;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    border-radius: 0.5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
     box-shadow: 2px 3px 15px 1px rgba(2, 33, 56, 0.5);
 }
 
