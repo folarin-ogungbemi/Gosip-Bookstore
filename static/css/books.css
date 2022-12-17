@@ -17,6 +17,7 @@
     box-shadow: 0px 2px 10px 1px rgba(2, 33, 56, 0.2);
     width: 230px;
     position: relative;
+    border-radius: 5px;
 }
 
 .book-info{
@@ -26,6 +27,14 @@
 
 .book-card:hover{
     box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.5);
+}
+
+.book-card img{
+    border-radius: 5px;
+}
+
+.book-card img:hover{
+    animation: zoom-book 5s forwards;
 }
 
 .book-like{
@@ -127,10 +136,6 @@
 }
 
 /* animation */
-
-.book-card img:hover{
-    animation: zoom-book 5s forwards;
-}
 
 /* code-institute: love-running */
 /* CREATES THE LEVEL OF ZOOM FOR BOOK IMAGE */
