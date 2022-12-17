@@ -25,3 +25,4 @@ class ContactView(FormView):
     """
     template_name = 'home/contact.html'
     form_class = ContactForm
+    success_url = '/contact'

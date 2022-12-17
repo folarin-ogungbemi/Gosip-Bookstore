@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-12 col-md-7 contact-form-box">
                     <div class="cotainer contact-form my-3">
-                        <form method="POST" action="#">
+                        <form method="POST" action="{% url 'contact' %}">
                             {% csrf_token %}
                             {{ form | crispy }}
                             <div class="d-flex justify-content-center my-2">
