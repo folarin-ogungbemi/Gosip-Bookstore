@@ -118,3 +118,28 @@
 .about .nav-link:hover{
     color: #f02c2c;
 }
+
+/* ---------------------------------Team------- */
+
+/* general */
+
+.team-page{
+    background-color: #022138;
+    color: #fffaf6;
+    height: 20vh;
+}
+
+.team-info{
+    color: #022138;
+    background-color: #fff;
+}
+
+
+.team-info i{
+    font-size: 1.3rem;
+    color: rgba(240, 44, 44, 0.8);
+}
+
+.team-info i:hover{
+    color: #f02c2c;
+}
