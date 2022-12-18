@@ -179,6 +179,7 @@
 
 @media screen and (max-width: 992px)  {
     .page-call{
+        backdrop-filter: none;
         width: 64%;
         right: 17%;
     }
@@ -186,7 +187,7 @@
 
 @media screen and (orientation: landscape){
     .page-call{
-        height: 70%;
+        height: 50%;
         right: 15%;
         top: 10%;
         font-size: 1.2rem;
