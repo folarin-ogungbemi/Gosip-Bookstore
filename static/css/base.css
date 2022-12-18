@@ -144,6 +144,7 @@ hr{
 
 .top-nav .user{
     text-transform: capitalize;
+    font-size: 0.75rem;
 }
 
 .top-nav .user span{
