@@ -46,16 +46,24 @@
             </div>
         </div>
     </div>
-    <hr class="book-hr my-4">
-    <div class="container">
-        <h4 class="mb-3">Book Information</h4>
-        <div>
-            <p><strong>Published :</strong> {{book.publication_year}}</p>
-            <p><strong>Language :</strong> {{book.language}}</p>
-            <p><strong>Pages :</strong> {{book.pages}} pages</p>
-            <p><strong>ISBN :</strong> {{book.isbn}}</p>
-            <p><strong>Dimension :</strong> {{book.dimension}}</p>
-        </div>
+</div>
+<hr class="book-hr my-4">
+<div class="container">
+    <h4 class="mb-3">Book Information</h4>
+    <div>
+        <p><strong>Published :</strong> {{book.publication_year}}</p>
+        <p><strong>Language :</strong> {{book.language}}</p>
+        <p><strong>Pages :</strong> {{book.pages}} pages</p>
+        <p><strong>ISBN :</strong> {{book.isbn}}</p>
+        <p><strong>Dimension :</strong> {{book.dimension}}</p>
     </div>
+</div>
+<hr class="book-hr my-4">
+<div class="container">
+    <div class=" d-flex justify-content-start mb-3">
+        <h4 id="about-author">About the Author</h4>
+    </div>
+    <h5>{{book.author}}</h5>
+    <p>{{book.description | safe}}</p>
 </div>
 {% endblock %}
