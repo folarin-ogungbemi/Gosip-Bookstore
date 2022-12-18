@@ -2,20 +2,19 @@
 {% load static %}
 {% block content %}
 <div class="container page-margin">
-    <div class="row">
+    <div class="row row-cols-2">
         <!--Book Image-->
-        <div class="col-sm-6 col-md-6 col-lg-4">
-            <div class="container book-card py-4 px-3">
+        <div class="col-12 col-sm-6 col-md-5 col-lg-4 book-img">
+            <div class="container-sm book-card py-4 px-3">
                 <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
                 <button class="detail-book-like submit" href="#"><i class="fa-regular fa-heart"></i></button>
             </div>
         </div>
-        <div class="col-12 d-block d-sm-block d-md-block d-lg-none mt-3 mt-2">
-            <hr class="book-hr">
-        </div>
         <!--Book details-->
-        <div class="col-sm-6 col-md-6 col-lg-8 book-details">
-            <div class="cotainer">
+        <div class="col-12 col-sm-6 col-md-7 col-lg-8 book-details">
+            <div class="col-12 d-block d-sm-none my-4">
+            </div>
+            <div class="cotainer-sm">
                 <h3>{{ book.title }}</h3>
                 <a class="text-decoration-none" href="{% url 'books:book-details' slug=book.slug %}#about-author">
                     <small class="author-link">{{ book.author}} | {{ book.publication_year }}</small>
