@@ -1,5 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1>hello</h1>
+<div class="container page">
+    <h2 class="text-center">Checkout</h2>
+    <hr class="header-hr mb-5">
+    <div class="row row-cols-2 justify-content-between">
+        <div class="col-7 card">
+            <div class="row">
+                <div class="col-3">
+                    <div class="py-2 px-3">
+                        <!--Item Image-->
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-grid gap-3">
+                        <p><strong><!--Item--></strong></p>
+                        <a class="text-decoration-none" href="#">
+                            <small class="author-link"><!--Author--></small>
+                        </a>
+                        <p>Price : <!--Price--> €</p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="d-grid gap-3">
+                        <p><strong><!--Item total price--> €</strong></p>
+                        <!--Item Quantity-->
+                        <select class="form-select ms-0" aria-label="Select option">
+                            <option selected value="1">1</option>
+                        </select>
+                        <div class="d-flex gap-3">
+                            <button class="nav-link" href="#"><i class="fa-regular fa-heart"></i></button>
+                            <button class="nav-link"  href=""><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
