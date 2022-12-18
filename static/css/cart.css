@@ -1,0 +1,32 @@
+/* Table of content
+----------------------------
+1. CART STYLE
+    1.1 Cart
+        1.1.1 general
+
+    
+/* ----------------------------cart------ */
+/* general */
+
+.book-checkout-card{
+    width: 130px;
+    margin: auto;
+    border-radius: 2px;
+}
+
+
+.order{
+    box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.2);
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.checkout-counter{
+    background-color:rgba(2, 33, 56, 0.1);
+    color: #022138;
+    border-radius: 5px;
+}
+
+.counter-hr{
+    color: #022138;
+}
