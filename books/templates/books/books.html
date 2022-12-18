@@ -33,10 +33,10 @@
                         </div>
                         <div class="container">
                            <div class="cotainer book-info">
-                                <a class="text-decoration-none" href="#">
+                                <a class="text-decoration-none" href="{% url 'books:book-details' slug=book.slug %}#about-author">
                                     <small class="author-link">{{ book.author }}</small>
                                 </a>
-                                <a class="text-decoration-none" href="#">
+                                <a class="text-decoration-none" href="{% url 'books:book-details' slug=book.slug %}">
                                     <p class="title-link"><strong>{{ book.title }}</strong></p>
                                 </a>
                                 <div>
@@ -54,7 +54,7 @@
                                     <small class="mute"><i class="fa-solid fa-star"></i> {{ book.rating }} / 5</small>
                                 </div>
                                 {% else %}
-                                    <small> No Rating</small>
+                                    <small> No Rating </small>
                                 {% endif %}
                            </div>
                         </div>

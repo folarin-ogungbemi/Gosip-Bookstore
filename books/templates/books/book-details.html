@@ -17,7 +17,7 @@
         <div class="col-sm-6 col-md-6 col-lg-8 book-details">
             <div class="cotainer">
                 <h3>{{ book.title }}</h3>
-                <a class="text-decoration-none" href="#">
+                <a class="text-decoration-none" href="{% url 'books:book-details' slug=book.slug %}#about-author">
                     <small class="author-link">{{ book.author}} | {{ book.publication_year }}</small>
                 </a>
                 <p> 
