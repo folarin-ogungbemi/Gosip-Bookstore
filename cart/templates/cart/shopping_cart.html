@@ -2,10 +2,9 @@
 {% load static %}
 {% block content %}
 <div class="container page">
-    <h2 class="text-center">Checkout</h2>
-    <hr class="header-hr mb-5">
-    <div class="row row-cols-2 justify-content-between">
-        <div class="col-12 col-sm-7 col-md-8">
+    <h2 class="text-center text-uppercase">Checkout</h2>
+    <div class="row row-cols-2 justify-content-between my-5">
+        <div class="col-12 col-sm-8 col-md-8">
             {% for order in order_items %}
             <div class="row">
                 <div class="container d-flex my-2">
@@ -17,9 +16,14 @@
                     <div class="col-6">
                         <div class="d-grid gap-2">
                             <p><strong>{{ order.item }}</strong></p>
-                            <a class="text-decoration-none" href="#">
+                            <a class="text-decoration-none" href="{% url 'books:book-details' slug=order.item.slug %}#about-author">
                                 <small class="author-link">{{ order.item.author }}</small>
                             </a>
+                            {% if order.item.genre %}
+                            <a class="text-decoration-none" href="#">
+                                <small class="mute genre-link"><i class="fa-solid fa-tag"></i> {{ order.item.genre }}</small>
+                            </a>
+                            {% endif %}
                             <p>Price : {{ order.item.price }} €</p>
                         </div>
                     </div>
@@ -36,10 +40,10 @@
                         </div>
                     </div>
                 </div>
-            {% endfor %}
             </div>
+            {% endfor %}
         </div>
-        <div class="col-12 col-sm-5 col-md-4">
+        <div class="col-12 col-sm-8 col-md-4">
             <div class="text-center">
                 <h3 class="py-3 text-uppercase">Checkout Counter</h3>
                 <hr>
