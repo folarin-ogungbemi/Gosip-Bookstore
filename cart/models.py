@@ -18,5 +18,9 @@ class Order(models.Model):
     class Meta:
         ordering = ['-order_id']
 
+    @property
+    def item_total(self):
+        return self.quantity * self.item.price
+
     def __str__(self):
         return str(self.order_id)
