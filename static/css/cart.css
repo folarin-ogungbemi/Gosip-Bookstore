@@ -30,3 +30,17 @@
 .counter-hr{
     color: #022138;
 }
+
+.btn-bookstore{
+    border: 2px solid #022138;
+}
+.btn-bookstore:hover{
+    background-color: #022138;
+    color: #fffaf6;
+}
+
+.btn-checkout,
+.btn-checkout:hover{
+    background-color: #f02c2c;
+    color: #fffaf6;
+}
