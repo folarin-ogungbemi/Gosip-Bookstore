@@ -45,6 +45,13 @@
                 </div>
             </div>
             {% endfor %}
+            {% else %}
+            <div class="d-grid my-auto">
+                <p class="fs-2 text-center">Your Cart is empty.</p>
+                <div class="d-flex justify-content-center mt-4">
+                    <a class="btn btn-bookstore" href="{% url 'books:books' %}"><i class="fa-solid fa-arrow-left"></i>Back to Bookstore</a>
+                </div>
+            </div>
             {% endif %}
         </div>
         <div class="col-12 col-sm-8 col-md-4">
@@ -84,7 +91,7 @@
                     </div>
                     <hr class="counter-hr">
                     <div class=" gap-2 d-flex justify-content-center my-3">
-                        <button class="btn btn-shopping" type="submit"><i class="fa-solid fa-arrow-left"></i> Keep Shopping</button>
+                        <a class="btn btn-bookstore" href="{% url 'books:books' %}">Back to Bookstore</a>
                         <button class="btn btn-checkout" type="submit">Proceed to Checkout</button>
                     </div>
                 </div>
