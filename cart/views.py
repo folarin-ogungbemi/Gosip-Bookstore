@@ -1,14 +1,11 @@
 from django.shortcuts import render, redirect
-from cart.models import Order
 from django.views.generic import ListView
 from django.shortcuts import get_object_or_404
 
 
-class OrderView(ListView):
+def order_view(request):
     """ Renders order items in cart """
-    model = Order
-    template_name = 'cart/shopping_cart.html'
-    context_object_name = 'order_items'
+    return render(request, 'cart/shopping_cart.html')
 
 
 def order_item(request, slug):
