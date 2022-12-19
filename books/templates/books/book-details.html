@@ -38,17 +38,22 @@
                     <h4>Description</h4>
                     <p>{{ book.description | safe }}</p>
                 </div>
-                <div class="row shop gap-3 d-flex justify-content-center text-center">
-                    <div class="col-12 col-lg-6">
-                        <form action="#" method="POST">
-                            {% csrf_token %}
+                <!-- Add book to cart form-->
+                <form action="{% url 'in_cart' slug=book.slug %}" method="POST">
+                    {% csrf_token %}
+                    <div class="d-grid my-4">
+                        <label for="qty_select">Quantity:</label>
+                        <input type="number" class="form-control ms-0 qty_select text-center" name="quantity" value="1" min="1" max="50" id="qty_select">
+                    </div>
+                    <div class="row shop gap-3 d-flex justify-content-center text-center">
+                        <div class="col-12 col-lg-6">
                             <button class="btn" type="submit">Add to Basket</button>
-                        </form>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <a href="{% url 'books:books' %}" class="text-decoration-none btn"><i class="fa-solid fa-arrow-left"></i> Bookstore</a>
+                        </div>
                     </div>
-                    <div class="col-12 col-lg-6">
-                        <a href="{% url 'books:books' %}" class="text-decoration-none btn"><i class="fa-solid fa-arrow-left"></i> Bookstore</a>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
