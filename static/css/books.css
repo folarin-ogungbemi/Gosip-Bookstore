@@ -209,7 +209,7 @@ to{
 
 .shop a{
     background-color:rgba(2, 33, 56, 0.8);
-    width: 30%;
+    width: 55%;
 }
 .shop a:hover{
     color: #fffaf6;
@@ -221,7 +221,7 @@ to{
 
 .shop button{
     background-color:rgba(240, 44, 44, 0.9);
-    width: 30%;
+    width: 55%;
 }
 .shop button:hover{
     color: #fffaf6;
