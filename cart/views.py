@@ -22,5 +22,4 @@ def order_item(request, slug):
     else:
         cart[slug] = qty
     request.session['cart'] = cart
-    print(request.session['cart'])
     return redirect('shopping_cart')

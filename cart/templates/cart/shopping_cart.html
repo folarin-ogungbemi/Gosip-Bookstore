@@ -17,7 +17,7 @@
                     <div class="col-6">
                         <div class="d-grid gap-2 mt-3 mb-2">
                             <p><strong>{{ item.book.title }}</strong></p>
-                            <a class="text-decoration-none" href="#">
+                            <a class="text-decoration-none" href="{% url 'books:book-details' slug=item.slug %}#about-author">
                                 <small class="author-link">{{ item.book.author }}</small>
                             </a>
                             {% if item.book.genre %}
