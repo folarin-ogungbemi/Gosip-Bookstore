@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container page">
-    <h2 class="text-center text-uppercase">Checkout</h2>
+    <h2 class="text-center text-uppercase">Shopping cart</h2>
     <div class="row row-cols-2 justify-content-between my-5">
         <div class="col-12 col-sm-8 col-md-8 checkout-items">
             {% if shopping_basket %}
@@ -92,7 +92,7 @@
                     <hr class="counter-hr">
                     <div class=" gap-2 d-flex justify-content-center my-3">
                         <a class="btn btn-bookstore" href="{% url 'books:books' %}">Back to Bookstore</a>
-                        <button class="btn btn-checkout" type="submit">Proceed to Checkout</button>
+                        <a class="btn btn-checkout" href="{% url 'checkout' %}">Proceed to Checkout</a>
                     </div>
                 </div>
             </div>
