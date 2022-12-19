@@ -219,9 +219,6 @@ to{
     color: #fffaf6;
     background-color:#022138;
 }
-.shop a:focus{
-    box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.5);
-}
 
 .shop button{
     background-color:rgba(240, 44, 44, 0.9);
@@ -231,9 +228,6 @@ to{
     color: #fffaf6;
     background-color:#f02c2c;
 }
-/* .shop button:focus{
-    box-shadow: 0px 3px 15px 1px rgba(240, 44, 44, 0.5);
-} */
 .shop .btn:active{
     border-color: transparent;
 }
