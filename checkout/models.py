@@ -10,7 +10,7 @@ class Order(models.Model):
         editable=False)
     first_name = models.CharField(max_length=254)
     last_name = models.CharField(max_length=254)
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
     phone_number = models.CharField(max_length=17)
     house_number = models.CharField(max_length=10)
     street = models.CharField(
