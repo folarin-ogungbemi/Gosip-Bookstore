@@ -1,10 +1,17 @@
 from django.contrib import admin
-from .models import Order
+from .models import Order, OrderSet
+
+
+class OrderSetInline(admin.TabularInline):
+    model = OrderSet
 
 
 # Register your models here.
 @admin.register(Order)
 class OrdersAdmin(admin.ModelAdmin):
+    inlines = [
+        OrderSetInline,
+    ]
     list_display = (
         'order_id', 'first_name', 'last_name', 'email', 'phone_number',
         'house_number', 'street', 'postal_address', 'city', 'country',
