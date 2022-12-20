@@ -55,6 +55,8 @@
             </div>
         </div>
         <div class="col-12 col-sm-5 col-md-5 checkout-items">
+            <p class="mute">Order summary ({{ book_count }})</p>
+            <hr class="counter-hr">
             <div class="row">
                 {% if shopping_basket %}
                 {% for item in shopping_basket %}
@@ -82,6 +84,13 @@
                     </div>
                 </div>
                 {% endfor %}
+                {% else %}
+                <div class="d-grid my-auto">
+                    <p class="text-center">No Items in your Cart.</p>
+                    <div class="d-flex justify-content-center mt-4">
+                        <a class="btn btn-danger rounded-pill" href="{% url 'books:books' %}"><i class="fa-solid fa-arrow-left"></i> Back to Bookstore</a>
+                    </div>
+                </div>
                 {% endif %}
                 <hr class="counter-hr">
                 <div class="mx-4 fw-semibold">
