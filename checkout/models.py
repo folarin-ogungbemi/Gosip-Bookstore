@@ -35,6 +35,15 @@ class Order(models.Model):
     def __str__(self):
         return str(self.order_id)
 
+    @property
+    def total_order_items(self):
+        """
+        updates the grand total with the total items in each order set
+        """
+        self.cart_total = self.cartitems.aggregate(Sum('set_total')['set_total__sum'])
+        self.grand_total = self.order_total
+        self.save()
+
 
 class OrderSet(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
@@ -47,3 +56,7 @@ class OrderSet(models.Model):
 
     def __str__(self):
         return f'{self.book.title}, {(self.order.order_id)}'
+
+    def save_data(self, *args, **kwargs):
+        self.set_total = self.book.price * self.quantity
+        super().save(*args, **kwargs)
