@@ -42,7 +42,8 @@ class OrderSet(models.Model):
     quantity = models.IntegerField(default=0)
     set_total = models.DecimalField(
         max_digits=8,
-        decimal_places=2)
+        decimal_places=2,
+        editable=False)
 
     def __str__(self):
         return f'{self.book.title}, {(self.order.order_id)}'

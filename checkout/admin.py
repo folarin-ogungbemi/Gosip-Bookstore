@@ -12,6 +12,11 @@ class OrdersAdmin(admin.ModelAdmin):
     inlines = [
         OrderSetInline,
     ]
+
+    readonly_fields = [
+        'order_id', 'email', 'order_date', 'cart_total', 'grand_total'
+    ]
+
     list_display = (
         'order_id', 'first_name', 'last_name', 'email', 'phone_number',
         'house_number', 'street', 'postal_address', 'city', 'country',
