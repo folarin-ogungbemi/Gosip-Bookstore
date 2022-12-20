@@ -40,7 +40,8 @@ class Order(models.Model):
         """
         updates the grand total with the total items in each order set
         """
-        self.cart_total = self.cartitems.aggregate(Sum('set_total')['set_total__sum'])
+        self.cart_total = self.cartitems.aggregate(
+            Sum('set_total')['set_total__sum'])
         self.grand_total = self.order_total
         self.save()
 
