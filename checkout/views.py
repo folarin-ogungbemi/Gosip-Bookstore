@@ -8,5 +8,9 @@ def checkout_view(request):
 
     form = OrderForm()
 
-    context = {'form': form, }
+    context = {
+        'form': form,
+        'stripe_public_key': 'pk_test_51MH9dOKdGqoTwjdxLJwV8YGa2d0LjjEpYBfDGp0VPP2zxjcB4TocveeNzQeKLNUb21p3GMxyPG9vzWDN0DjT6You009oOkIW6Y',
+        'client_secret': 'test client secret',
+        }
     return render(request, 'checkout/checkout.html', context)

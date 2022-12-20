@@ -1,0 +1,44 @@
+
+/* Table of content
+----------------------------
+1. CHECKOUT STYLE
+    1.1 Index
+        1.1.1 general
+
+
+/* ----------------------------Checkout--- */
+/* general */
+.StripeElement{
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #fff;
+  margin:auto;
+  width: 95%;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus{
+    box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.5);
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #fffaf6 !important;
+}
+
+.form{
+    background-color:rgba(2, 33, 56, 0.1);
+    border-radius: 5px;
+
+}
+
+.form .form-control{
+    border-color: transparent;
+}
+
+.street .form-control{
+    width: 90%;
+}
