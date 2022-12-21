@@ -46,7 +46,7 @@
                         <div class="qty-group d-flex">
                             <div class="input-group-prepend">
                                 <button class="decrement-qty btn btn-secondary rounded"
-                                data-item_id="{{ book.id }}" id="decrement-qty_{{ book.id }}">
+                                data-book_id="{{ book.id }}" id="decrement-qty_{{ book.id }}">
                                  <span class="icon">
                                     <i class="fa-solid fa-minus"></i>
                                  </span>
@@ -54,10 +54,10 @@
                             </div>
                             <input type="number" class="form-control qty_select text-center"
                                 name="quantity" value="1" min="1" max="50"
-                                data-item_id="{{ book.id }}" id="id_qty_{{ book.id }}">
+                                data-book_id="{{ book.id }}" id="id_qty_{{ book.id }}">
                                 <div class="input-group-postpend">
                                     <button class="increment-qty btn btn-secondary rounded"
-                                    data-item_id="{{ book.id }}" id="increment-qty_{{ book.id }}">
+                                    data-book_id="{{ book.id }}" id="increment-qty_{{ book.id }}">
                                      <span class="icon">
                                         <i class="fa-solid fa-plus"></i>
                                      </span>
