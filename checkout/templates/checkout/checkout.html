@@ -9,12 +9,11 @@
 <div class="container page">
     <h2 class="text-center text-uppercase">Checkout</h2>
     <div class="row row-cols-2 justify-content-between my-5">
-        <div class="col-12 col-md-7 form">
+        <div class="col-12 col-md-7 mx-auto form">
                 <div class="cotainer text-center my-3">
                     <form method="POST" action="#" id="complete-order">
                         {% csrf_token %}
                         <div class="details mt-4">
-                            <hr class="detail-rule">
                             <div class="row">
                                 <div class="col-6">
                                     {{ form.first_name | as_crispy_field }}
@@ -61,6 +60,19 @@
                                 <div class="col-12">
                                     <p class="small"><span class="mute">By placing this Order, you will be charged </span><strong>{{ grand_total | floatformat:2 }} €</strong></p>
                                     <button class="btn" type="submit" id="transact">Complete Order</button>
+                                </div>
+                                <div class="form-check">
+                                    {% if user.is_authenticated %}
+                                        <div class="form-check-width">
+                                            <label for="id-save-info">Save Billing Information to my Profile</label>
+                                            <input type="checkbox" class="form-check-input" id="id-save-info" name="save-info" checked>
+                                        </div>
+                                    {% else %}
+                                        <label class="form-check-label" for="id-save-info">
+                                            <a class="text-info fw-semibold" href="{% url 'account_signup' %}">Create Account</a> or 
+                                            <a class="text-info fw-semibold" href="{% url 'account_login' %}"> SignIn</a> to save this Information
+                                        </label>
+                                    {% endif %}
                                 </div>
                                 <div class="col-12">
                                     <a href="{% url 'shopping_cart' %}" class="text-decoration-none btn"><i class="fa-solid fa-arrow-left"></i> Adjust Cart</a>
