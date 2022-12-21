@@ -8,6 +8,49 @@
 
 /* ----------------------------Checkout--- */
 /* general */
+
+/*--MDN guide--*/
+
+.detail-rule{
+    border: none;
+    border-top: 3px double #022138;
+    color: #022138;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+
+.detail-rule:after{
+    background: #022138;
+    content: 'Details';
+    border-radius: 5px;
+    color: #fffaf6;
+    padding: 0.5rem;
+    position: relative;
+    top: -13px;
+}
+
+.billing-rule{
+    border: none;
+    border-top: 3px double #022138;
+    color: #022138;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+
+.billing-rule:after{
+    background: #022138;
+    content: 'Billing Address';
+    border-radius: 5px;
+    color: #fffaf6;
+    padding: 0.5rem;
+    position: relative;
+    top: -13px;
+}
+
+
+/*--Stripe--*/
 .StripeElement{
   box-sizing: border-box;
   height: 40px;

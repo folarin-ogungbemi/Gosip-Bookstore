@@ -13,52 +13,58 @@
                 <div class="cotainer text-center my-3">
                     <form method="POST" action="#" id="complete-order">
                         {% csrf_token %}
-                        <div class="row">
-                            <div class="col-6">
-                                {{ form.first_name | as_crispy_field }}
-                            </div>
-                            <div class="col-6">
-                                {{ form.last_name | as_crispy_field }}
-                            </div>
-                            <div class="col-6">
-                                {{ form.email | as_crispy_field }}
-                            </div>
-                            <div class="col-6">
-                                {{ form.phone_number | as_crispy_field }}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                {{ form.house_number | as_crispy_field }}
-                            </div>
-                            <div class="col-6">
-                                {{ form.postal_address | as_crispy_field }}
-                            </div>
-                            <div class="col-12 street">
-                                {{ form.street | as_crispy_field }}
-                            </div>
-                            <div class="col-6">
-                                {{ form.city | as_crispy_field }}
-                            </div>
-                            <div class="col-6">
-                                {{ form.country | as_crispy_field }}
+                        <div class="details mt-4">
+                            <hr class="detail-rule">
+                            <div class="row">
+                                <div class="col-6">
+                                    {{ form.first_name | as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form.last_name | as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form.email | as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form.phone_number | as_crispy_field }}
+                                </div>
                             </div>
                         </div>
-                        <div class="px-3">
-                            <small  class="text-center px-2 fw-semibold">Secure Payment</small >
-                            <!--Stripe card element-->
-                            <div class="mb-3" id="card-element"></div>
-    
-                            <!-- Display form errors -->
-                            <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                        </div>
-                        <div class="row shop gap-3 d-flex justify-content-center text-center">
-                            <div class="col-12">
-                                <p class="small"><span class="mute">By placing this Order, you will be charged </span><strong>{{ grand_total | floatformat:2 }} €</strong></p>
-                                <button class="btn" type="submit" id="transact">Complete Order</button>
+                        <div class="billing">
+                            <hr class="billing-rule">
+                            <div class="row">
+                                <div class="col-6">
+                                    {{ form.house_number | as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form.postal_address | as_crispy_field }}
+                                </div>
+                                <div class="col-12 street">
+                                    {{ form.street | as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form.city | as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form.country | as_crispy_field }}
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <a href="{% url 'shopping_cart' %}" class="text-decoration-none btn"><i class="fa-solid fa-arrow-left"></i> Adjust Cart</a>
+                            <div class="px-3">
+                                <small  class="text-center px-2 fw-semibold">Secure Payment</small >
+                                <!--Stripe card element-->
+                                <div class="mb-3" id="card-element"></div>
+        
+                                <!-- Display form errors -->
+                                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                            </div>
+                            <div class="row shop gap-3 d-flex justify-content-center text-center">
+                                <div class="col-12">
+                                    <p class="small"><span class="mute">By placing this Order, you will be charged </span><strong>{{ grand_total | floatformat:2 }} €</strong></p>
+                                    <button class="btn" type="submit" id="transact">Complete Order</button>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{% url 'shopping_cart' %}" class="text-decoration-none btn"><i class="fa-solid fa-arrow-left"></i> Adjust Cart</a>
+                                </div>
                             </div>
                         </div>
                     </form>
