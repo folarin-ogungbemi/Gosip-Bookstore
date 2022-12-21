@@ -47,7 +47,10 @@ class Order(models.Model):
 
 
 class OrderSet(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order = models.ForeignKey(
+        Order,
+        on_delete=models.CASCADE,
+        related_name='cartitems')
     book = models.ForeignKey(Books, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     set_total = models.DecimalField(
