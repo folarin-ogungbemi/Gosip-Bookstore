@@ -22,7 +22,7 @@ class OrderForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'placeholder': 'John street'}))
     postal_address = forms.CharField(
         label='Post Code',
-        widget=forms.TextInput(attrs={'required': False}))
+        required=False,)
     city = forms.CharField(
         required=True,
         widget=forms.TextInput(attrs={'placeholder': 'Berlin'}))
