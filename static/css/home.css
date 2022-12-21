@@ -65,7 +65,7 @@
 }
 
 .page-call .btn{
-    width: 50%;
+    width: 35%;
 }
 
 .carousel-control-prev,
@@ -183,6 +183,10 @@
         width: 64%;
         right: 17%;
     }
+    .page-call .btn{
+        width: 65%;
+    }
+    
 }
 
 @media screen and (orientation: landscape){

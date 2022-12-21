@@ -203,6 +203,9 @@ to{
 
 .qty_select{
     width: 70px;
+    border-radius: 0;
+    color: #022138;
+    border-color: rgba(2, 33, 56, 0.5);
 }
 
 .qty-group{
@@ -235,4 +238,24 @@ to{
 }
 .shop .btn:active{
     border-color: transparent;
+}
+
+.input-group-prepend,
+.input-group-postpend{
+    background-color:rgba(2, 33, 56, 0.8);
+}
+
+.input-group-prepend:hover,
+.input-group-postpend:hover{
+    background-color: #022138;
+}
+.input-group-prepend{
+    border-radius: 5px 0 0 5px;
+}
+.input-group-postpend{
+    border-radius: 0 5px 5px 0;
+}
+
+.icon{
+    color: #fffaf6;
 }

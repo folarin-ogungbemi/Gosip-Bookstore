@@ -59,7 +59,7 @@ class OrderSet(models.Model):
         editable=False)
 
     def __str__(self):
-        return f'{self.book.title}, {(self.order.order_id)}'
+        return f'{self.book.title}: {self.order.order_id}'
 
     def save_data(self, *args, **kwargs):
         self.set_total = self.book.price * self.quantity
