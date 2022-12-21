@@ -205,6 +205,10 @@ to{
     width: 70px;
 }
 
+.qty-group{
+    width:100px;
+}
+
 /* button */
 
 .shop a,

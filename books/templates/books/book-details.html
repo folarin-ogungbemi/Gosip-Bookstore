@@ -42,8 +42,28 @@
                 <form action="{% url 'in_cart' slug=book.slug %}" method="POST">
                     {% csrf_token %}
                     <div class="d-grid my-4">
-                        <label for="qty_select">Quantity:</label>
-                        <input type="number" class="form-control ms-0 qty_select text-center" name="quantity" value="1" min="1" max="50" id="qty_select">
+                        <label for="id_qty_{{ book.id }}" class="ms-5 fw-semibold">Quantity</label>
+                        <div class="qty-group d-flex">
+                            <div class="input-group-prepend">
+                                <button class="decrement-qty btn btn-secondary rounded"
+                                data-item_id="{{ book.id }}" id="decrement-qty_{{ book.id }}">
+                                 <span class="icon">
+                                    <i class="fa-solid fa-minus"></i>
+                                 </span>
+                                </button>
+                            </div>
+                            <input type="number" class="form-control qty_select text-center"
+                                name="quantity" value="1" min="1" max="50"
+                                data-item_id="{{ book.id }}" id="id_qty_{{ book.id }}">
+                                <div class="input-group-postpend">
+                                    <button class="increment-qty btn btn-secondary rounded"
+                                    data-item_id="{{ book.id }}" id="increment-qty_{{ book.id }}">
+                                     <span class="icon">
+                                        <i class="fa-solid fa-plus"></i>
+                                     </span>
+                                    </button>
+                                </div>
+                        </div>
                     </div>
                     <div class="row shop gap-3 d-flex justify-content-center text-center">
                         <div class="col-12 col-lg-6">
@@ -78,3 +98,7 @@
     <p>{{book.description | safe}}</p>
 </div>
 {% endblock %}
+{% block postloadjs %}
+    {{block.super}}
+    {% include 'books/includes/quantity_select_script.html' %}
+{% endblock %}  
