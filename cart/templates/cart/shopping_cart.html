@@ -32,7 +32,7 @@
                         <div class="d-grid gap-3 mt-3 mb-2 justify-content-center">
                             <p class="text-center my-0 ms-5"><strong>{{ item.book_qty_price }} €</strong></p>
                             <!-- Add book to cart form-->
-                            <form action="#" method="POST">
+                            <form id="update-qty" action="#" method="POST">
                                 {% csrf_token %}
                                 <div class="d-grid justify-content-center">
                                     <div class="qty-group d-flex">
@@ -45,7 +45,7 @@
                                             </button>
                                         </div>
                                         <input type="number" class="form-control qty_select text-center"
-                                            name="quantity" value="1" min="1" max="50"
+                                            name="qty" value="1" min="1" max="50"
                                             data-book_id="{{ item.book.id }}" id="id_qty_{{ item.book.id }}">
                                             <div class="input-group-postpend">
                                                 <button class="increment-qty btn"
@@ -56,12 +56,12 @@
                                                 </button>
                                             </div>
                                     </div>
-                                    <a class="update-link text-center ms-3 pt-1"><small><i class="fa-solid fa-arrows-rotate"></i> Update</small></a>
+                                    <a class="update-book-qty text-center ms-3 pt-1"><small><i class="fa-solid fa-arrows-rotate"></i> Update</small></a>
                                 </div>
                             </form>
                             <div class="d-flex">
-                                <a class="like-book btn ms-5" id="remove_{{ item.book_id }}"><i class="fa-regular fa-heart"></i></a>
-                                <a class="remove-book btn ms-5" id="remove_{{ item.book_id }}"><i class="fa-solid fa-trash"></i></a>
+                                <a class="like-book btn ms-5" id="remove_{{ item.slug }}"><i class="fa-regular fa-heart"></i></a>
+                                <a class="remove-book btn ms-5" id="remove_{{ item.slug }}"><i class="fa-solid fa-trash"></i></a>
                                 <button class="btn" ></button>
                             </div>
                         </div>
@@ -127,4 +127,19 @@
 {% block postloadjs %}
     {{block.super}}
     {% include 'books/includes/quantity_select_script.html' %}
+    # javacript adjust cart
+    <script type="text/javascript">
+        // Remove book on click and reload page
+        $('.remove-book').click(function(e) {
+            var csrfToken = "{{ csrf_token }}";
+            var bookId = $(this).attr('id').split('remove_')[1];
+            var url = `/cart/remove/${bookId}/`;
+            var data = {'csrfmiddlewaretoken': csrfToken};
+    
+            $.post(url, data)
+             .done(() => {
+                 location.reload();
+             });
+        })
+    </script>   
 {% endblock %}

@@ -58,12 +58,12 @@
     height: 40px;
 }
 
-.update-link{
+.update-book-qty{
     color: #17a2b8;
     text-decoration: none;
 }
 
-.update-link:hover{
+.update-book-qty:hover{
     color: #022138;
     cursor: pointer;
 }
