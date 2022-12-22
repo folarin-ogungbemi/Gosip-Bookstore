@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.urls import reverse
 from django.views.generic import ListView
 from django.shortcuts import get_object_or_404
@@ -37,3 +38,16 @@ def order_item(request, slug):
             request,
             f'Please enter a valid quantity for "{book.title}"')
         return redirect(reverse('books:book-details', args=[slug]))
+
+
+def remove_book(request, slug):
+    """ Returning an ordered item from the cart """
+    try:
+        cart = request.session.get('cart', {})
+        cart.pop(slug)
+
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+
+    except Exception as error:
+        return HttpResponse(status=500)
