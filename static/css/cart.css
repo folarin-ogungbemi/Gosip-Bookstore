@@ -57,3 +57,19 @@
 .shopping_cart .qty-group{
     height: 40px;
 }
+
+.update-link{
+    color: #17a2b8;
+    text-decoration: none;
+}
+
+.update-link:hover{
+    color: #022138;
+    cursor: pointer;
+}
+
+.like-book:hover,
+.remove-book:hover{
+    color: #f02c2c;
+}
+

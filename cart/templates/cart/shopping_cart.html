@@ -30,12 +30,11 @@
                     </div>
                     <div class="col-3">
                         <div class="d-grid gap-3 mt-3 mb-2 justify-content-center">
-                            <p class="text-center my-0"><strong>{{ item.book_qty_price }} €</strong></p>
+                            <p class="text-center my-0 ms-5"><strong>{{ item.book_qty_price }} €</strong></p>
                             <!-- Add book to cart form-->
                             <form action="#" method="POST">
                                 {% csrf_token %}
-                                <div class="d-grid ">
-                                    <!-- <label for="id_qty_{{ item.book.id }}" class="ms-4 fw-semibold mt-0">Quantity</label> -->
+                                <div class="d-grid justify-content-center">
                                     <div class="qty-group d-flex">
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn"
@@ -57,11 +56,13 @@
                                                 </button>
                                             </div>
                                     </div>
+                                    <a class="update-link text-center ms-3 pt-1"><small><i class="fa-solid fa-arrows-rotate"></i> Update</small></a>
                                 </div>
                             </form>
-                            <div class="d-flex justify-content-start gap-3">
-                                <button class="btn" ><i class="fa-regular fa-heart"></i></button>
-                                <button class="btn" ><i class="fa-solid fa-trash"></i></button>
+                            <div class="d-flex">
+                                <a class="like-book btn ms-5" id="remove_{{ item.book_id }}"><i class="fa-regular fa-heart"></i></a>
+                                <a class="remove-book btn ms-5" id="remove_{{ item.book_id }}"><i class="fa-solid fa-trash"></i></a>
+                                <button class="btn" ></button>
                             </div>
                         </div>
                     </div>
