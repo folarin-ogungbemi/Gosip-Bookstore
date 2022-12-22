@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from checkout.forms import OrderForm
 from cart.contexts import shopping_cart
 from django.conf import settings
+from django.contrib import messages
 import stripe
 
 
@@ -13,6 +15,11 @@ def checkout_view(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     cart = request.session.get('cart', {})
+
+    # Display Error alert when Cart is empty
+    if not cart:
+        messages.error(request, "Your Cart is Empty at the moment")
+        return redirect(reverse('books:books'))
 
     cart_items = shopping_cart(request)
     total = cart_items['grand_total']
