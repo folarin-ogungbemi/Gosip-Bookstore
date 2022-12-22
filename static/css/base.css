@@ -324,6 +324,27 @@ hr{
     border: 2px solid #f02c2c;
 }
 
+/* ----------------------------Bootstrap Toast Messages----- */
+
+.message-container{
+    position: fixed;
+    top: 72px;
+    right: 14px;
+    z-index: 9999999;
+}
+
+.toast{
+    border-radius: 0 0 5px 5px;
+}
+
+.custom-toast{
+    overflow: visible;
+}
+
+.toast-capper{
+    height:3px;
+}
+
 /* ---------------------------Mobile-Bottom-Link---- */
 
 /* general */
