@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container page">
+<div class="container page shopping_cart">
     <h2 class="text-center text-uppercase">Shopping cart</h2>
     <div class="row row-cols-2 justify-content-between my-5">
         <div class="col-12 col-sm-8 col-md-8 checkout-items">
@@ -29,13 +29,36 @@
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="d-grid gap-3 mt-3 mb-2 justify-content-end">
-                            <p><strong>{{ item.book_qty_price }} €</strong></p>
-                            {% if item.qty == 1 %}
-                            <p><strong>{{ item.qty }}</strong> Book</p>
-                            {% else %}
-                            <p><strong>{{ item.qty }}</strong> Books</p>
-                            {% endif %}
+                        <div class="d-grid gap-3 mt-3 mb-2 justify-content-center">
+                            <p class="text-center my-0"><strong>{{ item.book_qty_price }} €</strong></p>
+                            <!-- Add book to cart form-->
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                <div class="d-grid ">
+                                    <!-- <label for="id_qty_{{ item.book.id }}" class="ms-4 fw-semibold mt-0">Quantity</label> -->
+                                    <div class="qty-group d-flex">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn"
+                                            data-book_id="{{ item.book.id }}" id="decrement-qty_{{ item.book.id }}">
+                                            <span class="icon">
+                                                <i class="fa-solid fa-minus"></i>
+                                            </span>
+                                            </button>
+                                        </div>
+                                        <input type="number" class="form-control qty_select text-center"
+                                            name="quantity" value="1" min="1" max="50"
+                                            data-book_id="{{ item.book.id }}" id="id_qty_{{ item.book.id }}">
+                                            <div class="input-group-postpend">
+                                                <button class="increment-qty btn"
+                                                data-book_id="{{ item.book.id }}" id="increment-qty_{{ item.book.id }}">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                                </button>
+                                            </div>
+                                    </div>
+                                </div>
+                            </form>
                             <div class="d-flex justify-content-start gap-3">
                                 <button class="btn" ><i class="fa-regular fa-heart"></i></button>
                                 <button class="btn" ><i class="fa-solid fa-trash"></i></button>
@@ -99,4 +122,8 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block postloadjs %}
+    {{block.super}}
+    {% include 'books/includes/quantity_select_script.html' %}
 {% endblock %}

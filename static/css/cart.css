@@ -44,3 +44,16 @@
     background-color: #f02c2c;
     color: #fffaf6;
 }
+
+.shopping_cart .qty_select{
+    width: 50px;
+
+    border-radius: 0;
+    color: #022138;
+    border-color: rgba(2, 33, 56, 0.5);
+}
+
+.shopping_cart .form-control,
+.shopping_cart .qty-group{
+    height: 40px;
+}
