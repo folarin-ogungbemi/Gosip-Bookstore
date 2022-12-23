@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 from books.models import Books
+from django.db.models import Sum
 
 
 class Order(models.Model):
@@ -42,7 +43,7 @@ class Order(models.Model):
         """
         self.cart_total = self.cartitems.aggregate(
             Sum('set_total')['set_total__sum'])
-        self.grand_total = self.order_total
+        self.grand_total = self.cart_total
         self.save()
 
 

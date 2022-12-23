@@ -11,7 +11,7 @@
     <div class="row row-cols-2 justify-content-between my-5">
         <div class="col-12 col-md-7 mx-auto form">
                 <div class="cotainer text-center my-3">
-                    <form method="POST" action="#" id="complete-order">
+                    <form method="POST" action="{% url 'checkout' %}" id="complete-order">
                         {% csrf_token %}
                         <div class="details mt-4">
                             <div class="row">

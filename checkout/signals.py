@@ -1,3 +1,5 @@
+# https://docs.djangoproject.com/en/4.1/ref/signals/
+
 from django.dispatch import receiver
 from django.db.models.signals import post_save, post_delete
 from checkout.models import OrderSet
@@ -13,7 +15,7 @@ def update_data(sender, instance, created, **kwargs):
 
 
 @receiver(post_delete, sender=OrderSet)
-def update_data(sender, instance, **kwargs):
+def delete_data(sender, instance, **kwargs):
     """
     function deletes the cart total when cart items are deleted
     """

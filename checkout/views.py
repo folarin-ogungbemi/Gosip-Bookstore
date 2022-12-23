@@ -30,8 +30,6 @@ def checkout_view(request):
         currency=settings.STRIPE_CURRENCY,
     )
 
-    print(intent)
-
     form = OrderForm()
 
     context = {
