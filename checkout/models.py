@@ -31,20 +31,22 @@ class Order(models.Model):
         default=0)
 
     class Meta:
-        ordering = ['-order_id']
+        ordering = ['-concluded']
 
     def __str__(self):
         return str(self.order_id)
 
-    @property
     def total_order_items(self):
         """
         updates the grand total with the total items in each order set
         """
         self.cart_total = self.cartitems.aggregate(
-            Sum('set_total')['set_total__sum'])
+            Sum('set_total'))['set_total__sum'] or 0
         self.grand_total = self.cart_total
-        self.save()
+        self.save(update_fields=['cart_total', 'grand_total'])
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
 
 
 class OrderSet(models.Model):
@@ -62,6 +64,6 @@ class OrderSet(models.Model):
     def __str__(self):
         return f'{self.book.title}: {self.order.order_id}'
 
-    def save_data(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         self.set_total = self.book.price * self.quantity
         super().save(*args, **kwargs)
