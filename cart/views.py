@@ -42,9 +42,13 @@ def order_item(request, slug):
 
 def remove_book(request, slug):
     """ Returning an ordered item from the cart """
+    book = Books.objects.get(slug=slug)
     try:
         cart = request.session.get('cart', {})
         cart.pop(slug)
+        messages.success(
+                request,
+                f'"{book.title}" has been removed from your Cart')
 
         request.session['cart'] = cart
         return HttpResponse(status=200)
@@ -57,13 +61,21 @@ def adjust_cart(request, slug):
     """Allow Shopper to adjust the
     quantity of items in the cart"""
 
+    book = Books.objects.get(slug=slug)
+
     qty = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
 
     if qty > 0:
         cart[slug] = qty
+        messages.success(
+                request,
+                f'You now have ({qty}) "{book.title}" in Cart ')
     else:
         cart.pop(slug)
+        messages.success(
+                request,
+                f'"{book.title}" has been removed from your Cart')
 
     request.session['cart'] = cart
     return redirect(reverse('shopping_cart'))
