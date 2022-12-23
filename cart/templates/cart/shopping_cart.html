@@ -33,7 +33,7 @@
                         <div class="d-grid gap-3 mt-3 mb-2 justify-content-center">
                             <p class="text-center my-0 ms-5"><strong>{{ item.book.price | calc_subtotal:item.qty }} €</strong></p>
                             <!-- Add book to cart form-->
-                            <form id="update-qty" action="#" method="POST">
+                            <form id="update-qty" action="{% url 'adjust_cart' slug=item.slug %}" method="POST">
                                 {% csrf_token %}
                                 <div class="d-grid justify-content-center">
                                     <div class="qty-group d-flex">
@@ -46,7 +46,7 @@
                                             </button>
                                         </div>
                                         <input type="number" class="form-control qty_select text-center"
-                                            name="qty" value="1" min="1" max="50"
+                                            name="quantity" value="{{ item.qty }}" min="1" max="50"
                                             data-book_id="{{ item.book.id }}" id="id_qty_{{ item.book.id }}">
                                             <div class="input-group-postpend">
                                                 <button class="increment-qty btn"
@@ -57,9 +57,9 @@
                                                 </button>
                                             </div>
                                     </div>
-                                    <a class="update-book-qty text-center ms-3 pt-1"><small><i class="fa-solid fa-arrows-rotate"></i> Update</small></a>
                                 </div>
                             </form>
+                            <a class="update-book-qty text-center ms-3 pt-1"><small><i class="fa-solid fa-arrows-rotate"></i> Update</small></a>
                             <div class="d-flex">
                                 <a class="like-book btn ms-5" id="remove_{{ item.slug }}"><i class="fa-regular fa-heart"></i></a>
                                 <a class="remove-book btn ms-5" id="remove_{{ item.slug }}"><i class="fa-solid fa-trash"></i></a>
@@ -130,6 +130,13 @@
     {% include 'books/includes/quantity_select_script.html' %}
     # javacript adjust cart
     <script type="text/javascript">
+        // Update quantity on click
+        $('.update-book-qty').click(function(e) {
+            // https://api.jquery.com/prev/
+            var form = $(this).prev('#update-qty');
+            form.submit();
+        })
+
         // Remove book on click and reload page
         $('.remove-book').click(function(e) {
             var csrfToken = "{{ csrf_token }}";

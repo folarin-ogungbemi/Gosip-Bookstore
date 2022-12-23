@@ -51,3 +51,19 @@ def remove_book(request, slug):
 
     except Exception as error:
         return HttpResponse(status=500)
+
+
+def adjust_cart(request, slug):
+    """Allow Shopper to adjust the
+    quantity of items in the cart"""
+
+    qty = int(request.POST.get('quantity'))
+    cart = request.session.get('cart', {})
+
+    if qty > 0:
+        cart[slug] = qty
+    else:
+        cart.pop(slug)
+
+    request.session['cart'] = cart
+    return redirect(reverse('shopping_cart'))
