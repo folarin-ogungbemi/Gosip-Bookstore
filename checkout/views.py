@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from checkout.forms import OrderForm
 from cart.contexts import shopping_cart
+from books.models import Books
+from checkout.models import OrderSet, Order
 from django.conf import settings
 from django.contrib import messages
 import stripe
@@ -29,12 +31,24 @@ def checkout_view(request):
             'country': request.POST['country'],
         }
 
+        # save user data in db and conclude transaction
         form = OrderForm(customer_data)
         if form.is_valid():
             order = form.save()
-            print("-----------------------")
-            print(order)
-            print("-----------------------")
+            for slug, qty in cart.items():
+                book = get_object_or_404(Books, slug=slug)
+                if isinstance(qty, int):
+                    order_set = OrderSet(
+                        order=order,
+                        book=book,
+                        quantity=qty,)
+                    order_set.save()
+                    Order.objects.filter(
+                            order_id=str(order)).update(concluded=True)
+            return redirect(reverse('home'))
+        else:
+            messages.error(request, "there was an error with your form \
+                Please double check your information.")
 
     else:
         # Display Error alert when Cart is empty
