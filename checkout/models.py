@@ -31,7 +31,7 @@ class Order(models.Model):
         default=0)
 
     class Meta:
-        ordering = ['-concluded']
+        ordering = ['-order_date']
 
     def __str__(self):
         return str(self.order_id)

@@ -83,7 +83,7 @@ def checkout_view(request):
 
 
 def transact_success(request, order_id):
-    """ Handle successful transaction"""
+    """ Handle successful transaction and delete items in cart"""
 
     order = get_object_or_404(Order, order_id=order_id)
     messages.success(request, f"Transaction was successful! \
