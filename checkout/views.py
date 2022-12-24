@@ -36,15 +36,21 @@ def checkout_view(request):
         if form.is_valid():
             order = form.save()
             for slug, qty in cart.items():
-                book = get_object_or_404(Books, slug=slug)
-                if isinstance(qty, int):
-                    order_set = OrderSet(
-                        order=order,
-                        book=book,
-                        quantity=qty,)
-                    order_set.save()
-                    Order.objects.filter(
-                            order_id=str(order)).update(concluded=True)
+                try:
+                    book = get_object_or_404(Books, slug=slug)
+                    if isinstance(qty, int):
+                        order_set = OrderSet(
+                            order=order,
+                            book=book,
+                            quantity=qty,)
+                        order_set.save()
+                        Order.objects.filter(
+                                order_id=str(order)).update(concluded=True)
+                except book.DoesNotExist:
+                    messages.error(request, (
+                        "It appears a book in your cart is out of stock"
+                        "Please contact us if you would like to purchase"))
+                    order.delete()
             return redirect(reverse('home'))
         else:
             messages.error(request, "there was an error with your form \
