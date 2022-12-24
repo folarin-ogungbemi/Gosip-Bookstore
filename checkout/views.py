@@ -51,7 +51,7 @@ def checkout_view(request):
                         "It appears a book in your cart is out of stock"
                         "Please contact us if you would like to purchase"))
                     order.delete()
-            return redirect(reverse('home'))
+            return redirect(reverse('successful', args=[order.order_id]))
         else:
             messages.error(request, "there was an error with your form \
                 Please double check your information.")
@@ -80,3 +80,20 @@ def checkout_view(request):
         'client_secret': intent.client_secret,
         }
     return render(request, 'checkout/checkout.html', context)
+
+
+def transact_success(request, order_id):
+    """ Handle successful transaction"""
+
+    order = get_object_or_404(Order, order_id=order_id)
+    messages.success(request, f"Transaction was successful! \
+        Your order number is: {order_id}. A confirmation \
+             email will be sent to {order.email}.")
+
+    if 'cart' in request.session:
+        del request.session['cart']
+
+    context = {
+        'order': order,
+    }
+    return render(request, "checkout/transact_success.html", context)

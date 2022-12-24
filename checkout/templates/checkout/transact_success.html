@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container page">
+    <h2 class="text-center text-uppercase">Transaction Successful</h2>
+    <hr class="header-hr">
+    <div class="row row-cols-2 justify-content-between my-5">
+        <div class="col-12 col-md-7 mx-auto">
+                <p class="fs-3">Thank You!</p>
+                <p>Your Order has been placed. A confirmation email will be sent to <strong>{{ order.email }}</strong></p>
+        </div>
+        <div class="col-12 col-md-4 checkout-items mt-2">
+            <!--View other items-->
+        </div>
+    </div>
+</div>
+{% endblock %}
