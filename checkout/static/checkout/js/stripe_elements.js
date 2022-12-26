@@ -43,7 +43,7 @@ card.addEventListener('change', function (event){
         ;
         $(erDiv).html(html);
     } else {
-        erDiv.textContent = ';'
+        erDiv.textContent = '';
     }
 });
 

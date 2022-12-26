@@ -9,15 +9,14 @@ class Order(models.Model):
         primary_key=True,
         default=uuid.uuid4,
         editable=False)
-    first_name = models.CharField(max_length=254)
-    last_name = models.CharField(max_length=254)
+    full_name = models.CharField(max_length=254)
     email = models.EmailField()
     phone_number = models.CharField(max_length=17)
-    house_number = models.CharField(max_length=10)
-    street = models.CharField(
-        max_length=254, blank=True)
-    postal_address = models.IntegerField()
+    address_line_1 = models.CharField(max_length=254)
+    address_line_2 = models.CharField(max_length=254, blank=True)
+    zip = models.IntegerField()
     city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100, blank=True)
     country = models.CharField(max_length=100)
     concluded = models.BooleanField(default=False)
     order_date = models.DateTimeField(auto_now_add=True)

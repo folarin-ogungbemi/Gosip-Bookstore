@@ -18,8 +18,8 @@ class OrdersAdmin(admin.ModelAdmin):
     ]
 
     list_display = (
-        'order_id', 'first_name', 'last_name', 'email', 'phone_number',
-        'house_number', 'street', 'postal_address', 'city', 'country',
+        'order_id', 'full_name', 'email', 'phone_number',
+        'address_line_1', 'address_line_2', 'zip', 'city', 'state', 'country',
         'order_date', 'cart_total', 'grand_total', 'concluded')
     search_fields = ('email', 'order_id', 'country', 'order_date', 'concluded')
     list_filter = ('email', 'order_id', 'country', 'concluded')
