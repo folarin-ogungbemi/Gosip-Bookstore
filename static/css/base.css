@@ -130,6 +130,25 @@ hr{
     box-shadow: none;
 }
 
+.btn-social-submit{
+    background-color: transparent;
+    border: 2px solid #022138;
+    border-radius: 5px;
+}
+
+.btn-social-color{
+    color:#022138;
+}
+
+.btn-social-submit:hover{
+    box-shadow: 0px 3px 10px 1px rgba(2, 33, 56, 0.3);
+    color:#022138;
+}
+
+.btn-social-submit:focus{
+    box-shadow: 0px 2px 10px 0.5px rgba(2, 33, 56, 0.5);
+}
+
 /* ---------------------------Top-Nav----- */
 
 /* general */
