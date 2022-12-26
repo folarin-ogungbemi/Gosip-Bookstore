@@ -16,7 +16,7 @@ class OrderForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={'placeholder': 'No.5, John primary street'}))
     address_line_2 = forms.CharField(
-        required=True,
+        required=False,
         widget=forms.TextInput(
             attrs={'placeholder': 'No.5, John secondary street'}))
     zip = forms.CharField(

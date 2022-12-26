@@ -13,7 +13,8 @@ class Order(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length=17)
     address_line_1 = models.CharField(max_length=254)
-    address_line_2 = models.CharField(max_length=254, blank=True)
+    address_line_2 = models.CharField(
+        max_length=254, null=True, blank=True)
     zip = models.IntegerField()
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100, blank=True)
