@@ -15,11 +15,8 @@
                         {% csrf_token %}
                         <div class="details mt-4">
                             <div class="row">
-                                <div class="col-6">
-                                    {{ form.first_name | as_crispy_field }}
-                                </div>
-                                <div class="col-6">
-                                    {{ form.last_name | as_crispy_field }}
+                                <div class="col-12 stretch">
+                                    {{ form.full_name | as_crispy_field }}
                                 </div>
                                 <div class="col-6">
                                     {{ form.email | as_crispy_field }}
@@ -32,17 +29,20 @@
                         <div class="billing">
                             <hr class="billing-rule">
                             <div class="row">
-                                <div class="col-6">
-                                    {{ form.house_number | as_crispy_field }}
+                                <div class="col-12 stretch">
+                                    {{ form.address_line_1 | as_crispy_field }}
                                 </div>
-                                <div class="col-6">
-                                    {{ form.postal_address | as_crispy_field }}
-                                </div>
-                                <div class="col-12 street">
-                                    {{ form.street | as_crispy_field }}
+                                <div class="col-12 stretch">
+                                    {{ form.address_line_2 | as_crispy_field }}
                                 </div>
                                 <div class="col-6">
                                     {{ form.city | as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form.zip | as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form.state | as_crispy_field }}
                                 </div>
                                 <div class="col-6">
                                     {{ form.country | as_crispy_field }}

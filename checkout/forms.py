@@ -3,27 +3,29 @@ from checkout.models import Order
 
 
 class OrderForm(forms.ModelForm):
-    first_name = forms.CharField(
+    full_name = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'John'}))
-    last_name = forms.CharField(
-        required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'Doe'}))
+        widget=forms.TextInput(attrs={'placeholder': 'John Doe'}))
     email = forms.CharField(
         required=True,
         widget=forms.TextInput(attrs={'placeholder': 'john@doe.com'}))
     phone_number = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': '+49 12345678900'}))
-    house_number = forms.IntegerField(
+    address_line_1 = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': '10'}))
-    street = forms.CharField(
+        widget=forms.TextInput(
+            attrs={'placeholder': 'No.5, John primary street'}))
+    address_line_2 = forms.CharField(
         required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'John street'}))
-    postal_address = forms.CharField(
-        label='Post Code',
+        widget=forms.TextInput(
+            attrs={'placeholder': 'No.5, John secondary street'}))
+    zip = forms.CharField(
+        label='ZIP',
         required=False,)
     city = forms.CharField(
+        required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Berlin'}))
+    state = forms.CharField(
         required=True,
         widget=forms.TextInput(attrs={'placeholder': 'Berlin'}))
     country = forms.CharField(
@@ -33,12 +35,12 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = [
-            'first_name',
-            'last_name',
+            'full_name',
             'email',
             'phone_number',
-            'house_number',
-            'street',
-            'postal_address',
+            'address_line_1',
+            'address_line_2',
+            'zip',
             'city',
+            'state',
             'country',]
