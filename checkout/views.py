@@ -20,14 +20,14 @@ def checkout_view(request):
         cart = request.session.get('cart', {})
 
         customer_data = {
-            'first_name': request.POST['first_name'],
-            'last_name': request.POST['last_name'],
+            'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
-            'house_number': request.POST['house_number'],
-            'street': request.POST['street'],
-            'postal_address': request.POST['postal_address'],
+            'address_line_1': request.POST['address_line_1'],
+            'address_line_2': request.POST['address_line_2'],
             'city': request.POST['city'],
+            'zip': request.POST['zip'],
+            'state': request.POST['state'],
             'country': request.POST['country'],
         }
 
