@@ -80,22 +80,7 @@
       {% endif %}
       {% endwith %}
     {% endfor %}
-    <!-- /.messages-->
-        <!-- <div class="message-container">
-            {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %}
-                        {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
-                    {% else %}
-                        {% include 'includes/toasts/toast_info.html' %}
-                    {% endif %}
-                {% endwith %}
-            {% endfor %}
-        </div> -->
+    <!--messages./-->
 
     {% block page_header %}
     {% endblock %}
@@ -110,10 +95,19 @@
   
     {% block postloadjs %}
     <script type="text/javascript">
+
+      // Timeout for success toast
       setTimeout(() => {
         const msgToast = new bootstrap.Toast('.toast');
         msgToast.show();
       }, 500);
+
+      // Timeout for custom message alerts
+      setTimeout(() => {
+        const messages = document.querySelector('.messages')
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+      }, 2800);
     </script>
     {% endblock %}
   </body>
