@@ -13,12 +13,6 @@ class BookViews(ListView):
     paginate_by = 8
 
 
-class BookDetailView(DetailView):
-    model = Books
-    template_name = 'books/book-details.html'
-    context_object_name = 'book'
-
-
 def search_view(request):
     """
     function searches through the query set
@@ -26,11 +20,21 @@ def search_view(request):
     """
 
     query_set = Books.objects.all()
+    query_sort = request.GET.get('sort', None)
+    query_direction = request.GET.get('direction', None)
     query_specials = request.GET.get('special', None)
     query_genre = request.GET.get('genre', None)
     query_dict = request.GET.get('q', None)
 
     if request.GET:
+        if query_sort:
+            if query_sort == 'x':
+                query_sort = 'lower_x'
+                query_set = query_set.annotate(lower_x=lower('x'))
+            if query_direction:
+                if query_direction == 'desc':
+                    query_sort = f'-{query_sort}'
+            query_set = query_set.order_by(query_sort)
         if query_specials:
             specials = query_specials.split(',')
             query_set = query_set.filter(special__name__in=specials)
@@ -47,9 +51,20 @@ def search_view(request):
             query_set = query_set.filter(queries)
             if query_dict is None:
                 return redirect(reverse('books:books'))
+
+    sorting = f'{query_sort}_{query_direction}'
+
     context = {
-        'books': query_set,
-        'search_term': query_dict,
-        'genre': query_genre,
+            'books': query_set,
+            'search_term': query_dict,
+            'genre': query_genre,
+            'special': query_specials,
+            'sorting': sorting,
     }
     return render(request, "books/books.html", context)
+
+
+class BookDetailView(DetailView):
+    model = Books
+    template_name = 'books/book-details.html'
+    context_object_name = 'book'

@@ -1,20 +1,20 @@
 <!--All Books-->
 <li class="nav-item dropdown">
-    <a
-      class="nav-link ps-4 dropdown-toggle"
-      role="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-      href="#"
-      >All Books</a
-    >
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">By Price</a></li>
-      <li><a class="dropdown-item" href="#">By Rating</a></li>
-      <li><a class="dropdown-item" href="#">By Category</a></li>
-      <li><a class="dropdown-item" href="#">All Books</a></li>
-    </ul>
-  </li>
+  <a
+    class="nav-link ps-4 dropdown-toggle"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+    href="#"
+    >All Books</a
+  >
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'books:search-result' %}?sort=price&direction=asc">By Price</a></li>
+    <li><a class="dropdown-item" href="{% url 'books:search-result' %}?sort=rating&direction=desc">By Rating</a></li>
+    <li><a class="dropdown-item" href="{% url 'books:search-result' %}?sort=genre&direction=asc">By Genre</a></li>
+    <li><a class="dropdown-item" href="{% url 'books:books' %}">All Books</a></li>
+  </ul>
+</li>
   <!--/.All Products-->
  <!--Genres-->
 <li class="nav-item dropdown">
