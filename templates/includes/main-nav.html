@@ -46,11 +46,11 @@
       >Specials</a
     >
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Bestseller</a></li>
-      <li><a class="dropdown-item" href="#">New Arrivals</a></li>
-      <li><a class="dropdown-item" href="#">SALE</a></li>
-      <li><a class="dropdown-item" href="#">Recommendations</a></li>
-      <li><a class="dropdown-item" href="#">All Specials</a></li>
+      <li><a class="dropdown-item" href="{% url 'books:search-result' %}?special=Bestseller">Bestseller</a></li>
+      <li><a class="dropdown-item" href="{% url 'books:search-result' %}?special=New Arrivals">New Arrivals</a></li>
+      <li><a class="dropdown-item" href="{% url 'books:search-result' %}?special=SALE">SALE</a></li>
+      <li><a class="dropdown-item" href="{% url 'books:search-result' %}?special=Recommendations">Recommendations</a></li>
+      <li><a class="dropdown-item" href="{% url 'books:search-result' %}?special=Special">All Specials</a></li>
     </ul>
   </li>
   <!--/.Special-Offers-->
