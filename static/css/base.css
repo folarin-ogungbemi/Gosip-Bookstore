@@ -66,6 +66,16 @@ hr{
     margin: auto;
 }
 
+.messages{
+    z-index: 9999;
+    margin-top: 15.5vh;
+}
+
+.alert{
+    background-color: #fff;
+    border-radius: 0;
+}
+
 /* forms */
 
 .auth-card{

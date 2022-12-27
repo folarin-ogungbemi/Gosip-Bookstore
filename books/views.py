@@ -3,6 +3,7 @@ from books .models import Books
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.db.models import Q
+from django.contrib import messages
 
 
 class BookViews(ListView):
@@ -32,12 +33,8 @@ def search_view(request):
             queries = Q(title__icontains=query_dict) | Q(
                 description__icontains=query_dict)
             query_set = query_set.filter(queries)
-            # if query_dict is None:
-            #     messages.add_message(
-            #         request,
-            #         messages.WARNING,
-            #         "You didn't enter any search")
-            #     return redirect(reverse('books:books'))
+            if query_dict is None:
+                return redirect(reverse('books:books'))
     context = {
         'books': query_set,
         'search_term': query_dict,

@@ -59,8 +59,29 @@
       </nav>
     </header>
   
-    {% if messages %}
-        <div class="message-container">
+    <!--messages-->
+    {% for message in messages %}
+    {% with message.level as level %}
+      {% if level == 25 %}
+      <div class="message-container">
+        {% include 'includes/toasts/toast_success.html' %}
+      </div>
+      {% else %}
+      <div class="container-fluid messages">
+        <div class="row">
+          <div class="col-12">
+            <div class="alert {{message.tags}} alert-dismissible fade show" id="msg" role="alert">
+              {{ message | safe }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endwith %}
+    {% endfor %}
+    <!-- /.messages-->
+        <!-- <div class="message-container">
             {% for message in messages %}
                 {% with message.level as level %}
                     {% if level == 40 %}
@@ -74,8 +95,7 @@
                     {% endif %}
                 {% endwith %}
             {% endfor %}
-        </div>
-    {% endif %}
+        </div> -->
 
     {% block page_header %}
     {% endblock %}
