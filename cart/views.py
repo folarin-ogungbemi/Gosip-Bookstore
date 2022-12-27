@@ -34,9 +34,10 @@ def order_item(request, slug):
         return redirect('shopping_cart')
     except ValueError:
         # return a message to user on invaild input
-        messages.info(
+        messages.add_message(
             request,
-            f'Please enter a valid quantity for "{book.title}"')
+            messages.INFO,
+            f'Enter a valid quantity to add "{book.title}" to cart')
         return redirect(reverse('books:book-details', args=[slug]))
 
 
