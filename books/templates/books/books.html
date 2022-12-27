@@ -7,6 +7,24 @@
               <h2 class="text-uppercase">books</h2>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end">
+              <p class=" mute mt-3">
+                  {% if search_term or genre or special or sorting is true %}
+                  <span>
+                    <a class="books-link" href="{% url 'books:books' %}">Books Home</a> |
+                  </span>
+                  {% endif %}
+                  {% if books|length < 1 %}
+                  <span>No Books found for <strong>"{{search_term}}"</strong></span>
+                  {% elif books|length == 1 %}
+                  {{ books|length }} Book{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                  {% else %}
+                  {{ books|length }} Books{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                  {% endif%}
+              </p>
+            </div>
+          </div>
         <div class="container all-books my-5">
             <div class="row">
                 {% for book in books %}
