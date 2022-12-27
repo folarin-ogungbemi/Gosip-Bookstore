@@ -16,25 +16,25 @@
     </ul>
   </li>
   <!--/.All Products-->
-  <!--Genres-->
-  <li class="nav-item dropdown">
-    <a
-      class="nav-link ps-4 dropdown-toggle"
-      role="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-      href="#"
-      >Genres</a
-    >
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Education</a></li>
-      <li><a class="dropdown-item" href="#">Fantasy</a></li>
-      <li><a class="dropdown-item" href="#">History</a></li>
-      <li><a class="dropdown-item" href="#">Kids</a></li>
-      <li><a class="dropdown-item" href="#">Sports</a></li>
-    </ul>
-  </li>
-  <!--/.Genres-->
+ <!--Genres-->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link ps-4 dropdown-toggle"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+    href="#"
+    >Genres</a
+  >
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'books:search-result' %}?genre=Education">Education</a></li>
+    <li><a class="dropdown-item" href="{% url 'books:search-result' %}?genre=Fantasy">Fantasy</a></li>
+    <li><a class="dropdown-item" href="{% url 'books:search-result' %}?genre=History">History</a></li>
+    <li><a class="dropdown-item" href="{% url 'books:search-result' %}?genre=Kids">Kids</a></li>
+    <li><a class="dropdown-item" href="{% url 'books:search-result' %}?genre=Sports">Sports</a></li>
+  </ul>
+</li>
+<!--/.Genres-->
   <!--Special-Offers-->
   <li class="nav-item dropdown">
     <a

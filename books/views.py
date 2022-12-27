@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from books .models import Books
+from books .models import Books, Genre
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.db.models import Q
@@ -26,9 +26,15 @@ def search_view(request):
     """
 
     query_set = Books.objects.all()
+    query_genre = request.GET.get('genre', None)
     query_dict = request.GET.get('q', None)
 
     if request.GET:
+        if query_genre:
+            genres = query_genre.split(',')
+            query_set = query_set.filter(genre__name__in=genres)
+            query_genre = Genre.objects.filter(name__in=genres)
+
         if query_dict:
             queries = Q(title__icontains=query_dict) | Q(
                 description__icontains=query_dict)
@@ -38,5 +44,6 @@ def search_view(request):
     context = {
         'books': query_set,
         'search_term': query_dict,
+        'genre': query_genre,
     }
     return render(request, "books/books.html", context)
