@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-3">
                         <div class="d-flex gap-2 wish-action">
-                            <button class="remove-book btn" id="remove_{{ item.slug }}"><i class="fa-solid fa-trash"></i></button>
+                            <button class="remove-book btn" id="remove_{{ item.book.slug }}"><i class="fa-solid fa-trash"></i></button>
                             <button class="btn btn-cart" type="submit">Add to Cart</button>
                         </div>
                     </div>
@@ -51,4 +51,22 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block postloadjs %}
+    {{block.super}}
+    <script type="text/javascript">
+
+        // Remove like on click and reload page
+      $('.remove-book').click(function(e) {
+          var csrfToken = "{{ csrf_token }}";
+          var bookId = $(this).attr('id').split('remove_')[1];
+          var url = `/wishlist/remove/${bookId}/`;
+          var data = {'csrfmiddlewaretoken': csrfToken};
+
+          $.post(url, data)
+          .done(() => {
+              location.reload();
+          });
+      })
+    </script>
 {% endblock %}

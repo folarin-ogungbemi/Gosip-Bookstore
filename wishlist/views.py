@@ -20,3 +20,16 @@ def like_book(request, slug):
         wishlist.pop(slug)
     request.session['wishlist'] = wishlist
     return HttpResponse('redirect_url')
+
+
+def remove_book(request, slug):
+    """ Returning a liked item from the wishlist """
+    try:
+        wishlist = request.session.get('wishlist', {})
+        wishlist.pop(slug)
+
+        request.session['wishlist'] = wishlist
+        return HttpResponse(status=200)
+
+    except Exception as error:
+        return HttpResponse(status=500)
