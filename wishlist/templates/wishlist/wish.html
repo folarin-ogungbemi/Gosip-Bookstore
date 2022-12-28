@@ -3,5 +3,52 @@
 {% block content %}
 <div class="container page">
     <h2 class="text-center text-uppercase">Wishlist</h2>
+    <div class="row justify-content-between my-5">
+        <div class="col-10 mx-auto checkout-items">
+            {% if books_liked %}
+            {% for item in books_liked %}
+            <div class="row">
+                <div class="container d-flex my-2">
+                    <div class="col-3">
+                        <div class="book-wishlist-card py-3 px-3">
+                            <a href="{% url 'books:book-details' slug=item.book.slug %}">
+                                <img src="{{ item.book.image.url }}" alt="book image" width="98" height="150">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-grid gap-2 mt-3 mb-2">
+                            <p><strong>{{ item.book.title }}</strong></p>
+                            <a class="text-decoration-none" href="{% url 'books:book-details' slug=item.book.slug %}#about-author">
+                                <small class="author-link">{{ item.book.author }}</small>
+                            </a>
+                            {% if item.book.genre %}
+                            <a class="text-decoration-none" href="#">
+                                <small class="mute genre-link"><i class="fa-solid fa-tag"></i> {{ item.book.genre }}</small>
+                            </a>
+                            {% endif %}
+                            <p>Price : {{ item.book.price }} €</p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex gap-2 wish-action">
+                            <button class="remove-book btn" id="remove_{{ item.slug }}"><i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-cart" type="submit">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="wishlist-hr">
+            {% endfor %}
+            {% else %}
+            <div class="d-grid my-auto">
+                <p class="fs-2 text-center">Your Wishlist is empty.</p>
+                <div class="d-flex justify-content-center mt-4">
+                    <a class="btn btn-bookstore" href="{% url 'books:books' %}"><i class="fa-solid fa-arrow-left"></i> Back to Bookstore</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}
