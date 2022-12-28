@@ -297,6 +297,23 @@ hr{
     font-size: 1.3rem;
 }
 
+.mobile-cart-box,
+.mobile-wish-box{
+    position: relative;
+}
+
+.mobile-cart-items,
+.mobile-wish-items{
+    position: absolute;
+    top:5%;
+    right: 2%;
+    width:20px;
+    text-align: center;
+    background-color: #f02c2c;
+    border-radius: 50%;
+    color: #fff;
+}
+
 /* ---------------------------Offcanvas-Navbar--- */
 
 /* general */

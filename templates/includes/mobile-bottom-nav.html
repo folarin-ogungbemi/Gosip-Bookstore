@@ -7,10 +7,12 @@
       <li class="nav-item">
         <a class="nav-link ps-4" href="#"><i class="fa-solid fa-user"></i></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link ps-4" href="#"><i class="fa-regular fa-heart"></i></a>
+      <li class="nav-item mobile-wish-box">
+        <small class="text-danger"><strong class="mobile-wish-items">{{ like_count }}</strong></small>
+        <a class="nav-link ps-4" href="{% url 'wishlist' %}"><i class="fa-regular fa-heart"></i></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item mobile-cart-box">
+        <small class="text-danger"><strong class="mobile-cart-items">{{book_count}}</strong></small>
         <a class="nav-link ps-4" href="{% url 'shopping_cart'%}"><i class="fa-solid fa-basket-shopping"></i></a>
       </li>
       <li class="nav-item">
