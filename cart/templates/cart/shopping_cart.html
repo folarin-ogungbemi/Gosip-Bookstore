@@ -62,6 +62,7 @@
                             <a class="update-book-qty text-center ms-3 pt-1"><small><i class="fa-solid fa-arrows-rotate"></i> Update</small></a>
                             <div class="d-flex">
                                 <form action="{% url 'wish' slug=item.slug %}" method="POST">
+                                    {% csrf_token %}
                                     <a class="like-book btn ms-5" id="like_{{ item.slug }}"><i class="fa-regular fa-heart"></i></a>
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 </form>

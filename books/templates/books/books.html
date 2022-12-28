@@ -31,7 +31,11 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="book my-3">
                         <div class="container">
-                            <button class="book-like" type="submit"><i class="fa-regular fa-heart"></i></button>
+                            <form action="{% url 'wish' slug=book.slug %}" method="POST">
+                                {% csrf_token %}
+                                <button class="like-book btn ms-5 book-like" id="like_{{ book.slug }}"><i class="fa-regular fa-heart"></i></button>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </form>
                             <a href="{% url 'books:book-details' slug=book.slug %}">
                                 <div class="container book-card py-4 px-3">
                                     <img src="{{ book.image.url }}" alt="book image" width="200" height="280">

@@ -71,5 +71,7 @@
 .like-book:hover,
 .remove-book:hover{
     color: #f02c2c;
+    background-color: #fffaf6;
+    border-radius: 50%;
 }
 
