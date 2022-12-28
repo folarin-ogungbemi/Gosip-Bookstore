@@ -32,7 +32,7 @@
                     <div class="col-3">
                         <div class="d-grid gap-3 mt-3 mb-2 justify-content-center">
                             <p class="text-center my-0 ms-5"><strong>{{ item.book.price | calc_subtotal:item.qty }} €</strong></p>
-                            <!-- Add book to cart form-->
+                            <!-- Adjust book quantity in cart-->
                             <form id="update-qty" action="{% url 'adjust_cart' slug=item.slug %}" method="POST">
                                 {% csrf_token %}
                                 <div class="d-grid justify-content-center">
@@ -61,9 +61,11 @@
                             </form>
                             <a class="update-book-qty text-center ms-3 pt-1"><small><i class="fa-solid fa-arrows-rotate"></i> Update</small></a>
                             <div class="d-flex">
-                                <a class="like-book btn ms-5" id="remove_{{ item.slug }}"><i class="fa-regular fa-heart"></i></a>
+                                <form action="#" method="POST">
+                                    <a class="like-book btn ms-5" id="like_{{ item.slug }}"><i class="fa-regular fa-heart"></i></a>
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </form>
                                 <a class="remove-book btn ms-5" id="remove_{{ item.slug }}"><i class="fa-solid fa-trash"></i></a>
-                                <button class="btn" ></button>
                             </div>
                         </div>
                     </div>
@@ -142,6 +144,18 @@
             var csrfToken = "{{ csrf_token }}";
             var bookId = $(this).attr('id').split('remove_')[1];
             var url = `/cart/remove/${bookId}/`;
+            var data = {'csrfmiddlewaretoken': csrfToken};
+    
+            $.post(url, data)
+             .done(() => {
+                 location.reload();
+             });
+        })
+        // Like book on click and reload page
+        $('.like-book').click(function(e) {
+            var csrfToken = "{{ csrf_token }}";
+            var bookId = $(this).attr('id').split('like_')[1];
+            var url = `/wishlist/like/${bookId}/`;
             var data = {'csrfmiddlewaretoken': csrfToken};
     
             $.post(url, data)

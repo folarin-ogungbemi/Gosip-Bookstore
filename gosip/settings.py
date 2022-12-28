@@ -94,7 +94,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'cart.contexts.shopping_cart'
+                'cart.contexts.shopping_cart',
+                'wishlist.contexts.wish_list'
             ],
         },
     },

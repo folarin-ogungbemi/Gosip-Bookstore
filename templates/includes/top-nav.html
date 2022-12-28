@@ -50,8 +50,8 @@
       </ul>
     </li>
     <li class="nav-item wish-box text-center">
-      <small class="text-danger"><strong class="wish-items">0</strong></small>
-      <a class="nav-link d-grid gap-2 me-2" href="#">
+      <small class="text-danger"><strong class="wish-items">{{ like_count }}</strong></small>
+      <a class="nav-link d-grid gap-2 me-2" href="{% url 'wishlist' %}">
         <i class="fa-regular fa-heart"></i>
         <small class="nav-hover">Wishlist</small>
       </a>
