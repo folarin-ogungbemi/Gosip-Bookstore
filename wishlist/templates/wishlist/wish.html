@@ -33,7 +33,12 @@
                     <div class="col-3">
                         <div class="d-flex gap-2 wish-action">
                             <button class="remove-book btn" id="remove_{{ item.book.slug }}"><i class="fa-solid fa-trash"></i></button>
-                            <button class="btn btn-cart" type="submit">Add to Cart</button>
+                            <!--Add liked book to cart-->
+                            <form action="{% url 'in_cart' slug=item.book.slug %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="quantity" value="1" id="id_qty_{{ item.book.id }}">
+                                <button class="btn btn-cart" type="submit">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -61,6 +66,19 @@
           var csrfToken = "{{ csrf_token }}";
           var bookId = $(this).attr('id').split('remove_')[1];
           var url = `/wishlist/remove/${bookId}/`;
+          var data = {'csrfmiddlewaretoken': csrfToken};
+
+          $.post(url, data)
+          .done(() => {
+              location.reload();
+          });
+      })
+
+        // Remove like on click and reload page
+      $('.add-book').click(function(e) {
+          var csrfToken = "{{ csrf_token }}";
+          var bookId = $(this).attr('id').split('id_qty_')[1];
+          var url = `/cart/add/${bookId}/`;
           var data = {'csrfmiddlewaretoken': csrfToken};
 
           $.post(url, data)
