@@ -7,18 +7,15 @@ from books.models import Books
 def shopping_cart(request):
     shopping_basket = []
     total = 0
-    book_qty_price = 0
     book_count = 0
     cart = request.session.get('cart', {})
 
     for slug, qty in cart.items():
         book = get_object_or_404(Books, slug=slug)
-        book_qty_price = qty * book.price
         total += qty * book.price
         book_count += qty
         shopping_basket.append({
             'slug': slug,
-            'book_qty_price': book_qty_price,
             'book': book,
             'qty': qty,
         })
