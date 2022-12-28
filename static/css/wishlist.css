@@ -1,0 +1,25 @@
+.wishlist-hr{
+    border: 1.5px solid #022138;
+}
+.book-wishlist-card{
+    width: 130px;
+    margin: auto;
+    box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.1);
+}
+.book-wishlist-card:hover{
+    box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.5);
+}
+
+.btn-cart{
+    border: 2px solid #022138;
+    color: #022138;
+}
+
+.btn-cart:hover{
+    color: #fffaf6;
+    background-color: #022138;
+}
+
+.wish-action{
+    padding-top: 120px;
+}

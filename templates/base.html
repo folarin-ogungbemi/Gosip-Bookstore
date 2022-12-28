@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/books.css' %}">
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/wishlist.css' %}">
     {% endblock %}
 
     {% block extra_css %}
@@ -108,28 +109,7 @@
         let alert = new bootstrap.Alert(messages);
         alert.close();
       }, 2800);
-
       
-      // Update quantity on click
-      $('.update-book-qty').click(function(e) {
-          // https://api.jquery.com/prev/
-          var form = $(this).prev('#update-qty');
-          form.submit();
-      })
-
-      // Remove book on click and reload page
-      $('.remove-book').click(function(e) {
-          var csrfToken = "{{ csrf_token }}";
-          var bookId = $(this).attr('id').split('remove_')[1];
-          var url = `/cart/remove/${bookId}/`;
-          var data = {'csrfmiddlewaretoken': csrfToken};
-
-          $.post(url, data)
-          .done(() => {
-              location.reload();
-          });
-      })
-
       // Like book on click and reload page
       $('.like-book').click(function(e) {
           var csrfToken = "{{ csrf_token }}";
