@@ -14,65 +14,73 @@
             </div>
         </div>
         <p class="fs-4">Order Details</p>
-        <div class="row">
-            <div class="col-12 checkout-items mt-2">
-                <div class="container">
-                    <div class="row row-cols-2">
-                        <!--Billing Address-->
-                      <div class="col-12 col-md-6 mt-2">
-                        <p><strong class="text-decoration-underline">Billing Address:</strong></p>
-                        <span>{{ order.full_name }}
-                        <br>
-                        {{ order.address_line_1 }}
-                        <br>
-                        {% if zip %}
-                        {{ order.zip }}, {{ order.city }}
-                        {% else %}
-                        {{ order.city }}
-                        {% endif %}
-                        <br>
-                        {{ order.state}}, {{ order.country }}
-                        </span>
-                      </div>
-                      <div class="col-12 col-md-6 mt-2">
-                        <p><strong class="text-decoration-underline">Customer Info</strong></p>
-                        <small><span class="fw-semibold">Order Number:</span> {{ order.order_id }}</small>
-                        <br>
-                        <small><span class="fw-semibold">Date:</span> {{order.order_date}}</small>
-                        <br>
-                        <small><span class="fw-semibold">Total:</span> {{order.cart_total}}</small>
-                        <br>
-                        <small><span class="fw-semibold">Grand Total:</span> {{order.grand_total}}</small>
-                      </div>
-                      <div class="col-12 mt-2">
-                        <p><strong class="text-decoration-underline">Shipping Address:</strong></p>
-                        <span>
-                        {{ order.full_name }}
-                        <br>
-                        {{ order.address_line_1 }}
-                        <br>
-                        {% if zip %}
-                        {{ order.zip }}, {{ order.city }}
-                        {% else %}
-                        {{ order.city }}
-                        {% endif %}
-                        <br>
-                        {{ order.state}}, {{ order.country }}
-                        </span>
-                      </div>
+        <div class="container order-details mb-5">
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <div class="container">
+                        <div class="row row-cols-2">
+                            <!--Billing Address-->
+                          <div class="col-12 col-md-6 mt-2">
+                            <p><strong class="text-decoration-underline">Billing Address:</strong></p>
+                            <span>{{ order.full_name }}
+                            <br>
+                            {{ order.address_line_1 }}
+                            <br>
+                            {% if zip %}
+                            {{ order.zip }}, {{ order.city }}
+                            {% else %}
+                            {{ order.city }}
+                            {% endif %}
+                            <br>
+                            {{ order.state}}, {{ order.country }}
+                            </span>
+                          </div>
+                          <div class="col-12 col-md-6 mt-2">
+                            <p><strong class="text-decoration-underline">Order Info:</strong></p>
+                             <small><span class="fw-semibold">Order Number:</span> {{ order.order_id }}</small>
+                            <br>
+                            <small><span class="fw-semibold">Date:</span> {{order.order_date}}</small>
+                            <br>
+                            <small><span class="fw-semibold">Total:</span> {{order.cart_total}} €</small>
+                            <br>
+                            <small><span class="fw-semibold">Grand Total:</span> {{order.grand_total}} €</small>
+                          </div>
+                          <div class="col-12 mt-2">
+                            <p><strong class="text-decoration-underline">Shipping Address:</strong></p>
+                            <span>
+                            {{ order.full_name }}
+                            <br>
+                            {{ order.address_line_1 }}
+                            <br>
+                            {% if zip %}
+                            {{ order.zip }}, {{ order.city }}
+                            {% else %}
+                            {{ order.city }}
+                            {% endif %}
+                            <br>
+                            {{ order.state}}, {{ order.country }}
+                            </span>
+                          </div>
+                          {% if order_items %}
+                            <div class="container order-scroll mx-auto mt-2">
+                                <p class="text-decoration-underline"><strong>Purchase:</strong></p>
+                                <div class="d-flex justify-content-start order-book-box">
+                                {% for order in order_items %}
+                                    <div class="book-checkout-card py-3 px-3">
+                                        <a href="{% url 'books:book-details' slug=order.book.slug %}">
+                                            <img src="{{ order.book.image.url }}" alt="book image" width="49" height="80">
+                                        </a>
+                                        <div class="order-qty text-center">{{order.qty}}</div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div>
-            {% for item in order_items %}
-            {{item.book.image}}
-            title: {{item.book.title}}
-            price: {{item.book.price}}
-            quantity: {{item.qty}}
-            total_items:{{total_items}}
-            {% endfor %}
-        </div>
     </div>
-    
 {% endblock %}

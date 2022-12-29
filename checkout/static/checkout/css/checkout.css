@@ -78,3 +78,40 @@
     height: 100%;
     color: #fffaf6;
 }
+
+/* --------------------Purchase-- */
+
+.order-details{
+    border: 1px solid #022138;
+    padding: 20px;
+}
+.order-scroll{
+    width: 100%;
+    overflow: scroll;
+}
+
+.order-book-box{
+    width: 100px;
+}
+
+.book-checkout-card{
+    position: relative;
+    width: 80px;
+    margin: auto;
+    box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.1);
+}
+
+.book-checkout-card:hover{
+    box-shadow: 0px 3px 15px 1px rgba(2, 33, 56, 0.3);
+}
+
+.order-qty{
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    border-radius: 5px;
+    backdrop-filter: blur(15px);
+}
