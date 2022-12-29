@@ -21,5 +21,5 @@ class StripeWH_Handler:
     def handle_payment_intent_payment_failed(self, event):
         """ handles a failed webhook event"""
         return HttpResponse(
-            content=f"webhook received: {event['type']}",
+            content=f"Payment failed webhook received: {event['type']}",
             status=200)

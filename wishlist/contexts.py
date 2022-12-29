@@ -4,7 +4,7 @@ from books.models import Books
 
 def wish_list(request):
     books_liked = []
-    like_count = ''
+    like_count = 0
 
     wishlist = request.session.get('wishlist', {})
 
