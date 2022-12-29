@@ -118,6 +118,15 @@ hr{
     outline: none;
 }
 
+#div_id_remember{
+    text-align: start !important;
+}
+
+#id_remember{
+    cursor: pointer;
+    border-color: #022138;
+}
+
 /* button */
 
 .btn-submit{
