@@ -64,5 +64,15 @@
                 </div>
             </div>
         </div>
+        <div>
+            {% for item in order_items %}
+            {{item.book.image}}
+            title: {{item.book.title}}
+            price: {{item.book.price}}
+            quantity: {{item.qty}}
+            total_items:{{total_items}}
+            {% endfor %}
+        </div>
     </div>
+    
 {% endblock %}

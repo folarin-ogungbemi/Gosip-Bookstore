@@ -85,15 +85,26 @@ def checkout_view(request):
 def transact_success(request, order_id):
     """ Handle successful transaction and delete items in cart"""
 
+    order_items = []
+    total_items = 0
     order = get_object_or_404(Order, order_id=order_id)
     messages.success(request, f"Transaction was successful! \
         Your order number is: {order_id}. A confirmation \
              email will be sent to {order.email}.")
 
     if 'cart' in request.session:
+        cart = request.session.get('cart')
+        for slug, qty in cart.items():
+            book = get_object_or_404(Books, slug=slug)
+            total_items += qty
+            order_items.append({
+                'book': book,
+                'slug': slug,
+                'qty': qty, })
         del request.session['cart']
-
     context = {
         'order': order,
+        'order_items': order_items,
+        'total_items': total_items
     }
     return render(request, "checkout/transact_success.html", context)
