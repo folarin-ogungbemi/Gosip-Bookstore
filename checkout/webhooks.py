@@ -1,3 +1,6 @@
+# Takes care of requests
+# Stripe can signal which (event) was triggered
+
 from django.conf import settings
 from django.http import HttpResponse
 import json
@@ -11,16 +14,16 @@ import stripe
 @csrf_exempt
 def my_webhook_view(request):
     """Listens for webhooks from Stripe """
-    
-    # setup
+
+    # setup to confirm webhook is from stripe
     wh_secret = settings.STRIPE_WEBHOOK_SECRET
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
+    # Get the webhook data and verify its signature
     event = None
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
 
-    # Get the webhook data and verify its signature
     try:
         event = stripe.Webhook.construct_event(
             payload, sig_header, wh_secret
@@ -43,7 +46,7 @@ def my_webhook_view(request):
         'payment_intent.payment_failed': handler.handle_payment_intent_payment_failed,
     }
 
-    # Get the webhook type from Stripe
+    # Get the webhook type from Stripe stored in key 'type'
     event_type = event['type']
 
     # If there's a handler for it, get it from the event map

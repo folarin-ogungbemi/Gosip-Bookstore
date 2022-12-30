@@ -53,7 +53,11 @@ def checkout_view(request):
         # save user data in db and conclude transaction
         form = OrderForm(customer_data)
         if form.is_valid():
-            order = form.save()
+            order = form.save(commit=False)  # prevent multiple save event 'commit'
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
             for slug, qty in cart.items():
                 try:
                     book = get_object_or_404(Books, slug=slug)
