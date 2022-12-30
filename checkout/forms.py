@@ -28,9 +28,6 @@ class OrderForm(forms.ModelForm):
     state = forms.CharField(
         required=True,
         widget=forms.TextInput(attrs={'placeholder': 'Berlin'}))
-    country = forms.CharField(
-        required=True,
-        widget=forms.TextInput(attrs={'placeholder': 'Germany'}))
 
     class Meta:
         model = Order

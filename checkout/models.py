@@ -2,6 +2,7 @@ from django.db import models
 import uuid
 from books.models import Books
 from django.db.models import Sum
+from django_countries.fields import CountryField
 
 
 class Order(models.Model):
@@ -15,10 +16,10 @@ class Order(models.Model):
     address_line_1 = models.CharField(max_length=254)
     address_line_2 = models.CharField(
         max_length=254, null=True, blank=True)
-    zip = models.IntegerField()
+    zip = models.IntegerField(null=True, blank=True)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100, blank=True)
-    country = models.CharField(max_length=100)
+    country = CountryField(blank_label='Country')
     concluded = models.BooleanField(default=False)
     order_date = models.DateTimeField(auto_now_add=True)
     cart_total = models.DecimalField(
