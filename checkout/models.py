@@ -16,7 +16,7 @@ class Order(models.Model):
     address_line_1 = models.CharField(max_length=254)
     address_line_2 = models.CharField(
         max_length=254, null=True, blank=True)
-    zip = models.IntegerField(null=True, blank=True)
+    zip = models.CharField(max_length=10)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100, blank=True)
     country = CountryField(blank_label='Country')
