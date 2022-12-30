@@ -3,6 +3,7 @@ import uuid
 from books.models import Books
 from django.db.models import Sum
 from django_countries.fields import CountryField
+from django.core.validators import MinValueValidator
 
 
 class Order(models.Model):
@@ -25,10 +26,12 @@ class Order(models.Model):
     cart_total = models.DecimalField(
         max_digits=8,
         decimal_places=2,
+        validators=[MinValueValidator(0)],
         default=0)
     grand_total = models.DecimalField(
         max_digits=8,
         decimal_places=2,
+        validators=[MinValueValidator(0)],
         default=0)
     original_cart = models.TextField(default='')
     stripe_pid = models.CharField(max_length=254, default='')
