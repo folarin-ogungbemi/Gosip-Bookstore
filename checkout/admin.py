@@ -14,12 +14,18 @@ class OrdersAdmin(admin.ModelAdmin):
     ]
 
     readonly_fields = [
-        'order_id', 'email', 'order_date', 'cart_total', 'grand_total'
+        'order_id', 'email', 'order_date', 'cart_total', 'grand_total',
+        'original_cart', 'stripe_pid'
     ]
 
     list_display = (
         'order_id', 'full_name', 'email', 'phone_number',
         'address_line_1', 'address_line_2', 'zip', 'city', 'state', 'country',
-        'order_date', 'cart_total', 'grand_total', 'concluded')
-    search_fields = ('email', 'order_id', 'country', 'order_date', 'concluded')
-    list_filter = ('email', 'order_id', 'country', 'concluded')
+        'order_date', 'cart_total', 'grand_total', 'original_cart',
+        'stripe_pid', 'concluded')
+    search_fields = (
+        'email', 'order_id', 'country', 'order_date',
+        'original_cart', 'stripe_pid', 'concluded')
+    list_filter = (
+        'email', 'order_id', 'country', 'concluded',
+        'original_cart', 'stripe_pid',)

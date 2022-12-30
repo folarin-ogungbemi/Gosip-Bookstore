@@ -29,6 +29,8 @@ class Order(models.Model):
         max_digits=8,
         decimal_places=2,
         default=0)
+    original_cart = models.TextField(default='')
+    stripe_pid = models.CharField(max_length=254, default='')
 
     class Meta:
         ordering = ['-order_date']
