@@ -58,6 +58,16 @@
     margin: auto;
 }
 
+select,
+select option{
+    color: #022138;
+}
+
+select:invalid,
+select option[value=""]{
+    color:rgba(2, 33, 56, 0.7) !important ;
+}
+
 /* -------------------------Loading Overlay------ */
 #loader {
     display: none;
