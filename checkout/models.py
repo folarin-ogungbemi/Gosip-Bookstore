@@ -4,6 +4,7 @@ from books.models import Books
 from django.db.models import Sum
 from django_countries.fields import CountryField
 from django.core.validators import MinValueValidator
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
@@ -11,6 +12,9 @@ class Order(models.Model):
         primary_key=True,
         default=uuid.uuid4,
         editable=False)
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=254)
     email = models.EmailField()
     phone_number = models.CharField(max_length=17)
