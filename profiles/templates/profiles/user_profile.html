@@ -1,21 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load bag_tools %}
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
+{% load crispy_forms_tags %}
 {% block content %}
     <div class="container page">
         <h2 class="text-center text-uppercase">Profile</h2>
-        <div class="row justify-content-between my-5">
-            <div class="col-12-auto">
-                <!--content-->
+        <div class="row my-5">
+            <div class="col-8 mx-auto form">
+                <p class="fs-3 text-center mt-2">Edit Profile</p>
                 <form action="#" method="">
-                    {{form}}
-                    <input type="submit">
+                    {% csrf_token %}
+                    <div class="my-4">
+                        {{ form|crispy }}
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Save" class="btn btn-submit w-50">
+                        </div>
+                    </div>
                 </form>
-                {{ profile }}
-                <hr>
+            </div>
+            <hr>
+            <div class="col-12 mx-auto my-4">
+                <p class="fs-3 text-center mt-2">Order History</p>
                 {{orders}}
             </div>
         </div>

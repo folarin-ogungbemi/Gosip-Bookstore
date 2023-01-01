@@ -17,8 +17,8 @@ class UserProfileForm(forms.ModelForm):
             'user_phone_number': 'Phone Number',
             'user_zip': 'ZIP',
             'user_city': 'City',
-            'user_address_line_1': 'address_line_1',
-            'user_address_line_2': 'address_line_2',
+            'user_address_line_1': 'Address line 1',
+            'user_address_line_2': 'Address line 2',
             'user_state': 'State',
         }
 
