@@ -33,29 +33,30 @@
                       </tr>
                     </thead>
                     <tbody>
+                        {% for order in orders %}
                             <tr>
                                 <td>
                                     <a href="#" class="text-decoration-none text-info">
-                                        <!--order number-->
+                                        {{ order.order_id|truncatechars:8 }}
                                     </a>
                                 </td>
                                 <td>
-                                    <!--date goes here-->
+                                    {{ order.order_date }}
                                 </td>
                                 <td>
-                                    <ul class="list-unstyled">
-                                        
+                                    <ol>
+                                        {% for item in order.cartitems.all %}
                                         <li>
-                                            <!--item--> x <!--qty-->
+                                            {{ item.book.title }} x ({{ item.quantity }})
                                         </li>
-                                        
-                                    </ul>
-                                    <!--items goes here-->
+                                        {% endfor %}
+                                    </ol>
                                 </td>
                                 <td>
-                                    <!--grand-total-->
+                                    {{ order.grand_total }} €
                                 </td>
                             </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
