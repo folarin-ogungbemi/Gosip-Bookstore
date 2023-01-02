@@ -36,7 +36,7 @@
                         {% for order in orders %}
                             <tr>
                                 <td>
-                                    <a href="#" class="text-decoration-none text-info">
+                                    <a href="{% url 'order_history' order.order_id %}" class="text-decoration-none text-info">
                                         {{ order.order_id|truncatechars:8 }}
                                     </a>
                                 </td>
