@@ -14,7 +14,7 @@
             </div>
         </div>
         <p class="fs-4">Order Details</p>
-        <div class="container order-details mb-5">
+        <div class="container order-details">
             <div class="row">
                 <div class="col-12 mt-2">
                     <div class="container">
@@ -45,6 +45,7 @@
                             <br>
                             <small><span class="fw-semibold">Grand Total:</span> {{order.grand_total}} €</small>
                           </div>
+                          <!--Shipping Address-->
                           <div class="col-12 mt-2">
                             <p><strong class="text-decoration-underline">Shipping Address:</strong></p>
                             <span>
@@ -80,6 +81,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="d-flex justify-content-end mb-5">
+                {% if from_profile %}
+                <a href="{% url 'user_profile' %}">
+                    <span class="btn btn-danger">
+                        Back to Profile
+                    </span>
+                </a>
+                {% else %}
+                <a href="{% url 'books:search-result' %}?special=Special">
+                    <span class="btn btn-danger">
+                        Checkout our Specials!
+                    </span>
+                </a>
+                {% endif %}
             </div>
         </div>
     </div>
