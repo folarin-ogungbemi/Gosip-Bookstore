@@ -29,6 +29,11 @@
       </a>
       <ul class="dropdown-menu">
         {% if user.is_authenticated %}
+        {% if request.user.is_superuser%}
+        <li>
+          <a href="{% url 'books:add_author' %}" class="dropdown-item">Book Management</a>
+        </li>
+        {% endif %}
         <li><a class="dropdown-item" href="{% url 'user_profile' %}">My Profile</a></li>
         <li>
           <a class="dropdown-item" href="{% url 'account_logout' %}"

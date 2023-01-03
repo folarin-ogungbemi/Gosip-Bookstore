@@ -20,6 +20,13 @@
         <li class="nav-item">
           <a class="nav-link ps-4 trans-link" href="{% url 'contact' %}"><i class="fa-solid fa-link me-2"></i>Contact</a>
         </li>
+        {% if user.is_authenticated %}
+          {% if request.user.is_superuser%}
+          <li class="nav-item">
+          <a href="{% url 'books:add_author' %}" class="nav-link ps-4 trans-link"><i class="fa-solid fa-list-check me-2"></i>Book Management</a>
+          </li>
+          {% endif %}
+        {% endif %}
       </ul>
       <div class="d-grid mt-4">
         {% if user.is_authenticated %}
