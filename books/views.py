@@ -1,11 +1,13 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, redirect
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from books .models import Books, Genre, Special
 from django.views.generic.list import ListView
-from django.views.generic import FormView
+from django.views.generic import FormView, UpdateView
 from django.views.generic.detail import DetailView
 from django.db.models import Q
 from django.contrib import messages
+from .models import Author
 from .forms import BookForm, AuthorForm
 
 
@@ -112,6 +114,29 @@ class AddBookView(FormView):
             return HttpResponseRedirect(reverse('books:add_book'))
         else:
             messages.error(
-                request, 
+                request,
                 'failed to add book, please check the validity of the form')
             return HttpResponseRedirect(reverse('books:add_book'))
+
+
+def update_book_view(request, slug):
+    """
+    Function provides ability to edit and(or)
+    update form and redirects to bokók-details
+    """
+    book = get_object_or_404(Books, slug=slug)
+    if request.method == 'POST':
+        form = BookForm(request.POST, instance=book)
+        if form.is_valid():
+            form.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Book has been successfully updated.')
+            return redirect(reverse('books:book-details', args=[slug]))
+    form = BookForm(instance=book)
+    context = {
+        'form': form,
+        'book': book,
+    }
+    return render(request, 'books/edit_book.html', context)
