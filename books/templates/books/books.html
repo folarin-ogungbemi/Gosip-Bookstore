@@ -81,6 +81,7 @@
                                 {% if request.user.is_superuser%}
                                 <div class="d-flex justify-content-center gap-5">
                                     <a href="{% url 'books:edit_book' slug=book.slug %}" class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{% url 'books:delete_book' slug=book.slug %}" class="text-danger"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                                 {% endif %}
                            </div>

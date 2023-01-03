@@ -140,3 +140,16 @@ def update_book_view(request, slug):
         'book': book,
     }
     return render(request, 'books/edit_book.html', context)
+
+
+def delete_book(request, slug):
+    """
+    Function creates ability to delete and redirects
+    """
+    book = get_object_or_404(Books, slug=slug)
+    book.delete()
+    messages.add_message(
+        request,
+        messages.SUCCESS,
+        'Book has been successfully deleted.')
+    return redirect('books:books')
