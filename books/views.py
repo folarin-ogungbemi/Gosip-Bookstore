@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
+from django.http import HttpResponseRedirect
 from books .models import Books, Genre, Special
 from django.views.generic.list import ListView
+from django.views.generic import FormView
 from django.views.generic.detail import DetailView
 from django.db.models import Q
 from django.contrib import messages
+from .forms import BookForm, AuthorForm
 
 
 class BookViews(ListView):
@@ -68,3 +71,47 @@ class BookDetailView(DetailView):
     model = Books
     template_name = 'books/book-details.html'
     context_object_name = 'book'
+
+
+class AddAuthorView(FormView):
+    form_class = AuthorForm
+    template_name = 'books/add_author.html'
+    context_object_name = 'form'
+
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        if form.is_valid():
+            form.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Author successfully added.')
+            return HttpResponseRedirect(reverse('books:add_book'))
+        else:
+            messages.error(
+                request, 
+                'failed to add author, please check the validity of the form')
+            return redirect(reverse('books:add_author'))
+
+
+class AddBookView(FormView):
+    form_class = BookForm
+    template_name = 'books/add_book.html'
+    context_object_name = 'form'
+
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        if form.is_valid():
+            form.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Book successfully added.')
+            return HttpResponseRedirect(reverse('books:add_book'))
+        else:
+            messages.error(
+                request, 
+                'failed to add book, please check the validity of the form')
+            return HttpResponseRedirect(reverse('books:add_book'))
