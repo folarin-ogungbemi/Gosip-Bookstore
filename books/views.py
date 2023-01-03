@@ -5,6 +5,10 @@ from books .models import Books, Genre, Special
 from django.views.generic.list import ListView
 from django.views.generic import FormView, UpdateView
 from django.views.generic.detail import DetailView
+# Access security
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
+
 from django.db.models import Q
 from django.contrib import messages
 from .models import Author
@@ -81,6 +85,9 @@ class AddAuthorView(FormView):
     context_object_name = 'form'
 
     def post(self, request, *args, **kwargs):
+        if not request.user.is_superuser:
+            messages.error(request, "sorry, Only Adminitrators allowed")
+            return redirect(reverse('home'))
         form_class = self.get_form_class()
         form = self.get_form(form_class)
         if form.is_valid():
@@ -103,6 +110,9 @@ class AddBookView(FormView):
     context_object_name = 'form'
 
     def post(self, request, *args, **kwargs):
+        if not request.user.is_superuser:
+            messages.error(request, "sorry, Only Adminitrators allowed")
+            return redirect(reverse('home'))
         form_class = self.get_form_class()
         form = self.get_form(form_class)
         if form.is_valid():
@@ -119,11 +129,16 @@ class AddBookView(FormView):
             return HttpResponseRedirect(reverse('books:add_book'))
 
 
+@login_required
 def update_book_view(request, slug):
     """
     Function provides ability to edit and(or)
     update form and redirects to bokók-details
     """
+    if not request.user.is_superuser:
+        messages.error(request, "sorry, Only Adminitrators allowed")
+        return redirect(reverse('home'))
+
     book = get_object_or_404(Books, slug=slug)
     if request.method == 'POST':
         form = BookForm(request.POST, instance=book)
@@ -142,10 +157,15 @@ def update_book_view(request, slug):
     return render(request, 'books/edit_book.html', context)
 
 
+@login_required
 def delete_book(request, slug):
     """
     Function creates ability to delete and redirects
     """
+    if not request.user.is_superuser:
+        messages.error(request, "sorry, Only Adminitrators allowed")
+        return redirect(reverse('home'))
+
     book = get_object_or_404(Books, slug=slug)
     book.delete()
     messages.add_message(
