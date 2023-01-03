@@ -5,6 +5,8 @@ from checkout.forms import OrderForm
 from cart.contexts import shopping_cart
 from books.models import Books
 from checkout.models import OrderSet, Order
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from django.conf import settings
 from django.contrib import messages
 import stripe
@@ -74,6 +76,9 @@ def checkout_view(request):
                         "It appears a book in your cart is out of stock"
                         "Please contact us if you would like to purchase"))
                     order.delete()
+                    return redirect(reverse('shopping_cart'))
+            # save user info
+            request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('successful', args=[order.order_id]))
         else:
             messages.error(request, "there was an error with your form \
@@ -95,7 +100,28 @@ def checkout_view(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        form = OrderForm()
+        # Prefill the form with any info the user maintains in their profile
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.user_phone_number,
+                    'zip': profile.user_zip,
+                    'city': profile.user_city,
+                    'address_line_1': profile.user_address_line_1,
+                    'address_line_2': profile.user_address_line_2,
+                    'state':  profile.user_state,
+                    'country':  profile.user_country,
+                })
+            except UserProfile.DoesNotExist:
+                form = OrderForm()
+        else:
+            form = OrderForm()
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your environment?')
 
     context = {
         'form': form,
@@ -110,10 +136,39 @@ def transact_success(request, order_id):
 
     order_items = []
     total_items = 0
+    save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_id=order_id)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attache the user's profile to the order
+        order.user_profile = profile
+        print("----user profile prefill-----")
+        print(order.user_profile)
+        print("--------------")
+        order.save()
+
+        if save_info:
+            profile_data = {
+                'user_phone_number': order.phone_number,
+                'user_zip': order.zip,
+                'user_city': order.city,
+                'user_address_line_1': order.address_line_1,
+                'user_address_line_2': order.address_line_2,
+                'user_state': order.state,
+                'user_country': order.country,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+                print("----------------")
+                print(profile_data)
+                print("----------------")
+                print(save_info)
+                print("----------------")
     messages.success(request, f"Transaction was successful! \
         Your order number is: {order_id}. A confirmation \
-             email will be sent to {order.email}.")
+        email will be sent to {order.email}.")
 
     if 'cart' in request.session:
         cart = request.session.get('cart')
