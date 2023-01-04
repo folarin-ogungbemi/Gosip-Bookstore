@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container page">
+    <h2 class="text-center text-uppercase">Author Management</h2>
+    <h5 class=" text-center mute">Edit Author</h5>
+    <div class="row row-cols-2 my-5">
+        <div class="col-12 form mx-auto">
+            <form method="POST" action="{% url 'books:edit_author' id=author.id %}"class="text-center my-3" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="d-flex justify-content-center gap-2">
+                    <a class="btn btn-secondary" href="{% url 'books:books' %}">Cancel</a>
+                    <input type="submit" value="Update Author" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

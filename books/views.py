@@ -99,9 +99,37 @@ class AddAuthorView(FormView):
             return HttpResponseRedirect(reverse('books:add_book'))
         else:
             messages.error(
-                request, 
+                request,
                 'failed to add author, please check the validity of the form')
             return redirect(reverse('books:add_author'))
+
+
+@login_required
+def update_author_view(request, id):
+    """
+    Function provides ability to edit and(or)
+    update form and redirects to book-details
+    """
+    if not request.user.is_superuser:
+        messages.error(request, "sorry, Only Adminitrators allowed")
+        return redirect(reverse('home'))
+
+    author = get_object_or_404(Author, pk=id)
+    if request.method == 'POST':
+        form = AuthorForm(request.POST, instance=author)
+        if form.is_valid():
+            form.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Author has been successfully updated.')
+            return redirect(reverse('books:books'))
+    form = AuthorForm(instance=author)
+    context = {
+        'form': form,
+        'author': author,
+    }
+    return render(request, 'books/edit_author.html', context)
 
 
 class AddBookView(FormView):
