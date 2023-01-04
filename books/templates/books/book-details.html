@@ -111,9 +111,29 @@
     {% if request.user.is_superuser%}
     <div class="d-flex justify-content-start gap-5">
         <a href="{% url 'books:edit_author' book.author.id %}" class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-        <a href="{% url 'books:delete_author' book.author.id %}" class="text-danger"><i class="fa-solid fa-trash"></i></a>
+        <button type="button" class="text-danger" data-bs-toggle="modal" data-bs-target="#deleteAuthor"><i class="fa-solid fa-trash"></i></button>
     </div>
     {% endif %}
+     <!--Delete Author Modal-->
+     <div class="modal" id="deleteAuthor" tabindex="-1">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">DELETE AUTHOR</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <p>Are you sure you want to delete this Author?</p>
+            <p>By clicking on <strong>Yes</strong> The Author and the Book will be the deleted</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
+            <a class="btn btn-danger" href="{% url 'books:delete_author' book.author.id %}" role="button">Yes</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--/.Delete Author Modal-->
 </div>
 {% endblock %}
 {% block postloadjs %}
