@@ -149,7 +149,7 @@
 /* general */
 
 .contact{
-    box-shadow: 2px 3px 15px 1px rgba(2, 33, 56, 0.5);
+    box-shadow: 2px 3px 5px 1px rgba(2, 33, 56, 0.3);
 }
 
 .contact-info{
@@ -195,5 +195,15 @@
         right: 15%;
         top: 10%;
         font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 768px)  {
+    .contact{
+        box-shadow: 2px 3px 5px 1px rgba(2, 33, 56, 0.1);
+    }
+    
+    .contact-form{
+        width: 100%;
     }
 }
