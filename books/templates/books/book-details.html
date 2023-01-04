@@ -106,7 +106,7 @@
         <h4 id="about-author">About the Author</h4>
     </div>
     <h5>{{book.author}}</h5>
-    <p>{{book.description | safe}}</p>
+    <p>{{book.author.about | safe}}</p>
 </div>
 {% endblock %}
 {% block postloadjs %}
