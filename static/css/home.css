@@ -108,8 +108,8 @@
 .about-text{
     width: 90%;
     height: fit-content;
-    border-radius: 0 0 0.5rem 0.5rem;
-    box-shadow: 2px 3px 15px 1px rgba(2, 33, 56, 0.5);
+    border-radius: 0 0 5px 5px;
+    box-shadow: 2px 3px 5px 1px rgba(2, 33, 56, 0.3);
 }
 
 .about-text .nav-link{
@@ -204,6 +204,10 @@
     }
     
     .contact-form{
+        width: 100%;
+    }
+
+    .about-text{
         width: 100%;
     }
 }
