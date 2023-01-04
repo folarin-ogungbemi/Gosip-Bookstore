@@ -486,5 +486,10 @@ MEDIA SCREEN
     .modal-header .me-5{
         margin-right: 1rem !important;
     }
+
+    .footer-copywrite{
+        margin-bottom: 9vh;
+    }
+
 }
 
