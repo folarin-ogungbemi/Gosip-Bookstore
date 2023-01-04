@@ -29,7 +29,7 @@
             <div class="row">
                 {% for book in books %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="book my-3">
+                    <div class="book my-3 mx-auto">
                         <div class="container">
                             <form action="{% url 'wish' slug=book.slug %}" method="POST">
                                 {% csrf_token %}
