@@ -27,5 +27,7 @@
 @media screen and (max-width: 768px)  {
     .wish-action{
         padding-top: 0px;
+        display: flex;
+        justify-content: center;
     }
 }
