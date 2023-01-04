@@ -7,7 +7,7 @@
 {% load crispy_forms_tags %}
 <div class="container page">
     <h2 class="text-center text-uppercase">Book Management</h2>
-    <h5 class=" text-center mute">Edit Author</h5>
+    <h5 class=" text-center mute">Edit Book</h5>
     <div class="row row-cols-2 my-5">
         <div class="col-12 form mx-auto">
             <form method="POST" action="{% url 'books:edit_book' slug=book.slug %}"class="text-center my-3" enctype="multipart/form-data">
