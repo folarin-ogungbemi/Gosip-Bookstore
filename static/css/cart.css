@@ -75,3 +75,9 @@
     border-radius: 50%;
 }
 
+@media screen and (max-width: 768px)  {
+    .book-checkout-info{
+        display: flex;
+        justify-content: center;
+    }
+}

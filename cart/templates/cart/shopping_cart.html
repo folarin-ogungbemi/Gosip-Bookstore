@@ -5,17 +5,17 @@
 <div class="container page shopping_cart">
     <h2 class="text-center text-uppercase">Shopping cart</h2>
     <div class="row row-cols-2 justify-content-between my-5">
-        <div class="col-12 col-sm-8 col-md-8 checkout-items">
+        <div class="col-12 col-lg-8 checkout-items">
             {% if shopping_basket %}
             {% for item in shopping_basket %}
-            <div class="row">
-                <div class="container order d-flex my-2">
-                    <div class="col-3">
+            <div class="container order my-2">
+                <div class="row">
+                    <div class="col-12 col-md-3">
                         <div class="book-checkout-card py-3 px-3">
                             <img src="{{ item.book.image.url }}" alt="book image" width="98" height="150">
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-md-6 book-checkout-info">
                         <div class="d-grid gap-2 mt-3 mb-2">
                             <p><strong>{{ item.book.title }}</strong></p>
                             <a class="text-decoration-none" href="{% url 'books:book-details' slug=item.slug %}#about-author">
@@ -29,7 +29,7 @@
                             <p>Price : {{ item.book.price }} €</p>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-12 col-md-3">
                         <div class="d-grid gap-3 mt-3 mb-2 justify-content-center">
                             <p class="text-center my-0 ms-5"><strong>{{ item.book.price | calc_subtotal:item.qty }} €</strong></p>
                             <!-- Adjust book quantity in cart-->
@@ -82,7 +82,7 @@
             </div>
             {% endif %}
         </div>
-        <div class="col-12 col-sm-8 col-md-4 mt-3">
+        <div class="col-12 col-md-6 col-lg-4 mt-3">
             <div class="text-center checkout-counter">
                 <h3 class="py-3 text-uppercase">Checkout Counter</h3>
                 <hr class="counter-hr">
@@ -95,12 +95,6 @@
                         <p class="text-center"><strong>0.00 €</strong></p>
                         {% endif %}
                     </div>
-                    {% if discount %}
-                        <div class="d-flex justify-content-between mx-4">
-                            <p>Discount (10%)</p>
-                            <p class="text-center"><strong><!--sales_discount--> €</strong></p>
-                        </div>
-                    {% endif %}
                     <div class="d-flex justify-content-between mx-4">
                         <p>Tax (9%)</p>
                         {% if tax_deduction %}
