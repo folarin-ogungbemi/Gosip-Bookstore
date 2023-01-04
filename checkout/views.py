@@ -55,7 +55,7 @@ def checkout_view(request):
         # save user data in db and conclude transaction
         form = OrderForm(customer_data)
         if form.is_valid():
-            order = form.save(commit=False)  # prevent multiple save event 'commit'
+            order = form.save(commit=False)  # prevent multiple save event
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
@@ -143,9 +143,6 @@ def transact_success(request, order_id):
         profile = UserProfile.objects.get(user=request.user)
         # Attache the user's profile to the order
         order.user_profile = profile
-        print("----user profile prefill-----")
-        print(order.user_profile)
-        print("--------------")
         order.save()
 
         if save_info:
@@ -161,11 +158,6 @@ def transact_success(request, order_id):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-                print("----------------")
-                print(profile_data)
-                print("----------------")
-                print(save_info)
-                print("----------------")
     messages.success(request, f"Transaction was successful! \
         Your order number is: {order_id}. A confirmation \
         email will be sent to {order.email}.")
