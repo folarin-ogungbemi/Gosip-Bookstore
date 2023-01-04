@@ -132,6 +132,24 @@ def update_author_view(request, id):
     return render(request, 'books/edit_author.html', context)
 
 
+@login_required
+def delete_author(request, id):
+    """
+    Function creates ability to delete and redirects
+    """
+    if not request.user.is_superuser:
+        messages.error(request, "sorry, Only Adminitrators allowed")
+        return redirect(reverse('home'))
+
+    author = get_object_or_404(Author, pk=id)
+    author.delete()
+    messages.add_message(
+        request,
+        messages.SUCCESS,
+        f'Author "{author.name}" has been successfully deleted.')
+    return redirect('books:books')
+
+
 class AddBookView(FormView):
     form_class = BookForm
     template_name = 'books/add_book.html'

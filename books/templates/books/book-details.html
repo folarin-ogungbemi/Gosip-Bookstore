@@ -107,6 +107,13 @@
     </div>
     <h5>{{book.author}}</h5>
     <p>{{book.author.about | safe}}</p>
+        <!--update or delete author as a superuser-->
+    {% if request.user.is_superuser%}
+    <div class="d-flex justify-content-start gap-5">
+        <a href="{% url 'books:edit_author' book.author.id %}" class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+        <a href="{% url 'books:delete_author' book.author.id %}" class="text-danger"><i class="fa-solid fa-trash"></i></a>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
 {% block postloadjs %}
