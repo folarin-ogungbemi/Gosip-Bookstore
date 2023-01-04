@@ -7,16 +7,16 @@
         <div class="col-10 mx-auto checkout-items">
             {% if books_liked %}
             {% for item in books_liked %}
-            <div class="row">
-                <div class="container d-flex my-2">
-                    <div class="col-3">
+            <div class="container my-2">
+                <div class="row">
+                    <div class="col-12 col-md-3">
                         <div class="book-wishlist-card py-3 px-3">
                             <a href="{% url 'books:book-details' slug=item.book.slug %}">
                                 <img src="{{ item.book.image.url }}" alt="book image" width="98" height="150">
                             </a>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-md-6 book-information">
                         <div class="d-grid gap-2 mt-3 mb-2">
                             <p><strong>{{ item.book.title }}</strong></p>
                             <a class="text-decoration-none" href="{% url 'books:book-details' slug=item.book.slug %}#about-author">
@@ -30,7 +30,7 @@
                             <p>Price : {{ item.book.price }} €</p>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-12 col-md-3">
                         <div class="d-flex gap-2 wish-action">
                             <button class="remove-book btn" id="remove_{{ item.book.slug }}"><i class="fa-solid fa-trash"></i></button>
                             <!--Add liked book to cart-->

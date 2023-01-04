@@ -23,3 +23,9 @@
 .wish-action{
     padding-top: 120px;
 }
+
+@media screen and (max-width: 768px)  {
+    .wish-action{
+        padding-top: 0px;
+    }
+}
