@@ -23,7 +23,7 @@
         {% if user.is_authenticated %}
           {% if request.user.is_superuser%}
           <li class="nav-item">
-          <a href="{% url 'books:add_author' %}" class="nav-link ps-4 trans-link"><i class="fa-solid fa-list-check me-2"></i>Book Management</a>
+          <a href="{% url 'books:add_author' %}" class="nav-link ps-4 trans-link"><i class="fa-solid fa-list-check me-2"></i>Admin Management</a>
           </li>
           {% endif %}
         {% endif %}
