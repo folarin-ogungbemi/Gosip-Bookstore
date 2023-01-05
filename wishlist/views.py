@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
+from django.http import HttpResponseRedirect
 
 
 def wishlist_view(request):
@@ -19,7 +20,7 @@ def like_book(request, slug):
     elif slug in list(wishlist.keys()):
         wishlist.pop(slug)
     request.session['wishlist'] = wishlist
-    return HttpResponse('redirect_url')
+    return redirect(redirect_url)
 
 
 def remove_book(request, slug):
