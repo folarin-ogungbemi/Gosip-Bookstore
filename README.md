@@ -77,8 +77,66 @@ The Website adopted the default font from bootstrap as it aids visual comprehens
 The Website was pre-designed on a graphical paper. A pictogram of what the landing page could look like in order to accomodate informations helpful for the user.
 
 ---
- 
- 
- 
 
+
+# Architecture
+
+## Database 
+
+* A postgreSQL database offered by elephantSQL was the choice of database connected with the django framework during project development. 
+
+### Entities 
+* User
+    * Allauth account formed the basis for creation of account. a standard account implemented with the program.
+    * All auth provides a step by step documentation for successful installation. [Django All Auth](https://django-allauth.readthedocs.io/en/latest/installation.html "visit gosip")
+
+    ``` bash
+    pip install django-allauth 
+    ```
+    and imported for use in django models.
+    ```
+    django.contrib.auth.models
+    ```
+
+* Author
+
+| KEY                       | ATTRIBUTE             | VALIDATION       | FIELD_TYPE
+|---------------------------|-----------------------|------------------|-------------------------------
+| Key                       | name                  | max_length=100   | CharField
+| Key                       | book_titel            | max_length=100   | CharField
+| Key                       | about                 | required         | TextField
+
+* Genre
+
+| KEY                       | ATTRIBUTE             | VALIDATION       | FIELD_TYPE
+|---------------------------|-----------------------|------------------|-------------------------------
+| Key                       | name                  | max_length=100   | CharField
+
+* Special
+
+| KEY                       | ATTRIBUTE             | VALIDATION       | FIELD_TYPE
+|---------------------------|-----------------------|------------------|-------------------------------
+| Key                       | name                  | max_length=100   | CharField
+
+
+* Books
+    * All attributes on the book table are required except **special**
+
+| KEY                       | ATTRIBUTE             | VALIDATION        | FIELD_TYPE
+|---------------------------|-----------------------|-------------------|-------------------------------
+| key                       | title                 | unique            | CharField
+| slug                      | slug                  | unique            | CharField
+| Foreign Key(Genre)        | genre                 | Genre             | FK
+| Foreign_key(Author)       | author                | Author            | FK
+| ManyToMany(Special)       | special               | Special           | MTM
+| Key                       | publication_year      | required          | IntegerField
+| Key                       | pages                 | required          | IntegerField
+| Key                       | language              | max_length=100    | CharField
+| Key                       | isbn                  | unique            | IntegerField
+| Key                       | dimension             | max_length=100    | CharField
+| Key                       | price                 | max_digits=6      | DecimalField
+| Key                       | rating                | choices=RATING    | PositiveIntegerField
+| Key                       | description           | required          | TextField
+| Key                       | image                 | required          | CloudinaryField
+| Key                       | Created_on            | auto_now_add=True | DateTimeField
 
