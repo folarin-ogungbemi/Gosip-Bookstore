@@ -140,3 +140,20 @@ The Website was pre-designed on a graphical paper. A pictogram of what the landi
 | Key                       | image                 | required          | CloudinaryField
 | Key                       | Created_on            | auto_now_add=True | DateTimeField
 
+# Credits
+
+## Code
+* The turorial from [Code Institute](https://learn.codeinstitute.net/ci_program/diplomainfullstacksoftwarecommoncurriculum "Visit Code Institute") was the most helpful link from the writing of code to the deployment of the program.
+* Helpful Documentation  [Django models](https://docs.djangoproject.com/en/4.1/ "Visit django documentation") on how to set up and build with django.
+* Helpful Documentation  [Stripe Docs](https://stripe.com/docs/payments/accept-a-payment?platform=web&ui=checkout#set-up-stripe "Visit Stripe documentation") on how to set up and build stripe payment.
+
+## Content
+ * Book Images, Description and about author were taken from Google and wikipedia
+
+## Media
+* The Landing page images used in the website [Pexels](https://www.pexels.com/ "visit Pexels") were products of pexels.
+
+## Acknowledgement 
+My sincere appreciation goes to :
+* To the always active Code Institute Tutor assistants that always came up with helpful tips and guide, it would not have been possible without your help.
+* To my partner, Mo, for giving her attention at the time of need.
