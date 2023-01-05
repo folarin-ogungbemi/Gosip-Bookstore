@@ -1,1 +1,1 @@
-web: gunicorn gosip.wsgi
+web: gunicorn gosip.wsgi:application
