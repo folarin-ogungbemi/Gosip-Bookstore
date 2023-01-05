@@ -140,6 +140,45 @@ The Website was pre-designed on a graphical paper. A pictogram of what the landi
 | Key                       | image                 | required          | CloudinaryField
 | Key                       | Created_on            | auto_now_add=True | DateTimeField
 
+
+
+# Technologies
+* HTML
+    * Hyper Text Markup Language(HTML) is the main text writer used for this website.
+* CSS
+    * Cascading Style Sheets(CSS) is the technology used for styling the website.
+* [Bootstrap](https://getbootstrap.com/ "Link to Bootstrap main-page")
+    * A free and open-source CSS framework directed at responsive, mobile-first front-end web development.
+* Javascript
+    * Javascript web program was used isn writing the codes that brings interactivity to the game.
+* [Google Clouds](https://console.cloud.google.com/ "Link to Google Clouds main-page")
+    * Access Google maps API
+* [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template "Link to Gitpod-template")
+    * A coding school for learning Software Development provides template for gitpod necessary libraries.
+* [Github](https://github.com "Link to Github main-page")
+    * Github is the site used for the deployment and hosting of this website.
+* [Gitpod](https://www.gitpod.io "Link to Gitpod main-page")
+    * Gitpod is the open-source developer platform used in tandem with github for the deployment of the website source code.
+* [Visual Studio code](https://code.visualstudio.com "Link to visual studio code main-page")
+    * The Integrated development environment(IDE) used for the writing of source code.
+* [TinyJPG](https://tinyjpg.com/ "Link to TinyJPG main-page")
+    * Website used for the compression of images used in the website.
+* [Pexels](https://www.pexels.com "Link to pexels main-page")
+    * Website used to source images used in the website.
+* [Techsini](https://techsini.com/multi-mockup/index.php "Link to website main-page")
+    * The Mock-up generator website used for creating the website mock-up image.
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator "Link to W3 CSS main-page")
+    * CSS validator used to validate the website's CSS in comparison to standard CSS writing.
+* [W3 HTML Checker](https://validator.w3.org/nu/#textarea "Link to W3 HTML main-page")
+    * HTML validator used to validate the website's HTML in comparison to standard HTML writing.
+* [Image resizer](https://imageresizer.com/resize/download/632541ad11b49d00123e785e "Link to main-page")
+    * For resizing of images to desired output
+* [Cloudinary](https://cloudinary.com/ "Link to cloudinary")
+    * Provides cloud based images and video management services.
+* [elephantSQL](https://www.elephantsql.com/ "Link to elephantSQL")
+    * The postgreSQL Database used for the program.
+
+
 # Credits
 
 ## Code
