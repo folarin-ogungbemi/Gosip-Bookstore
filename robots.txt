@@ -3,4 +3,4 @@ Disallow: /account/
 Disallow: /cart/
 Disallow: /profiles/
 Disallow: /wishlist/
-sitemap: https://flo-gosip.herokuapp.com/sitemap.xml
+Sitemap: https://flo-gosip.herokuapp.com/sitemap.xml
