@@ -25,7 +25,7 @@
 
 .hero-1{
     height: 70vh;
-    background-image:linear-gradient(rgba(89, 89, 89, 0.3), rgba(0, 0, 0, 0.3)), url('/media/hero-1-c.jpg');
+    background-image:linear-gradient(rgba(89, 89, 89, 0.3), rgba(0, 0, 0, 0.3)), url(https://res.cloudinary.com/dzdyzl4r5/image/upload/v1672956275/alphabets-c_yeal8f.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,7 +34,7 @@
 
 .hero-2{
     height: 70vh;
-    background-image:linear-gradient(rgba(89, 89, 89, 0.3), rgba(0, 0, 0, 0.3)), url('/media/hero-2-c.jpg');
+    background-image:linear-gradient(rgba(89, 89, 89, 0.3), rgba(0, 0, 0, 0.3)), url(https://res.cloudinary.com/dzdyzl4r5/image/upload/v1672956115/hero-1-c_sbvydv.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -42,7 +42,7 @@
 }
 .hero-3{
     height: 70vh;
-    background-image:linear-gradient(rgba(89, 89, 89, 0.3), rgba(0, 0, 0, 0.3)), url('/media/hero-3-c.jpg');
+    background-image:linear-gradient(rgba(89, 89, 89, 0.3), rgba(0, 0, 0, 0.3)), url(https://res.cloudinary.com/dzdyzl4r5/image/upload/v1672956275/hero-3-c_pxjhmt.jpg);
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -96,7 +96,7 @@
 /* general */
 
 .about-img{
-    background-image: url('/media/book-lovers-c-r.jpg');
+    background-image: url(https://res.cloudinary.com/dzdyzl4r5/image/upload/v1672956275/book-lovers-c-r_eq8ywk.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
