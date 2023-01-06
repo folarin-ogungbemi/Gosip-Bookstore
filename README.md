@@ -218,6 +218,14 @@ Heroku is the hosting platform for the project and to deploy, The following step
 [Live website here](https://flo-gosip.herokuapp.com/ "visit live website")
 
 
+## Demonstrated Data and Account
+
+| Email                     | username           | Password         | Description
+|---------------------------|--------------------|------------------|-------------------------------
+| gosip@blog.com            | flo-admin          | myGosip!!        | Admin account
+
+
+
 ---
 
 # Technologies
