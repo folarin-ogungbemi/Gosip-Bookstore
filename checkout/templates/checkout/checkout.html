@@ -9,7 +9,7 @@
 <div class="container page">
     <h2 class="text-center text-uppercase">Checkout</h2>
     <div class="row row-cols-2 justify-content-between my-5">
-        <div class="col-8 form mx-auto">
+        <div class="col-12 col-sm-10 col-md-8 form mx-auto">
                 <div class="cotainer text-center my-3">
                     <form method="POST" action="{% url 'checkout' %}" id="complete-order">
                         {% csrf_token %}
