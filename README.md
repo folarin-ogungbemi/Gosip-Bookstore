@@ -145,6 +145,9 @@ The Website was pre-designed on a graphical paper. A pictogram of what the landi
 
 ---
 
+Fix Bug 
+Redirect url returns no match found. Removed the quotes around it. it works
+
 # Deployment
 Before Deployment, It is important that in the django project settings, **Debug** is set to **False** majorly for the security of the project.
 
@@ -218,6 +221,7 @@ Heroku is the hosting platform for the project and to deploy, The following step
 ---
 
 # Technologies
+
 * HTML
     * Hyper Text Markup Language(HTML) is the main text writer used for this website.
 * CSS
