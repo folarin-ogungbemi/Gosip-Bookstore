@@ -19,6 +19,8 @@ admin.site.register(Genre)
 class BooksAdmin(SummernoteModelAdmin):
     summernote_fields = ('description')
     prepopulated_fields = {"slug": ("title",)}
-    list_display = ('title', 'author', 'genre', 'publication_year', 'price')
+    list_display = (
+        'title', 'author', 'price',
+        'image', 'genre', 'publication_year')
     list_filter = ('title', 'author', 'price')
     search_fields = ('title', 'author')
