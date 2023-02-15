@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .forms import AuthorForm, BookForm
+from books.forms import AuthorForm, BookForm
 
 
 # Create your tests here.
@@ -15,7 +15,8 @@ class TestAuthorForm(TestCase):
         form = AuthorForm({'book_title': ''})
         self.assertFalse(form.is_valid())
         self.assertIn('book_title', form.errors.keys())
-        self.assertEqual(form.errors['book_title'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['book_title'][0], 'This field is required.')
 
     def test_author_about_is_required(self):
         form = AuthorForm({'about': ''})
