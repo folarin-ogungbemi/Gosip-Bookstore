@@ -16,6 +16,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import user_passes_test
 
 from django.db.models import Q
+from django.db.models.functions import Lower
 from django.contrib import messages
 from .forms import BookForm, AuthorForm
 
@@ -41,9 +42,9 @@ def search_view(request):
 
     if request.GET:
         if query_sort:
-            if query_sort == 'x':
-                query_sort = 'lower_x'
-                query_set = query_set.annotate(lower_x=lower('x'))
+            if query_sort == 'title':
+                query_sort = 'lower_title'
+                query_set = query_set.annotate(lower_title=Lower('title'))
             if query_direction:
                 if query_direction == 'desc':
                     query_sort = f'-{query_sort}'
