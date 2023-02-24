@@ -43,7 +43,7 @@
                                     {% else %}
                                     <a href="{% url 'books:book-details' slug=book.slug %}">
                                         <img class="img-fluid" 
-                                            src="/media/no-image-man.jpg" 
+                                            src="{{ MEDIA_URL }}no-image-man.jpg" 
                                             width="200" height="280" alt="no image available">
                                     </a>
                                     {% endif %}

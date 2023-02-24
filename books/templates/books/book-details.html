@@ -6,7 +6,15 @@
         <!--Book Image-->
         <div class="col-12 col-sm-6 col-md-5 col-lg-4 book-img">
             <div class="container-sm book-card py-4 px-3">
-                <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
+                {% if book.image %}
+                    <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
+                {% else %}
+                    <a href="{% url 'books:book-details' slug=book.slug %}">
+                        <img class="img-fluid" 
+                            src="{{ MEDIA_URL }}no-image-man.jpg" 
+                            width="200" height="280" alt="no image available">
+                    </a>
+                {% endif %}
                 <form action="{% url 'wish' slug=book.slug %}" method="POST">
                     {% csrf_token %}
                     <button class="like-book btn ms-5 submit detail-book-like" id="like_{{ book.slug }}"><i class="fa-regular fa-heart"></i></button>
