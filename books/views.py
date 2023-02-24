@@ -1,17 +1,22 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, HttpResponse
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
-from books .models import Books, Genre, Special
+
+from books.models import Books, Genre, Special, Author
+
 from django.views.generic.list import ListView
 from django.views.generic import FormView, UpdateView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
+
 # Access security
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import user_passes_test
 
 from django.db.models import Q
 from django.contrib import messages
-from .models import Author
 from .forms import BookForm, AuthorForm
 
 
@@ -24,8 +29,7 @@ class BookViews(ListView):
 
 def search_view(request):
     """
-    function searches through the query set
-    and returns result based on search
+    View that searches the Books queryset based on user input
     """
 
     query_set = Books.objects.all()
@@ -58,8 +62,6 @@ def search_view(request):
             queries = Q(title__icontains=query_dict) | Q(
                 description__icontains=query_dict)
             query_set = query_set.filter(queries)
-            if query_dict is None:
-                return redirect(reverse('books:books'))
 
     sorting = f'{query_sort}_{query_direction}'
 
@@ -79,29 +81,28 @@ class BookDetailView(DetailView):
     context_object_name = 'book'
 
 
-class AddAuthorView(FormView):
+@method_decorator(login_required, name='dispatch')
+class AddAuthorView(CreateView):
+    model = Author
     form_class = AuthorForm
     template_name = 'books/add_author.html'
+    success_url = reverse_lazy('books:add_author')
     context_object_name = 'form'
 
-    def post(self, request, *args, **kwargs):
+    def dispatch(self, request, *args, **kwargs):
         if not request.user.is_superuser:
-            messages.error(request, "sorry, Only Adminitrators allowed")
+            messages.error(self.request, "Permission denied!")
             return redirect(reverse('home'))
-        form_class = self.get_form_class()
-        form = self.get_form(form_class)
-        if form.is_valid():
-            form.save()
-            messages.add_message(
-                request,
-                messages.SUCCESS,
-                'Author successfully added.')
-            return HttpResponseRedirect(reverse('books:add_book'))
-        else:
-            messages.error(
-                request,
-                'failed to add author, please check the validity of the form')
-            return redirect(reverse('books:add_author'))
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        form.save()
+        messages.success(self.request, "Author successfully added.")
+        return redirect(reverse('books:add_book'))
+
+    def form_invalid(self, form):
+        messages.error(self.request, "Failed to add author!. Please check the validity of the form.")
+        return super().form_invalid(form)
 
 
 @login_required
