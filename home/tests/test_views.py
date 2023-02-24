@@ -37,3 +37,4 @@ class TestViews(TestCase):
                 'email': 'john.doe@emai.com', 'content': 'test'})
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, self.contact_url)
+        self.assertEqual(Contact.objects.count(), 1)
