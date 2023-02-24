@@ -38,7 +38,15 @@
                             </form>
                             <a href="{% url 'books:book-details' slug=book.slug %}">
                                 <div class="container book-card py-4 px-3">
+                                    {% if book.image %}
                                     <img src="{{ book.image.url }}" alt="book image" width="200" height="280">
+                                    {% else %}
+                                    <a href="{% url 'books:book-details' slug=book.slug %}">
+                                        <img class="img-fluid" 
+                                            src="/media/no-image-man.jpg" 
+                                            width="200" height="280" alt="no image available">
+                                    </a>
+                                    {% endif %}
                                     {% if book.special.first %}
                                     <div class="row">
                                         <div class="col-12">
