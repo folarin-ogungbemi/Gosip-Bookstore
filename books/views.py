@@ -101,7 +101,9 @@ class AddAuthorView(CreateView):
         return redirect(reverse('books:add_book'))
 
     def form_invalid(self, form):
-        messages.error(self.request, "Failed to add author!. Please check the validity of the form.")
+        messages.error(
+            self.request,
+            "Failed to add author!. Please check the validity of the form.")
         return super().form_invalid(form)
 
 
@@ -151,29 +153,30 @@ def delete_author(request, id):
     return redirect('books:books')
 
 
-class AddBookView(FormView):
+@method_decorator(login_required, name='dispatch')
+class AddBookView(CreateView):
+    model = Books
     form_class = BookForm
     template_name = 'books/add_book.html'
+    success_url = 'books/add_book'
     context_object_name = 'form'
 
-    def post(self, request, *args, **kwargs):
+    def dispatch(self, request, *args, **kwargs):
         if not request.user.is_superuser:
-            messages.error(request, "sorry, Only Adminitrators allowed")
+            messages.error(self.request, 'Permission denied!')
             return redirect(reverse('home'))
-        form_class = self.get_form_class()
-        form = self.get_form(form_class)
-        if form.is_valid():
-            form.save()
-            messages.add_message(
-                request,
-                messages.SUCCESS,
-                'Book successfully added.')
-            return HttpResponseRedirect(reverse('books:add_book'))
-        else:
-            messages.error(
-                request,
-                'failed to add book, please check the validity of the form')
-            return HttpResponseRedirect(reverse('books:add_book'))
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        form.save()
+        messages.success(self.request, 'Book successfully added.')
+        return redirect(reverse('books:books'))
+
+    def form_invalid(self, form):
+        messages.error(
+            self.request,
+            "Failed to add book!. Please check the validity of the form.")
+        return super().form_invalid(form)
 
 
 @login_required
