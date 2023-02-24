@@ -66,3 +66,45 @@ class TestAuthorViews(TestCase):
             response, 'form', 'name', 'This field is required.')
         # count number of books
         self.assertEqual(Books.objects.count(), 0)
+    
+    def test_edit_author_successfully(self):
+        # login as an admin
+        self.client.login(username='admin', password='password123')
+        # make a post request for update
+        response = self.client.post(
+            reverse('books:edit_author', args=[self.author.id]), {
+                'name': 'Updated Author Name',
+                'book_title': 'Updated author book',
+                'about': 'Update Author about'
+            })
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('books:books'))
+        self.author.refresh_from_db()
+        self.assertEqual(self.author.name, 'Updated Author Name')
+        self.assertEqual(self.author.book_title, 'Updated author book')
+        self.assertEqual(self.author.about, 'Update Author about')
+
+    def test_edit_author_unauthorized(self):
+        # login as an admin
+        self.client.login(username='user', password='password')
+        # make a post request for update
+        response = self.client.post(
+            reverse('books:edit_author', args=[self.author.id]), {
+                'name': 'Updated Author Name',
+                'book_title': 'Updated author book',
+                'about': 'Update Author about'
+            })
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('home'))
+
+    def test_edit_author_invalid_form(self):
+        # login as an admin
+        self.client.login(username='admin', password='password123')
+        # make a post request for update
+        response = self.client.post(
+            reverse('books:edit_author', args=[self.author.id]), {
+                'name': '',
+                'book_title': 'Updated author book',
+                'about': 'Update Author about'
+            })
+        self.assertEqual(response.status_code, 200)
