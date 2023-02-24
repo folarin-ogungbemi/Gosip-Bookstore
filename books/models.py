@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
+from django.utils.text import slugify
 
 
 class Author(models.Model):
@@ -86,6 +87,10 @@ class Books(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Books, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Books'
