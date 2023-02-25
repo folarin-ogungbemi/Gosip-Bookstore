@@ -1,0 +1,1 @@
+Gosip Bookstore confirmation for order Number {{ order.order_id }}

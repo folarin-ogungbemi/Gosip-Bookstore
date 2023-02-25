@@ -1,0 +1,21 @@
+Hello {{ order.full_name }}!
+
+This is a confirmation of your order at Gosip Bookstore. Your order information is below:
+
+Order Number: {{ order.order_id }}
+Order Date: {{ order.date }}
+
+Order Total: {{ order.order_total }}€
+Grand Total: {{ order.grand_total }}€
+
+Your order will be shipped to {{ order.address_line_1 }} in {{ order.city }}, {{ order.country }}
+
+We have your current phone number on file as {{ order.phone_number }}.
+
+if you have any questions, feel free to get in touch at {{ contact_email }}
+
+Thank you for your order!
+
+Sincerly, 
+
+Gosip Bookstore
