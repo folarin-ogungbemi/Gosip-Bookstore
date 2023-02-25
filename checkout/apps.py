@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+from django.utils.module_loading import import_module
 
 
 class CheckoutConfig(AppConfig):
@@ -6,4 +7,4 @@ class CheckoutConfig(AppConfig):
     name = 'checkout'
 
     def ready(self):
-        import checkout.signals
+        import_module('checkout.signals')

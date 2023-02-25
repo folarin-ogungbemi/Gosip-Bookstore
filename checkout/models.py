@@ -54,6 +54,7 @@ class Order(models.Model):
             Sum('set_total'))['set_total__sum'] or 0
         self.grand_total = self.cart_total
         self.save(update_fields=['cart_total', 'grand_total'])
+        return self.grand_total
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

@@ -11,7 +11,9 @@ def update_data(sender, instance, created, **kwargs):
     function updates the cart total when
     cart items are either created or updated
     """
-    instance.order.total_order_items()
+    if created:
+        order = instance.order
+        order.total_order_items()
 
 
 @receiver(post_delete, sender=OrderSet)
