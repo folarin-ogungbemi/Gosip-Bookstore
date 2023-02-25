@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
-from django.views.generic import ListView
-from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from books.models import Books
 
@@ -55,7 +53,7 @@ def remove_book(request, slug):
         return HttpResponse(status=200)
 
     except Exception as error:
-        return HttpResponse(status=500)
+        return HttpResponse(content=error, status=500)
 
 
 def adjust_cart(request, slug):
