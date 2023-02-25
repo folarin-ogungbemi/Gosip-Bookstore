@@ -1,19 +1,16 @@
-from django.shortcuts import render, reverse, redirect, HttpResponse
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, reverse, redirect
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
 
 from books.models import Books, Genre, Special, Author
 
 from django.views.generic.list import ListView
-from django.views.generic import FormView, UpdateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 
 # Access security
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import user_passes_test
 
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -199,7 +196,7 @@ def update_book_view(request, slug):
                 request,
                 messages.SUCCESS,
                 'Book has been successfully updated.')
-            return redirect(reverse('books:book-details', args=[slug]))
+            return redirect(reverse('books:book-details', args=[book.slug]))
     form = BookForm(instance=book)
     context = {
         'form': form,

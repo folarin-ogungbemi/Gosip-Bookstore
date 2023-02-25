@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from books.models import Author, Genre, Special, Books
+from books.models import Author, Books
 # authentication
 from django.contrib.auth.models import User
 
@@ -17,7 +17,7 @@ class TestAuthorViews(TestCase):
             email='admin@example.com'
         )
         # create a non-admin user
-        user = User.objects.create_user(
+        self.non_admin_user = User.objects.create_user(
             username='user',
             password='password',
             email='user@example.com'

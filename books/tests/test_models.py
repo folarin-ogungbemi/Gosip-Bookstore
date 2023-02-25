@@ -1,5 +1,5 @@
 from django.test import TestCase
-from books.models import Author, Genre, Special, Books
+from books.models import Author, Genre, Special
 from model_bakery import baker
 
 

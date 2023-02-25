@@ -1,12 +1,8 @@
 import os
-from django.conf import settings
 from django.test import TestCase, Client
-from django.urls import reverse, resolve
+from django.urls import reverse
 from books.models import Author, Genre, Special, Books
-from django.contrib.auth.models import User
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.db.models.functions import Lower
-from django.db.models import Q
 
 
 class TestSearchView(TestCase):
