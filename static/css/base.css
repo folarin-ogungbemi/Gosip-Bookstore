@@ -47,6 +47,27 @@ body {
     margin-top: 20vh;
 }
 
+.parent-404{
+    position: relative;
+    color: #022138;
+}
+
+.child-404{
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+}
+
+.head-text-404{
+    font-size: clamp(2rem, 7vw, 4rem);
+}
+
+.message-404{
+    text-transform: uppercase;
+}
+
 hr{
     color: #fffaf6;
 }
