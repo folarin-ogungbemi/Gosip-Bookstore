@@ -68,9 +68,15 @@
                                 <div class="d-flex justify-content-start order-book-box">
                                 {% for order in order_items %}
                                     <div class="book-checkout-card py-3 px-3">
-                                        <a href="{% url 'books:book-details' slug=order.book.slug %}">
-                                            <img src="{{ order.book.image.url }}" alt="book image" width="49" height="80">
-                                        </a>
+                                        {% if order.book.image %}
+                                            <a href="{% url 'books:book-details' slug=order.book.slug %}">
+                                                <img src="{{ order.book.image.url }}" alt="book image" width="49" height="80">
+                                            </a>
+                                            {% else %}
+                                                <a href="{% url 'books:book-details' slug=order.book.slug %}">
+                                                    <img class="img-fluid" src="{{ MEDIA_URL }}no-image-man.jpg" width="49" height="80" alt="no image available">
+                                                </a>
+                                        {% endif %}
                                         <div class="order-qty text-center">{{order.qty}}</div>
                                     </div>
                                 {% endfor %}
