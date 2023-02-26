@@ -8,21 +8,65 @@
 
 * [Purpose](#purpose)
 
-* [UX Design](#UX-Design)
+* [UX Design](#ux-design)
 
-* [Design](#Design)
+* [Design](#design)
+    * [Colour Scheme](#colour-scheme)
+    * [Typography](#typography)
+    * [Graphics and Layout](#graphics-and-layout)
 
 * [Architecture](#Architecture)
+    * [Database](#database)
+    * [Entities](#entities)
 
 * [Features](#Features)
+    * [Non Admin User](#non-admin-user)
+        * [Sign In](#sign-in)
+        * [Sign Up](#sign-up)
+        * [Homepage](#homepage)
+        * [Navbar](#navbar)
+        * [Search Query](#search-query)
+        * [Search Bar](#search-bar)
+        * [Sorting By Query](#sorting-by-query)
+        * [User Profile](#user-profile)
+        * [Books](#books)
+        * [Books in cart](#books-in-cart)
+        * [Books in Wishlist](#books-in-wishlist)
+        * [Checkout Book](#checkout-book)
+        * [Transaction Success](#transaction-success)
+        * [Team Page](#team-page)
+        * [About Page](#about-page)
+        * [Contact Page](#about-page)
+        * [Footer and Newsletter](#footer-and-newsletter)
+        
+    * [Admin User](#non-admin-user)
+        * [Admin Bookstore Crud Function](#admin-bookstore-crud-function)
+        * [Author Management](#author-management)
+        * [Books Management](#books-management)
 
-* [Testing](#Testing)
+
+* [Testing](#testing)
+  * [User Story Testing](#user-story-testing)
+  * [Manual Testing](#manual-testing)
+  * [Unit Testing](#unit-testing)
+    * [Python unit tests](#python-unit-tests)
+  * [Automated Testing](#automated-testing)
+      * [Code Validation](#code-validation)
+      * [Lighthouse](#lighthouse)
 
 * [Deployment](#Deployment)
+    * [Project Creation](#project-creation)
+    * [Heroku Deployment](#heroku-deployment)
 
 * [Technologies](#Technologies)
+  * [Languages](#languages)
+  * [Programs, Frameworks, Libraries](#programs-frameworks-libraries)
 
 * [Credits](#Credits)
+    * [Code](#code)
+    * [Content](#content)
+    * [Media](#media)
+    * [Acknowledgement](#acknowledgement)
 
 # Purpose
 
@@ -75,7 +119,7 @@ Moreover, the Store Administrator also has the possibility of **CRUD**ing book's
 
     
 
-# Design
+# UX Design
 
 ### Colour Scheme
 The Colour scheme for this project took ideas from [Gosip](https://folarin-ogungbemi.github.io/Portfolio-Project-1/ "visit gosip") a blog post created initially as a first project in Code Institute and from which births Gosip Bookstore.
@@ -99,7 +143,7 @@ Additional colors:
 The Website adopted the default font from bootstrap as it aids visual comprehension of the text and the website contents.
 * font faimily: '"Helvetica Neue", Helvetica, sans-serif'
 
-### graphics & Layout
+### Graphics and Layout
 The Website was pre-designed on a graphical paper. A pictogram of what the landing page could look like in order to accomodate informations helpful for the user.
 
 ---
@@ -117,7 +161,7 @@ The Website was pre-designed on a graphical paper. A pictogram of what the landi
     * All auth provides a step by step documentation for successful installation. [Django All Auth](https://django-allauth.readthedocs.io/en/latest/installation.html "visit gosip")
 
     ``` bash
-    pip install django-allauth 
+    pip3 install django-allauth 
     ```
     and imported for use in django models.
     ```
@@ -163,76 +207,79 @@ The Website was pre-designed on a graphical paper. A pictogram of what the landi
 | Key                       | price                 | max_digits=6      | DecimalField
 | Key                       | rating                | choices=RATING    | PositiveIntegerField
 | Key                       | description           | required          | TextField
-| Key                       | image                 | required          | CloudinaryField
+| Key                       | image_url             | blank=True        | URLField
+| Key                       | image                 | blank=True        | ImageField
 | Key                       | Created_on            | auto_now_add=True | DateTimeField
 
-
+The Slug field is a slugified data of the title field.
 ---
 
 # Features
 
-* Sign In
+## Non Admin User
+
+### Sign In
 ![](/media/readme-images/sign-in-form.jpg)
 
-* Sign Up
+### Sign Up
 ![](/media/readme-images/sign-up-form.jpg)
 
-* Homepage
+### Homepage
 ![](/media/readme-images/homepage.jpg)
 
-* Navbar
+### Navbar
 ![](/media/readme-images/navbar.jpg)
 
-* Search Query
+### Search Query
 ![](/media/readme-images/search-query.jpg)
 
-* Searchbar
+### Search Bar
 ![](/media/readme-images/offcanvas.jpg)
 
-* Sorting By Query
+### Sorting By Query
 ![](/media/readme-images/sorting-by-query.jpg)
 
-* User Profile
+### User Profile
 ![](/media/readme-images/profile.jpg)
 
-* Books
+### Books
 ![](/media/readme-images/books-mockup.jpg)
 
-* Books in cart
-![](/media/readme-images/books-in-cart.jpg)
+### Books in cart
+![](/media/readme-images/Books-in-cart.jpg)
 
-* Books in Wishlist
+### Books in Wishlist
 ![](/media/readme-images/wishlist-books.jpg)
 
-* Checkout Book
+### Checkout Book
 ![](/media/readme-images/checkout.jpg)
 ![](/media/readme-images/checkout.jpg2)
 
-* Transaction Success
+### Transaction Success
 ![](/media/readme-images/transaction-success.jpg)
 
-* Team Page
+### Team Page
 ![](/media/readme-images/team-page.jpg)
 
-* About Page
+### About Page
 ![](/media/readme-images/about-section.jpg)
 
-* Contact Page
+### Contact Page
 ![](/media/readme-images/contact-section.jpg)
 
-* Footer and Newsletter
+### Footer and Newsletter
 ![](/media/readme-images/footer-and-newsletter.jpg)
 
-## Admin View
+## Admin User
 
-* Admin Bookstore Crud Function
+### Admin Bookstore Crud Function
 ![](/media/readme-images/admin-crud.jpg)
-![](/media/readme-images/admin-crud2.jpg)
+![](/media/readme-images/admin-crud-2.jpg)
 
-* Author Management
+### Author Management
 ![](/media/readme-images/author-mgt.jpg)
 
-* Books Management
+### Books Management
 ![](/media/readme-images/book-mgt.jpg)
 
 Fix Bug 
@@ -280,6 +327,9 @@ To start this project, It is recommended to use the [template](https://github.co
                 ```bash
                     git ls-files
                 ```
+___
+
+___
 
 ## Heroku Deployment 
 
@@ -294,9 +344,13 @@ Heroku is the hosting platform for the project and to deploy, The following step
     * Navigate to Config Vars
         The config vars should contain the following keys and their corresponding values:
         * DATABASE_URL
-        * CLOUDINARY_URL
         * SECRET_KEY
-        * PORT
+        * AWS_ACCESS_KEY_ID
+        * AWS_SECRET_ACCESS_KEY
+        * STRIPE_PUBLIC_KEY
+        * STRIPE_SECRET_KEY
+        * STRIPE_WEBHOOK_SECRET
+        * USE_AWS should be set to **True**
         * Make sure DISABLE_COLLECTSTATIC is removed before production.
 * Navigate back to Deploy section
     * Select Github to connect to Github
@@ -320,14 +374,23 @@ Heroku is the hosting platform for the project and to deploy, The following step
 
 # Technologies
 
+## Languages
+
 * HTML
     * Hyper Text Markup Language(HTML) is the main text writer used for this website.
 * CSS
     * Cascading Style Sheets(CSS) is the technology used for styling the website.
+* [Javascript](https://www.javascript.com/ "Link to Javascript")
+    * Javascript frontend programming language.
+* [Python](https://www.python.org/ "Link to python")
+    * Python is a programming language that lets you work quickly and integrate systems more effectively.
+
+## Programs, Frameworks, Libraries
+
+* [Django](https://docs.djangoproject.com/ "Link to Django Docs")
+    * Django makes it easier to build better web apps more quickly and with less code.
 * [Bootstrap](https://getbootstrap.com/ "Link to Bootstrap main-page")
     * A free and open-source CSS framework directed at responsive, mobile-first front-end web development.
-* Javascript
-    * Javascript web program was used isn writing the codes that brings interactivity to the game.
 * [Google Clouds](https://console.cloud.google.com/ "Link to Google Clouds main-page")
     * Access Google maps API
 * [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template "Link to Gitpod-template")
@@ -350,11 +413,10 @@ Heroku is the hosting platform for the project and to deploy, The following step
     * HTML validator used to validate the website's HTML in comparison to standard HTML writing.
 * [Image resizer](https://imageresizer.com/resize/download/632541ad11b49d00123e785e "Link to main-page")
     * For resizing of images to desired output
-* [Cloudinary](https://cloudinary.com/ "Link to cloudinary")
+* [AWS](https://aws.amazon.com/ "Link to AWS")
     * Provides cloud based images and video management services.
 * [elephantSQL](https://www.elephantsql.com/ "Link to elephantSQL")
     * The postgreSQL Database used for the program.
-
 
 ---
 
