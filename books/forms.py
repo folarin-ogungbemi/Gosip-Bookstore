@@ -1,4 +1,5 @@
 from django import forms
+from books.widgets import CustomClearableFileInput
 from books.models import Books, Author
 
 
@@ -10,6 +11,9 @@ class AuthorForm(forms.ModelForm):
 
 
 class BookForm(forms.ModelForm):
+
+    image = forms.ImageField(
+            label="Image", required=False, widget=CustomClearableFileInput)
 
     class Meta:
         model = Books
