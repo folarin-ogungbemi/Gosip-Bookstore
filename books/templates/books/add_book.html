@@ -9,17 +9,16 @@
     <h2 class="text-center text-uppercase">Book Management</h2>
     <h5 class=" text-center mute">Add a Book</h5>
     <div class="row row-cols-2 my-5">
-        <div class="mute">
-            <small>Please note!! that the slug is the title with an hyphen in between each word</small>
-            <div class="d-grid">
-                <small>Title: I am a book</small>
-                <small>Slug: i-am-a-book</small>
-            </div>
-        </div>
         <div class="col-12 form">
             <form method="POST" action="{% url 'books:add_book' %}"class="text-center my-3" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form | crispy }}
+                    {% for field in form %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
                 <div class="d-flex justify-content-center gap-2">
                     <a class="btn btn-secondary" href="{% url 'books:books' %}">Cancel</a>
                     <input type="submit" value="Add Book" class="btn btn-primary">

@@ -12,7 +12,13 @@
         <div class="col-12 form mx-auto">
             <form method="POST" action="{% url 'books:edit_book' slug=book.slug %}"class="text-center my-3" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form | crispy }}
+                {% for field in form %}
+                    {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
                 <div class="d-flex justify-content-center gap-2">
                     <a class="btn btn-secondary" href="{% url 'books:books' %}">Cancel</a>
                     <input type="submit" value="Update Book" class="btn btn-primary">
