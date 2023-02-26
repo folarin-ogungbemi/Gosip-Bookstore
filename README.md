@@ -38,15 +38,15 @@
         * [About Page](#about-page)
         * [Contact Page](#about-page)
         * [Footer and Newsletter](#footer-and-newsletter)
-        
+
     * [Admin User](#non-admin-user)
         * [Admin Bookstore Crud Function](#admin-bookstore-crud-function)
         * [Author Management](#author-management)
         * [Books Management](#books-management)
 
+* [Web Marketing](#web-marketing)
 
 * [Testing](#testing)
-  * [User Story Testing](#user-story-testing)
   * [Manual Testing](#manual-testing)
   * [Unit Testing](#unit-testing)
     * [Python unit tests](#python-unit-tests)
@@ -211,9 +211,8 @@ The Website was pre-designed on a graphical paper. A pictogram of what the landi
 | Key                       | image                 | blank=True        | ImageField
 | Key                       | Created_on            | auto_now_add=True | DateTimeField
 
-The Slug field is a slugified data of the title field.
+* The Slug field is a slugified data of the title field.
 ---
-
 # Features
 
 ## Non Admin User
@@ -275,12 +274,58 @@ The Slug field is a slugified data of the title field.
 ### Admin Bookstore Crud Function
 ![](/media/readme-images/admin-crud.jpg)
 ![](/media/readme-images/admin-crud-2.jpg)
+![](/media/readme-images/edit-author.jpg)
 
 ### Author Management
 ![](/media/readme-images/author-mgt.jpg)
 
 ### Books Management
 ![](/media/readme-images/book-mgt.jpg)
+
+# Web Marketing
+The website is using Facebook to improve its online presence, increase web marketing efforts and improve SEO. By doing so, it hopes to reach a wider audience of people interested in the variety of books offered by Gosip Bookstore. [Gosip Bookstore](https://www.facebook.com/profile.php?id=100089052437606 "Visit facebook page")
+
+![](/media/readme-images/facebook-gosip.jpg)
+
+# Testing
+
+## Manual Testing
+
+## Unit Testing
+
+### Python unit tests
+
+For clarity, tests were sectioned for each app and each test were named according to their case.
+Each app contains a test folder called **tests**
+to run this test
+
+``` bash
+    python3 manage.py test appname.tests
+```
+
+to check the status of testig required for the project. coverage was installed
+
+`pip3 install coverage`
+`pip3 freeze > requirements.txt`
+
+``` bash
+    coverage run --source=home manage.py test home.tests
+```
+To view a report of the test
+
+``` bash
+    coverage report
+```
+* Home App
+![](/media/readme-images/home-app-testcase.jpg)
+
+* Books App
+![](/media/readme-images/books-app-testcase.jpg)
+## Automated Testing
+
+### Code Validation
+
+### Lighthouse
 
 Fix Bug 
 Redirect url returns no match found. Removed the quotes around it. it works
