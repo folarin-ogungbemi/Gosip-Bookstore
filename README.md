@@ -1,6 +1,32 @@
-# Gosip
+# e-commerce Bookstore for all age groups
 
-## Introduction
+[Gosip](https://flo-gosip.herokuapp.com/) e-commerce bookstore is an online store that specializes in selling books. The website is designed to be user-friendly, allowing customers to browse through a wide selection of books and make purchases easily. To ensure secure payment transactions, the ecommerce bookstore has integrated Stripe as its payment gateway.
+
+![](/media/readme-images/mockup.jpg)
+
+## Table of contents
+
+* [Purpose](#purpose)
+
+* [UX Design](#UX-Design)
+
+* [Design](#design)
+
+* [Development Plan](#development-plan)
+
+* [Architecture](#architecture)
+
+* [Features](#features)
+
+* [Testing](#testing)
+
+* [Technologies](#technologies)
+
+* [Deployment](#deployment)
+
+* [Credits](#credits)
+
+# Purpose
 
 [Gosip Bookstore](https://flo-gosip.herokuapp.com/ "visit website") demonstrates the functionalities of an E-commerce website specifically with a **B2C**(Business to Customer) relationship. Buyers can view a list of books within the Bookstore, select an individual book from the list to view its details, choose to add the book to their wishlist for later purchase or decide to add the book to their shopping cart at a certain quantity from where they can proceed to checkout the Item(s) using a secure payment system [Stripe](https://stripe.com/en-de "visit stripe"). 
 Moreover, the Store Administrator also has the possibility of **CRUD**ing book's authors and books in the bookstore from the front end. Overall, the website provides the ability to make a complete online business transaction between the Store Owner and Buyers/Users seamlessly. Gosip Bookstore was built with a Frontend(HTML, CSS, [Bootstrap](https://getbootstrap.com/ "visit Bootstrap"),  [Javascript](https://www.javascript.com/ "visit Javascript"), [Jquery](https://jquery.com/ "visit Jquery")) and Backend ([Python](https://www.python.org/ "visit Python"),  [Django framework](https://www.djangoproject.com/ "visit django")) Software with an **Agile** Mindset.
@@ -10,7 +36,7 @@ Moreover, the Store Administrator also has the possibility of **CRUD**ing book's
 
 ---
 
-# User Experience Design
+# UX-Design
 
 * As a user,
     * I can register for an account so that I can have a profile linked to my account
