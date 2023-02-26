@@ -19,7 +19,11 @@
             {% for item in shopping_basket %}
                 <div class="row">
                     <div class="col-3 my-1">
-                        <img class="w-100" src="{{ item.book.image.url }}">
+                        {% if item.book.image %}
+                                <img src="{{ item.book.image.url }}" alt="book image" class="w-100">
+                            {% else %}
+                                <a href="#"><img class="img-fluid" src="{{ MEDIA_URL }}no-image-man.jpg" class="w-100" alt="no image available"></a>
+                        {% endif %}
                     </div>
                     <div class="col-9 my-auto">
                         <p class="my-0"><strong>{{ item.book.title }}</strong></p>
