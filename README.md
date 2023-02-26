@@ -10,21 +10,19 @@
 
 * [UX Design](#UX-Design)
 
-* [Design](#design)
+* [Design](#Design)
 
-* [Development Plan](#development-plan)
+* [Architecture](#Architecture)
 
-* [Architecture](#architecture)
+* [Features](#Features)
 
-* [Features](#features)
+* [Testing](#Testing)
 
-* [Testing](#testing)
+* [Deployment](#Deployment)
 
-* [Technologies](#technologies)
+* [Technologies](#Technologies)
 
-* [Deployment](#deployment)
-
-* [Credits](#credits)
+* [Credits](#Credits)
 
 # Purpose
 
@@ -77,7 +75,7 @@ Moreover, the Store Administrator also has the possibility of **CRUD**ing book's
 
     
 
-## Design
+# Design
 
 ### Colour Scheme
 The Colour scheme for this project took ideas from [Gosip](https://folarin-ogungbemi.github.io/Portfolio-Project-1/ "visit gosip") a blog post created initially as a first project in Code Institute and from which births Gosip Bookstore.
@@ -170,6 +168,72 @@ The Website was pre-designed on a graphical paper. A pictogram of what the landi
 
 
 ---
+
+# Features
+
+* Sign In
+![](/media/readme-images/sign-in-form.jpg)
+
+* Sign Up
+![](/media/readme-images/sign-up-form.jpg)
+
+* Homepage
+![](/media/readme-images/homepage.jpg)
+
+* Navbar
+![](/media/readme-images/navbar.jpg)
+
+* Search Query
+![](/media/readme-images/search-query.jpg)
+
+* Searchbar
+![](/media/readme-images/offcanvas.jpg)
+
+* Sorting By Query
+![](/media/readme-images/sorting-by-query.jpg)
+
+* User Profile
+![](/media/readme-images/profile.jpg)
+
+* Books
+![](/media/readme-images/books-mockup.jpg)
+
+* Books in cart
+![](/media/readme-images/books-in-cart.jpg)
+
+* Books in Wishlist
+![](/media/readme-images/wishlist-books.jpg)
+
+* Checkout Book
+![](/media/readme-images/checkout.jpg)
+![](/media/readme-images/checkout.jpg2)
+
+* Transaction Success
+![](/media/readme-images/transaction-success.jpg)
+
+* Team Page
+![](/media/readme-images/team-page.jpg)
+
+* About Page
+![](/media/readme-images/about-section.jpg)
+
+* Contact Page
+![](/media/readme-images/contact-section.jpg)
+
+* Footer and Newsletter
+![](/media/readme-images/footer-and-newsletter.jpg)
+
+## Admin View
+
+* Admin Bookstore Crud Function
+![](/media/readme-images/admin-crud.jpg)
+![](/media/readme-images/admin-crud2.jpg)
+
+* Author Management
+![](/media/readme-images/author-mgt.jpg)
+
+* Books Management
+![](/media/readme-images/book-mgt.jpg)
 
 Fix Bug 
 Redirect url returns no match found. Removed the quotes around it. it works
