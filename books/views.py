@@ -181,27 +181,28 @@ class AddBookView(CreateView):
 def update_book_view(request, slug):
     """
     Function provides ability to edit and(or)
-    update form and redirects to bokók-details
+    update form and redirects to book-details
     """
     if not request.user.is_superuser:
-        messages.error(request, "sorry, Only Adminitrators allowed")
+        messages.error(request, "Sorry, only administrators are allowed.")
         return redirect(reverse('home'))
 
     book = get_object_or_404(Books, slug=slug)
+
     if request.method == 'POST':
-        form = BookForm(request.POST, instance=book)
+        form = BookForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
             form.save()
-            messages.add_message(
-                request,
-                messages.SUCCESS,
-                'Book has been successfully updated.')
+            messages.success(request, 'Book has been successfully updated.')
             return redirect(reverse('books:book-details', args=[book.slug]))
-    form = BookForm(instance=book)
+    else:
+        form = BookForm(instance=book)
+
     context = {
         'form': form,
         'book': book,
     }
+
     return render(request, 'books/edit_book.html', context)
 
 
