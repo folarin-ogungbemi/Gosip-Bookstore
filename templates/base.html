@@ -64,7 +64,12 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <a class="navbar-brand" href="{% url 'home' %}"><h1 class="logo"><strong>G<span class="brand-color">o</span></strong>sip Bookstore</h1></a>
-          
+          <span class=" nav-item text-center mt-1 d-flex d-xl-none">
+            <a href="#" class="nav-link d-grid gap-2" data-bs-toggle="modal" data-bs-target="#searchModal">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <small>Search</small>
+            </a>
+          </span>
           {% include 'includes/top-nav.html' %}
           {% include 'includes/offcanvas-nav.html' %}
 
@@ -107,8 +112,7 @@
     {% include 'includes/footer.html' %}
   
     {% block postloadjs %}
-    <script type="text/javascript">
-
+    <script>
       // Timeout for success toast
       setTimeout(() => {
         const msgToast = new bootstrap.Toast('.toast');
@@ -136,8 +140,8 @@
       }) 
     </script>
     <!--Mailchimps-->
-    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-    <script type='text/javascript'>(
+    <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+    <script>(
       function($) {window.fnames = new Array();
         window.ftypes = new Array(); 
         fnames[0]='EMAIL';ftypes[0]='email';

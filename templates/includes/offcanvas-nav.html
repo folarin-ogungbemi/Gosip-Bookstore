@@ -1,5 +1,5 @@
 <!--offcanvas-navigation.-->
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDarkNavbar">
   <div class="offcanvas-header">
     <a class="navbar-brand ps-4" href="{% url 'home' %}"><h3 class="logo"><strong>G<span class="brand-color">o</span></strong>sip Bookstore</h3></a>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -10,9 +10,7 @@
         <a class="nav-link ps-4 trans-link" href="{% url 'home' %}"><i class="fa-solid fa-house me-2"></i>Home</a>
       </li>
       <!--main-nav-->
-      <hr>
       {% include 'includes/main-nav.html'%}
-      <hr>
       <!--main-nav ./-->
       <li class="nav-item">
           <a class="nav-link ps-4 trans-link" href="{% url 'about' %}"><i class="fa-solid fa-heart-pulse me-2"></i>About</a>
@@ -24,18 +22,17 @@
           {% if request.user.is_superuser%}
           <li class="nav-item">
           <a href="{% url 'books:add_author' %}" class="nav-link ps-4 trans-link"><i class="fa-solid fa-list-check me-2"></i>Admin Management</a>
-          </li>
+        </li>
           {% endif %}
         {% endif %}
-      </ul>
-      <div class="d-grid mt-4">
-        {% if user.is_authenticated %}
-        <a class="btn btn1 rounded-pill" href="{% url 'account_logout' %}">Logout</a>
-        {% else %}
-        <a class="btn btn1 rounded-pill" href="{% url 'account_login' %}">Login</a>
-        <a class="btn btn2 rounded-pill mt-2" href="{% url 'account_signup' %}">Register</a>
-        {% endif %}
-      </div>
+    </ul>
+    <div class="d-grid mt-4">
+      {% if user.is_authenticated %}
+      <a class="btn btn1 rounded-pill" href="{% url 'account_logout' %}">Logout</a>
+      {% else %}
+      <a class="btn btn1 rounded-pill" href="{% url 'account_login' %}">Login</a>
+      <a class="btn btn2 rounded-pill mt-2" href="{% url 'account_signup' %}">Register</a>
+      {% endif %}
     </div>
   </div>
 </div>

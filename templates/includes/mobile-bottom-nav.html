@@ -1,4 +1,3 @@
-{% include 'includes/search-modal.html' %}
 <div class="navbar navbar-expand d-flex d-md-none fixed-bottom mobile-bottom-link">
     <ul class="navbar-nav flex-grow-1 justify-content-around">
       <li class="nav-item">
@@ -18,9 +17,6 @@
       <li class="nav-item mobile-cart-box">
         <small class="text-danger"><strong class="mobile-cart-items">{{book_count}}</strong></small>
         <a class="nav-link ps-4" href="{% url 'shopping_cart'%}"><i class="fa-solid fa-basket-shopping"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link ps-4" data-bs-toggle="modal" data-bs-target="#searchModal" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
       </li>
     </ul>
 </div>

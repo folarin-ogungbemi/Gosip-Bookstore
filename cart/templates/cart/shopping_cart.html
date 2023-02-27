@@ -122,7 +122,7 @@
 {% block postloadjs %}
     {{block.super}}
     {% include 'books/includes/quantity_select_script.html' %}
-    <script type="text/javascript">
+    <script>
         // Update quantity on click
       $('.update-book-qty').click(function(e) {
           // https://api.jquery.com/prev/

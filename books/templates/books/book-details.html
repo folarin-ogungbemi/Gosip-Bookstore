@@ -46,7 +46,7 @@
                 {% endif %}
                 <div class="summary my-3">
                     <h4>Description</h4>
-                    <p>{{ book.description | safe }}</p>
+                    {{ book.description | safe }}
                 </div>
                 <!--update or delete book as a superuser-->
                 {% if request.user.is_superuser%}
@@ -114,7 +114,7 @@
         <h4 id="about-author">About the Author</h4>
     </div>
     <h5>{{book.author}}</h5>
-    <p>{{book.author.about | safe}}</p>
+    {{book.author.about | safe}}
         <!--update or delete author as a superuser-->
     {% if request.user.is_superuser%}
     <div class="d-flex justify-content-start gap-5">
