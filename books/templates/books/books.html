@@ -87,11 +87,9 @@
                                     <small> No Rating </small>
                                 {% endif %}
                                 {% if request.user.is_superuser%}
-                                <div class="d-flex justify-content-center gap-5">
-                                    <a href="{% url 'books:edit_book' slug=book.slug %}" class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <!--confirmation Modal for deleting book-->
-                                    {% include 'books/includes/delete_book_modal.html' %}
-                                    <button type="button" class="text-danger" data-bs-toggle="modal" data-bs-target="#deleteBook"><i class="fa-solid fa-trash"></i></button>
+                                <div class="d-flex justify-content-end">
+                                    <a href="{% url 'books:edit_book' slug=book.slug %}" class="text-primary text-decoration-none">edit</a><span class="text-muted">|</span>
+                                    <a class="text-danger text-decoration-none" href="{% url 'books:delete_book' slug=book.slug %}" role="button">delete</a>
                                 </div>
                                 {% endif %}
                            </div>
