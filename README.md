@@ -301,6 +301,10 @@ Testing procedures carried out for the success of the website were partly **Auto
 
 ## Manual Testing
 
+![](/media/readme-images/MT01.jpg)
+![](/media/readme-images/MT02.jpg)
+![](/media/readme-images/MT03.jpg)
+
 ## Unit Testing
 
 ### Python unit tests
@@ -348,6 +352,8 @@ The Static CSS files were validated through [W3C CSS Validator](https://jigsaw.w
 ![](/media/readme-images/css-validator.jpg)
 
 ### Lighthouse
+
+![](/media/readme-images/Lighthouse-test.jpg)
 
 Fix Bug 
 Redirect url returns no match found. Removed the quotes around it. it works
