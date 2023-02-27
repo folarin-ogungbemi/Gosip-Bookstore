@@ -37,7 +37,7 @@
                         <div class="d-grid gap-3 mt-3 mb-2 justify-content-center">
                             <p class="text-center my-0 ms-5"><strong>{{ item.book.price | calc_subtotal:item.qty }} €</strong></p>
                             <!-- Adjust book quantity in cart-->
-                            <form id="update-qty" action="{% url 'adjust_cart' slug=item.slug %}" method="POST">
+                            <form class="update-qty" action="{% url 'adjust_cart' slug=item.slug %}" method="POST">
                                 {% csrf_token %}
                                 <div class="d-grid justify-content-center">
                                     <div class="qty-group d-flex">
@@ -126,7 +126,7 @@
         // Update quantity on click
       $('.update-book-qty').click(function(e) {
           // https://api.jquery.com/prev/
-          var form = $(this).prev('#update-qty');
+          var form = $(this).prev('.update-qty');
           form.submit();
       })
 
