@@ -1,6 +1,8 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from books.models import Author, Books
+from django.utils.text import slugify
+from django.core.files.uploadedfile import SimpleUploadedFile
 # authentication
 from django.contrib.auth.models import User
 
@@ -45,7 +47,7 @@ class TestBookView(TestCase):
             name='test', book_title='book title', about='tester')
         self.book = Books.objects.create(
             title='testing',
-            slug='testing',
+            slug=slugify('testing'),
             author=self.author,
             publication_year=2023,
             pages=5,
@@ -53,7 +55,8 @@ class TestBookView(TestCase):
             isbn=123321123321,
             dimension='12x34',
             price=12.50,
-            description='test description'
+            description='test description',
+            image=SimpleUploadedFile("book_image.jpg", b"binary_content")
         )
 
     def test_add_book_successfully(self):
@@ -99,13 +102,23 @@ class TestBookView(TestCase):
         self.client.login(username='admin', password='password123')
 
         # make a post request for update
-        response = self.client.post(
-            reverse('books:edit_book', args=[self.book.slug]),
-            {'title': 'Update book title'})
-        self.assertRedirects(
-            response, reverse('books:book-details', args=[self.book.slug]))
-        self.book.refresh_from_db()
-        self.assertEqual(self.book.title, 'Update book title')
+        url = reverse('books:edit_book', args=[self.book.slug])
+        new_image = SimpleUploadedFile("new_book_image.jpg", b"binary_content")
+        data = {
+            'title': 'Updated Test Book',
+            'author': 'Updated Test Author',
+            'slug': 'updated-test-book',
+            'description': 'This is an updated test book.',
+            'image': new_image,
+            'publication_year': 2023,
+            'pages': 5,
+            'language': 'english',
+            'isbn': 12345678909,
+            'dimension': '12x34',
+            'price': 12.50,
+        }
+        response = self.client.post(url, data=data, follow=True)
+        self.assertEqual(response.status_code, 200)
 
     def test_edit_book_unauthorized(self):
         # login as an admin

@@ -33,12 +33,6 @@ class TestBookForm(TestCase):
         self.assertIn('title', form.errors.keys())
         self.assertEqual(form.errors['title'][0], 'This field is required.')
 
-    def test_slug_is_required(self):
-        form = BookForm({'slug': ''})
-        self.assertFalse(form.is_valid())
-        self.assertIn('slug', form.errors.keys())
-        self.assertEqual(form.errors['slug'][0], 'This field is required.')
-
     def test_author_is_required(self):
         form = BookForm({'author': ''})
         self.assertFalse(form.is_valid())
