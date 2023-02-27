@@ -269,6 +269,9 @@ The Website was pre-designed on a graphical paper. A pictogram of what the landi
 ### Footer and Newsletter
 ![](/media/readme-images/footer-and-newsletter.jpg)
 
+### 404 Error Page
+![](/media/readme-images/error-404.jpg)
+
 ## Admin User
 
 ### Admin Bookstore Crud Function
