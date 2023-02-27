@@ -37,7 +37,9 @@
         * [Team Page](#team-page)
         * [About Page](#about-page)
         * [Contact Page](#about-page)
+        * [Privacy Policy](#privacy-policy)
         * [Footer and Newsletter](#footer-and-newsletter)
+        * [404 Error Page](#404-error-page)
 
     * [Admin User](#non-admin-user)
         * [Admin Bookstore Crud Function](#admin-bookstore-crud-function)
@@ -266,6 +268,9 @@ The Website was pre-designed on a graphical paper. A pictogram of what the landi
 ### Contact Page
 ![](/media/readme-images/contact-section.jpg)
 
+### Privacy Policy
+![](/media/readme-images/privacy-policy.jpg)
+
 ### Footer and Newsletter
 ![](/media/readme-images/footer-and-newsletter.jpg)
 
@@ -291,6 +296,8 @@ The website is using Facebook to improve its online presence, increase web marke
 ![](/media/readme-images/facebook-gosip.jpg)
 
 # Testing
+
+Testing procedures carried out for the success of the website were partly **Automated** using the included feature of django TestCase and in other cases **Manual** testing. Besides the pages of the website were through validation test.
 
 ## Manual Testing
 
@@ -327,6 +334,18 @@ To view a report of the test
 ## Automated Testing
 
 ### Code Validation
+
+The pages of the website were run through [W3 HTML Validator](https://validator.w3.org/nu/#textarea "Link to W3 HTML checker main-page") from the source page. 
+The process for testing was going through each page of the website to check if they pass W3 HTML validation.
+Errors detected in instances of duplicated `id` during population of items to template. The decision taken at this time was to replace `id` attributes to `class` attributes and in other cases modals causing it were removed in order for the template to pass validation.
+
+Current status: No errors were detected.
+* All HTML pages report 
+![](/media/readme-images/html-validator.jpg)
+
+The Static CSS files were validated through [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator "Link to W3 CSS main-page"). No errors were detected
+* All CSS files report 
+![](/media/readme-images/css-validator.jpg)
 
 ### Lighthouse
 
@@ -375,9 +394,6 @@ To start this project, It is recommended to use the [template](https://github.co
                 ```bash
                     git ls-files
                 ```
-___
-
-___
 
 ## Heroku Deployment 
 
